@@ -1,0 +1,17 @@
+/** No CSS for this example */
+.header-left {
+  position: absolute;
+  left: 0px;
+  width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.header-right {
+  padding: 0 14px;
+}
+
