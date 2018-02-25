@@ -30,5 +30,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Using Angular Material2 to build the project with Angular CLI. Modified from FProject
 
-## Angular Material2 imported
+## Feb25
+Adding the login page into system and starting the nav bar part
+
+## Future Help
+Header part, nav bar and workspace
  
