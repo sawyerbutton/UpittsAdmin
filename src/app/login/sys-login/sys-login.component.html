@@ -1,8 +1,11 @@
 <div class="login-main">
   <div class="mat-app-background basic-container mid-position">
+    <div class="title-theme">
+      <h1 class="title"> FOCUS - Pittsburgh</h1>
+    </div>
     <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-title class="card-title mid-position">Focus - Admin</mat-card-title>
+        <mat-card-title class="card-title mid-position">Administrator Login</mat-card-title>
       </mat-card-header>
       <mat-card-actions class="card-action mid-position">
         <div class="login-form">
@@ -15,7 +18,7 @@
           </mat-form-field>
         </div>
 
-        <mat-form-field>
+        <mat-form-field class="form-full-width">
           <mat-select placeholder="Select Administrator">
             <mat-option *ngFor="let role of roles" [value]="role.value">
               {{ role.viewValue }}
