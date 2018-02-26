@@ -33,9 +33,9 @@
 
 
 .card-title {
-  font-size:20px;
+  font-size:18px;
   color: #3f51b5;
-  top: 15%;
+  top: 12%;
   left: 50%;
 
 }
@@ -54,8 +54,11 @@
 .card-action {
   margin-left: auto;
   margin-right:auto;
-  top: 60%;
+  top: 51.4%;
   left: 50%;
 
 }
 
+.admin-tile {
+  font-size: 19px !important;
+}
