@@ -33,6 +33,8 @@ Using Angular Material2 to build the project with Angular CLI. Modified from FPr
 ## Feb25
 Adding the login page into system and starting the nav bar part
 
+## Feb26
+Redesign the nav header and nav left bar, improve the component structure
 ## Future Help
-Header part, nav bar and workspace
+main workspace need to be done -> serve service connect
  
