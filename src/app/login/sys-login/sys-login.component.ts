@@ -20,7 +20,7 @@ export class SysLoginComponent implements OnInit {
   }
 
   login(){
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('layout');
   }
 
   back(){
