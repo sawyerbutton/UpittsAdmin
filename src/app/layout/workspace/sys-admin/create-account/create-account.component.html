@@ -1,0 +1,62 @@
+<div class="workspace-container mid-position">
+  <mat-card class="system-card">
+    <mat-card-header>
+      <mat-card-title>System Administrator</mat-card-title>
+      <mat-card-subtitle>Create state account</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+        //first step
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+              <mat-select placeholder="State" formControlName="firstCtrl" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color ="primary" [disabled]="firstFormGroup.invalid"matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        //second step
+        <mat-step [stepControl]="userForm">
+          <form [formGroup]="userForm" novalidate>
+            <ng-template matStepLabel>Fill out account info</ng-template>
+            <mat-form-field class="input-format">
+              <input matInput type="text" placeholder="User Name" formControlName="userName" #userName minlength="4" maxlength="32" required>
+              <mat-hint align="start" *ngIf="formErrors.userName" class="text-danger">{{ formErrors.userName }}</mat-hint>
+              <mat-hint align="end">{{userName.value.length}} / 32</mat-hint>
+            </mat-form-field>
+            <mat-form-field class="input-format" [ngClass]="{'has-error': formErrors.password }">
+              <input matInput type="password" validateEqual="confirmPassword" reverse=true required placeholder="Password"  #password minlength="8" maxlength="256" formControlName="password">
+              <mat-hint align="start" *ngIf="formErrors.password" class="text-danger">{{ formErrors.password }}</mat-hint>
+              <mat-hint align="end">{{password.value.length}} / 256</mat-hint>
+            </mat-form-field>
+            <mat-form-field class="input-format" [ngClass]="{'has-error': formErrors.confirmPassword }">
+              <input matInput type="password" validateEqual="password" placeholder="Reenter Password" formControlName="confirmPassword" #confirmPassword minlength="8" maxlength="256" required>
+              <mat-hint align="start" *ngIf="formErrors.confirmPassword" class="text-danger">{{ formErrors.confirmPassword }}</mat-hint>
+              <mat-hint align="end">{{confirmPassword.value.length}} / 256</mat-hint>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color ="primary" [disabled]="userForm.invalid" matStepperNext>Next</button>
+              <button mat-raised-button color ="accent" matStepperPrevious>Back</button>
+            </div>
+          </form>
+        </mat-step>
+        //third step
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p> You have assigned <b class="admin-name"> John Smith </b></p>
+          <p> to be the <b> PA </b> administartor.</p>
+          <div>
+            <button mat-raised-button color="accent" matStepperPrevious>Confirm</button>
+            <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card-content>
+  </mat-card>
+</div>

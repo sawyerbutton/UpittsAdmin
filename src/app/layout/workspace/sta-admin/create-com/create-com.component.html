@@ -1,0 +1,87 @@
+<div class="workspace-container mid-position">
+  <mat-card class="system-card">
+    <mat-card-header>
+      <mat-card-title>State Administrator</mat-card-title>
+      <mat-card-subtitle>Create community account</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+        <!--start of the first step form-->
+        <mat-step [stepControl]="communityGroup">
+          <form [formGroup]="communityGroup">
+            <ng-template matStepLabel>Choose the Community</ng-template>
+            <mat-form-field>
+              <mat-select placeholder="State" formControlName="state" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="input-format">
+              <mat-select placeholder="county" required formControlName="county">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="input-format">
+              <mat-select placeholder="City"required formControlName="city">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="input-format">
+              <mat-select placeholder="Community" required formControlName="community">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color ="primary" matStepperNext [disabled]="communityGroup.invalid">Next</button>
+            </div>
+          </form>
+        </mat-step>
+        //second step
+        <mat-step [stepControl]="userForm">
+          <form [formGroup]="userForm">
+            <ng-template matStepLabel>Register Community Admin</ng-template>
+            <mat-form-field class="input-format">
+              <input matInput type="text" placeholder="User Name" formControlName="userName" #userName minlength="4" maxlength="32" required>
+              <mat-hint align="start" *ngIf="formErrors.userName" class="text-danger">{{ formErrors.userName }}</mat-hint>
+              <mat-hint align="end">{{userName.value.length}} / 32</mat-hint>
+            </mat-form-field>
+            <mat-form-field class="input-format" [ngClass]="{'has-error': formErrors.password }">
+              <input matInput type="password" validateEqual="confirmPassword" reverse=true required placeholder="Password"  #password minlength="8" maxlength="256" formControlName="password">
+              <mat-hint align="start" *ngIf="formErrors.password" class="text-danger">{{ formErrors.password }}</mat-hint>
+              <mat-hint align="end">{{password.value.length}} / 256</mat-hint>
+            </mat-form-field>
+            <mat-form-field class="input-format" [ngClass]="{'has-error': formErrors.confirmPassword }">
+              <input matInput type="password" validateEqual="password" placeholder="Reenter Password" formControlName="confirmPassword" #confirmPassword minlength="8" maxlength="256" required>
+              <mat-hint align="start" *ngIf="formErrors.confirmPassword" class="text-danger">{{ formErrors.confirmPassword }}</mat-hint>
+              <mat-hint align="end">{{confirmPassword.value.length}} / 256</mat-hint>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color ="primary" [disabled]="userForm.invalid" matStepperNext>Next</button>
+              <button mat-raised-button color ="accent" matStepperPrevious>Back</button>
+            </div>
+          </form>
+        </mat-step>
+        //third step
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p> You have assigned <b class="admin-name"> John Smith </b> to be the community administrator of</p>
+          <mat-divider></mat-divider>
+          <div class="admin-info">
+            <!--get the state and other information from json data later -->
+            <p class="info-align"> State: <b> Pennsylvania </b> </p>
+            <p class="info-align"> County: <b> Allegheny </b> </p>
+            <p class="info-align"> City: <b> Pittsburgh </b> </p>
+            <p class="info-align"> Community: <b> Shadyside </b> </p>
+          </div>
+          <div>
+            <button mat-raised-button color="primary">Done</button>
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card-content>
+  </mat-card>
+</div>

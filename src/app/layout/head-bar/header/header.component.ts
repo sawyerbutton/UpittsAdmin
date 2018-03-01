@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +16,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigateByUrl('login')
+    this.router.navigateByUrl('login');
   }
 }
