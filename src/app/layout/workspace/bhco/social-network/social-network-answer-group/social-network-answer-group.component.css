@@ -1,22 +1,4 @@
-.full-width {
-  width: 100%;
-}
 
-.col-sm-12 {
-  width: 90%;
-}
-.text-danger {
-  color: #a94442;
-  font-size: 12px;
-}
-
-.col-sm-4 {
-  width:29%;
-  margin-right: 15px;
-}
+/** define styles*/
 
 
-.col-sm-2 {
-  width: 13%;
-  margin-right: 20px;
-}

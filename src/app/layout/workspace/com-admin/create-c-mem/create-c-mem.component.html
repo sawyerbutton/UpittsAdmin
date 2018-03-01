@@ -1,13 +1,14 @@
 <div class="workspace-container mid-position">
+  <h3 class="workspace-title">Community Member Registration</h3>
   <mat-card class="system-card">
     <mat-card-header>
-      <mat-card-title>Community Member Register</mat-card-title>
+      <mat-card-title>Register Community Member</mat-card-title>
     </mat-card-header>
     <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
 
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Choose the family</ng-template>
+          <ng-template matStepLabel>Select the family</ng-template>
           <div class="chip">
             <!--<mat-chip-list>-->
               <!--<mat-chip color="primary" selected="true">Pennslyvania</mat-chip>-->
@@ -15,33 +16,34 @@
               <!--<mat-chip color="primary" selected="true">Pittsburgh</mat-chip>-->
               <!--<mat-chip color="primary" selected="true">North Oakland</mat-chip>-->
             <!--</mat-chip-list>-->
-            <mat-form-field class="disable-info">
+            <mat-form-field class="col-sm-3">
               <input matInput placeholder="State" disabled value="Pennslyvania">
             </mat-form-field>
-            <mat-form-field class="disable-info">
+            <mat-form-field class="col-sm-3">
               <input matInput placeholder="County" disabled value="Allegheny">
             </mat-form-field>
-            <mat-form-field class="disable-info">
+            <mat-form-field class="col-sm-3">
               <input matInput placeholder="City" disabled value="Pittsburgh">
             </mat-form-field>
-            <mat-form-field class="disable-info">
+            <mat-form-field class="col-sm-3">
               <input matInput placeholder="Community" disabled value="North Oakland">
             </mat-form-field>
           </div>
-          <mat-form-field class="full-width">
+          <mat-form-field class="col-sm-12">
             <mat-select placeholder="Select a block" disableRipple formControlName="block">
               <mat-option value="1">Option 1</mat-option>
               <mat-option value="2">Option 2</mat-option>
               <mat-option value="3">Option 3</mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-form-field class="full-width">
+          <mat-form-field class="col-sm-12">
             <mat-select placeholder="Select a family" disableRipple formControlName="family">
               <mat-option value="1">Option 1</mat-option>
               <mat-option value="2">Option 2</mat-option>
               <mat-option value="3">Option 3</mat-option>
             </mat-select>
           </mat-form-field>
+
           <div>
             <button mat-raised-button color="primary" matStepperNext [disabled]="firstFormGroup.invalid">Next</button>
             <button mat-raised-button matStepperNext color="accent">Create Family</button>
@@ -53,25 +55,28 @@
       <mat-step [stepControl]="userForm">
         <form [formGroup]="userForm">
           <ng-template matStepLabel>Basic Information</ng-template>
-          <h3> Rgister Information</h3>
-          <mat-form-field class="input-format">
+          <h4> Register Information</h4>
+          <mat-form-field class="col-sm-12">
             <input matInput type="text" placeholder="User Name" formControlName="userName" #userName minlength="4" maxlength="32">
             <mat-hint align="start" *ngIf="formErrors.userName" class="text-danger">{{ formErrors.userName }}</mat-hint>
             <mat-hint align="end">{{userName.value.length}} / 32</mat-hint>
           </mat-form-field>
-          <mat-form-field class="input-format" [ngClass]="{'has-error': formErrors.password }">
+          <mat-form-field class="col-sm-12">
+            <input matInput placeholder="Password" disabled value="FOCUS@pitt2018">
+          </mat-form-field>
+
+          <mat-form-field class="col-sm-12" [ngClass]="{'has-error': formErrors.password }">
             <input matInput type="password" validateEqual="confirmPassword" reverse=true placeholder="Password"  #password minlength="8" maxlength="256" formControlName="password">
             <mat-hint align="start" *ngIf="formErrors.password" class="text-danger">{{ formErrors.password }}</mat-hint>
             <mat-hint align="end">{{password.value.length}} / 256</mat-hint>
           </mat-form-field>
-          <mat-form-field class="input-format" [ngClass]="{'has-error': formErrors.confirmPassword }">
+          <mat-form-field class="col-sm-12" [ngClass]="{'has-error': formErrors.confirmPassword }">
             <input matInput type="password" validateEqual="password" placeholder="Reenter Password" formControlName="confirmPassword" #confirmPassword minlength="8" maxlength="256">
             <mat-hint align="start" *ngIf="formErrors.confirmPassword" class="text-danger">{{ formErrors.confirmPassword }}</mat-hint>
             <mat-hint align="end">{{confirmPassword.value.length}} / 256</mat-hint>
           </mat-form-field>
 
-
-          <h3>Personal Information</h3>
+          <h4>Personal Information</h4>
           <div>
             <mat-form-field class="col-sm-4">
               <input matInput placeholder="First Name" formControlName="firstName" #firstName maxlength="32">
@@ -90,7 +95,7 @@
             </mat-form-field>
           </div>
           <div>
-            <mat-form-field class="full-width">
+            <mat-form-field class="col-sm-12">
               <mat-select placeholder="Gender" disableRipple formControlName="gender">
                 <mat-option value="1">Male</mat-option>
                 <mat-option value="2">Female</mat-option>
@@ -143,7 +148,7 @@
               <mat-hint align="end">{{zipcode.value.length}} / 5</mat-hint>
             </mat-form-field>
           </div>
-          <div class="full-width">
+          <div class="col-sm-12">
             <button mat-raised-button color="primary" matStepperNext [disabled]="userForm.invalid">Next</button>
             <button mat-raised-button color="accent" matStepperPrevious>Back</button>
           </div>
@@ -199,7 +204,7 @@
               </mat-select>
             </mat-form-field>
           </div>
-          <div class="full-width">
+          <div class="col-sm-12">
             <button mat-raised-button color="primary" matStepperNext [disabled]="thirdFormGroup.invalid">Next</button>
             <button mat-raised-button color="accent" matStepperPrevious>Beck</button>
           </div>
@@ -209,7 +214,8 @@
       <mat-step>
         <ng-template matStepLabel>Done</ng-template>
         You have register new patient <b>John Smith</b>
-        <div class="full-width">
+        <br><br>
+        <div class="col-sm-12">
           <button mat-raised-button color="primary" matStepperPrevious  [disabled]="thirdFormGroup.invalid && userForm.invalid && firstFormGroup.invalid">Confirm</button>
           <button mat-raised-button color="accent" (click)="stepper.reset()">Reset</button>
         </div>
