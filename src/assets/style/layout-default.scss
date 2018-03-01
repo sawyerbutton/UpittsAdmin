@@ -43,3 +43,61 @@ html {
 .panel-format {
   width: 100%;
 }
+
+.system-card {
+  border-radius: 15px;
+}
+
+.workspace-container {
+  width:90%;
+  height:600px;
+  top: 50%;
+  left: 50%;
+  border-radius:15px;
+}
+
+/** column size declaration*/
+.full-width {
+  width: 100%;
+}
+
+.col-sm-12 {
+  width: 95%;
+}
+
+.col-sm-6 {
+  float: left;
+  width: 46.5%;
+  margin-right: 20px;
+}
+
+.col-sm-4 {
+  float: left;
+  width: 30.5%;
+  margin-right: 18px;
+}
+
+.col-sm-3 {
+  float: left;
+  width: 23%;
+  margin-right: 14px;
+}
+
+.col-sm-2 {
+  width: 15%;
+  margin-right: 20px;
+}
+
+.workspace-title {
+  margin-top: auto;
+  margin-bottom: 10px;
+  color: #6F6F6F;
+}
+
+
+
+/** text color*/
+.text-danger {
+  color: #a94442;
+  font-size: 12px;
+}
