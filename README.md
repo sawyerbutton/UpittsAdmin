@@ -36,5 +36,5 @@ Adding the login page into system and starting the nav bar part
 ## Feb26
 Redesign the nav header and nav left bar, improve the component structure
 ## Future Help
-main workspace need to be done -> serve service connect
+main workspace need to be done -> serve service connect service learning
  
