@@ -54,6 +54,7 @@ import { appRoutes } from './app.routes';
 //import directives
 import { EqualValidatorDirective } from './layout/workspace/equal-validator/equal-validator.directive';
 import { SocialNetworkComponent } from './layout/workspace/bhco/social-network/social-network.component';
+import { SocialNetworkAnswerGroupComponent } from './layout/workspace/bhco/social-network/social-network-answer-group/social-network-answer-group.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { SocialNetworkComponent } from './layout/workspace/bhco/social-network/s
     CreateFamilyComponent,
     CreateBhcoComponent,
     DemographicComponent,
-    SocialNetworkComponent
+    SocialNetworkComponent,
+    SocialNetworkAnswerGroupComponent
   ],
   imports: [
     BrowserModule,
