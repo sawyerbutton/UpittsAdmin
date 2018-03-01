@@ -1,0 +1,51 @@
+.system-card {
+  border-radius: 15px;
+}
+
+.workspace-container {
+  width:1000px;
+  height:600px;
+  top: 50%;
+  left: 50%;
+  border-radius:15px;
+}
+
+.input-format {
+  width: 80%;
+}
+
+.admin-name {
+  color: #673ab7;
+}
+
+.text-danger {
+  color: #a94442;
+  font-size: 12px;
+}
+
+.chip{
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.disable-info {
+  float: left;
+  width: 20%;
+  margin-right: 15px;
+}
+
+.full-width {
+  width: 90%;
+}
+
+.col-sm-4 {
+  float: left;
+  width: 28%;
+  margin-right: 16px;
+}
+
+.col-sm-6 {
+  float: left;
+  width: 43%;
+  margin-right: 20px;
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { levels} from './level'
+import { levels} from './level';
 
 @Component({
   selector: 'app-head-bar',
@@ -9,7 +9,7 @@ import { levels} from './level'
 export class HeadBarComponent implements OnInit {
 
   levels = levels;
-  level = this.levels[3];
+  level = this.levels[0];
 
 
   constructor() { }

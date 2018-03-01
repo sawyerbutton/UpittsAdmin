@@ -1,0 +1,29 @@
+<div class="workspace-container mid-position">
+  <mat-card class="system-card">
+    <mat-card-header>
+      <mat-card-title>Create Family</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="firstFormGroup">
+        <mat-form-field class="col-sm-12">
+          <mat-select placeholder="Select Block" formControlName="block" disableRipple>
+            <mat-option value="1">none</mat-option>
+            <mat-option value="2">Option 1</mat-option>
+            <mat-option value="3">Option 2</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-sm-12">
+          <input matInput placeholder="Family Name" formControlName="familyName" #familyname minlength="10" maxlength="32">
+          <mat-hint align="start" *ngIf="formErrors.familyName" class="text-danger">{{ formErrors.familyName }}</mat-hint>
+          <mat-hint align="end">{{familyname.value.length}} / 32</mat-hint>
+        </mat-form-field>
+        <br><br>
+        <div class="col-sm-12">
+          <button mat-raised-button color="primary" [disabled]="firstFormGroup.invalid">Submit</button>
+          <button mat-raised-button color="accent">Reset</button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

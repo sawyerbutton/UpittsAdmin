@@ -5,7 +5,7 @@ export class level {
 }
 
 export const levels: level[] = [
-  { id: 1, name: 'system', lev: 'sys' },
+  { id: 1, name: 'system', lev: 'sys'},
   { id: 2, name: 'state', lev: 'sta' },
   { id: 3, name: 'comunity', lev: 'com' },
   { id: 4, name: 'bhco', lev: 'bhco'},
