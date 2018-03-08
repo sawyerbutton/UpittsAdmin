@@ -8,23 +8,15 @@
         <mat-card-title class="card-title mid-position">Member Login</mat-card-title>
       </mat-card-header>
       <mat-card-actions class="card-action mid-position">
-        <div class="login-form">
-          <mat-form-field class="form-full-width">
-            <input matInput placeholder="Username" value="">
-          </mat-form-field>
-
-          <mat-form-field class="form-full-width">
-            <input matInput placeholder="Password" value="">
-          </mat-form-field>
-        </div>
-
-        <mat-checkbox>Remember me</mat-checkbox>
-
-        <div class="button-row">
-          <button mat-raised-button color="primary" (click)="login()">Login</button>
-          <button mat-raised-button color="accent" (click)="back()">Switch</button>
-          <button mat-raised-button color="warn" (click)="forgotPwd()">Forget</button>
-        </div>
+        <form [formGroup]="userForm">
+          <app-input-control-box [attrContent]="userName"></app-input-control-box>
+          <app-input-control-box [attrContent]="passWord"></app-input-control-box>
+          <div class="button-row">
+            <button mat-raised-button color="primary" (click)="login()" [disabled]="userForm.invalid">Login</button>
+            <button mat-raised-button color="accent" (click)="back()">Switch</button>
+            <button mat-raised-button color="warn" (click)="forgotPwd()">Forget</button>
+          </div>
+        </form>
       </mat-card-actions>
     </mat-card>
   </div>
