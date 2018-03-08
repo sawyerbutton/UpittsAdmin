@@ -47,15 +47,18 @@ import { CreateCMemComponent } from './layout/workspace/com-admin/create-c-mem/c
 import { CreateFamilyComponent } from './layout/workspace/com-admin/create-family/create-family.component';
 import { CreateBhcoComponent } from './layout/workspace/com-admin/create-bhco/create-bhco.component';
 import { DemographicComponent } from './layout/workspace/bhco/demographic/demographic.component'
+import { WorkspaceComponent } from './layout/workspace/workspace.component';
+import { SocialNetworkComponent } from './layout/workspace/bhco/social-network/social-network.component';
+import { SocialNetworkAnswerGroupComponent } from './layout/workspace/bhco/social-network/social-network-answer-group/social-network-answer-group.component';
 
 //import route
 import { appRoutes } from './app.routes';
 
 //import directives
 import { EqualValidatorDirective } from './layout/workspace/equal-validator/equal-validator.directive';
-import { SocialNetworkComponent } from './layout/workspace/bhco/social-network/social-network.component';
-import { SocialNetworkAnswerGroupComponent } from './layout/workspace/bhco/social-network/social-network-answer-group/social-network-answer-group.component';
-
+import { InputControlBoxComponent } from './shared/input-box/input-control-box/input-control-box.component';
+import { SelectControlBoxComponent } from './shared/select-box/select-control-box/select-control-box.component';
+//import pipe
 
 @NgModule({
   declarations: [
@@ -83,7 +86,11 @@ import { SocialNetworkAnswerGroupComponent } from './layout/workspace/bhco/socia
     CreateBhcoComponent,
     DemographicComponent,
     SocialNetworkComponent,
-    SocialNetworkAnswerGroupComponent
+    SocialNetworkAnswerGroupComponent,
+    WorkspaceComponent,
+    InputControlBoxComponent,
+    SelectControlBoxComponent
+
   ],
   imports: [
     BrowserModule,

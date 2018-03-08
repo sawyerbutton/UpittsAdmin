@@ -1,8 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { User } from './user-model'
 //import { Router } from '@angular/router';
-
 
 const States = [
   'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',

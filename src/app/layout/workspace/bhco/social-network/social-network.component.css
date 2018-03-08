@@ -1,34 +1,16 @@
-.system-card {
+.com-member-info {
   border-radius: 15px;
+  height: 30px;
+  border: #9d9bb7 solid;
 }
 
-.workspace-container {
-  width:1000px;
-  height:600px;
-  top: 50%;
-  left: 50%;
-  border-radius:15px;
+.com-member-detail {
+  float: left;
+  width: 30.5%;
+  margin-right: 18px;
 }
 
-.full-width {
-  width: 100%;
+.com-member-detail-item {
+  padding-left: 15px;
 }
 
-.col-sm-12 {
-  width: 90%;
-}
-.text-danger {
-  color: #a94442;
-  font-size: 12px;
-}
-
-.col-sm-4 {
-  width:29%;
-  margin-right: 15px;
-}
-
-
-.col-sm-2 {
-  width: 13%;
-  margin-right: 20px;
-}

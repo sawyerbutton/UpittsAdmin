@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { FormBuilder, Validators} from '@angular/forms';
+import { ValidationService } from '../../../shared/validation-service/validation.service';
+import { InputAttributes } from '../../../shared/shared-control/attributes';
+
 
 @Component({
   selector: 'app-bhco-login',
@@ -7,10 +11,20 @@ import {Router} from '@angular/router';
   styleUrls: ['./bhco-login.component.css']
 })
 export class BhcoLoginComponent implements OnInit {
-
+  public userForm:any;
+  public userName: InputAttributes = {name:'username',min:4,max:32};
+  public passWord: InputAttributes = {name:'password',min:8,max:32};
   constructor(
+    private fb: FormBuilder,
     public router : Router
-  ) { }
+  ) {
+    this.userForm= this.fb.group(
+      {
+        'password': ['',[ Validators.required,ValidationService.passwordValidator]],
+        'username': ['',[ Validators.required,Validators.minLength(4)]],
+      }
+    );
+  }
 
   ngOnInit() {
   }
@@ -23,7 +37,7 @@ export class BhcoLoginComponent implements OnInit {
     this.router.navigateByUrl('login')
   }
 
-  forgotpwd() {
+  forgotPwd() {
     this.router.navigateByUrl('forgotPwd')
   }
 }
