@@ -38,3 +38,8 @@ Redesign the nav header and nav left bar, improve the component structure
 ## Future Help
 main workspace need to be done -> serve service connect
  
+## Mar8
+finished the first version of validator and merge to master as a root
+
+## Next Step
+Form logic finish and improve the system code
