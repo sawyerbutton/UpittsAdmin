@@ -12,9 +12,9 @@ import {InputAttributes, SelectAttributes,Admins} from '../../shared/shared-cont
 export class SysLoginComponent implements OnInit {
   public role = Admins;
 
-  public userName: InputAttributes = {name:'username',min:4,max:32};
-  public passWord: InputAttributes = {name:'password',min:8,max:32};
-  public admin: SelectAttributes = {name:'admin',roles:this.role};
+  public userName: InputAttributes = {name:'username',min:4,max:32, placeholder:'username', type: 'text'};
+  public passWord: InputAttributes = {name:'password',min:8,max:32, placeholder: 'password', type: 'password'};
+  public admin: SelectAttributes = {name:'admin',roles:this.role, placeholder: 'admin'};
   public userForm:any;
   constructor(
     public router: Router,

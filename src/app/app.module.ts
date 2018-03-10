@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
-//import modules
+// import modules
 import { MatButtonModule, MatDividerModule} from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -24,7 +24,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatNativeDateModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material';
 
-//import component
+// import component
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SysLoginComponent } from './login/sys-login/sys-login.component';
@@ -51,14 +51,18 @@ import { WorkspaceComponent } from './layout/workspace/workspace.component';
 import { SocialNetworkComponent } from './layout/workspace/bhco/social-network/social-network.component';
 import { SocialNetworkAnswerGroupComponent } from './layout/workspace/bhco/social-network/social-network-answer-group/social-network-answer-group.component';
 
-//import route
+// import route
 import { appRoutes } from './app.routes';
 
-//import directives
+// import directives
 import { EqualValidatorDirective } from './layout/workspace/equal-validator/equal-validator.directive';
 import { InputControlBoxComponent } from './shared/input-box/input-control-box/input-control-box.component';
 import { SelectControlBoxComponent } from './shared/select-box/select-control-box/select-control-box.component';
-//import pipe
+import { DemoQuestionsComponent } from './layout/workspace/bhco/demographic/demo-questions/demo-questions.component';
+import {QuestionControlService} from './shared/shared-control/question-control.service';
+import {QuestionService} from './shared/shared-control/question.service';
+import { RadioControlBoxComponent } from './shared/radio-box/radio-control-box/radio-control-box.component';
+// import pipe
 
 
 @NgModule({
@@ -90,7 +94,9 @@ import { SelectControlBoxComponent } from './shared/select-box/select-control-bo
     SocialNetworkAnswerGroupComponent,
     WorkspaceComponent,
     InputControlBoxComponent,
-    SelectControlBoxComponent
+    SelectControlBoxComponent,
+    DemoQuestionsComponent,
+    RadioControlBoxComponent
 
   ],
   imports: [
@@ -119,7 +125,7 @@ import { SelectControlBoxComponent } from './shared/select-box/select-control-bo
     MatProgressBarModule,
     MatRadioModule
   ],
-  providers: [],
+  providers: [QuestionControlService, QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

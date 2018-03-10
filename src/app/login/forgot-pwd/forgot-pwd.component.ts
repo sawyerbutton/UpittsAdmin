@@ -12,7 +12,7 @@ import { InputAttributes} from '../../shared/shared-control/attributes';
 export class ForgotPwdComponent implements OnInit {
 
   public userForm : any;
-  public email: InputAttributes = {name:'email',min:6,max:32};
+  public email: InputAttributes = {name:'email',min:6,max:32, placeholder: 'email', type: 'email'};
   constructor(
     public router : Router,
     private fb:  FormBuilder

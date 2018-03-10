@@ -1,15 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { FormGroupDirective} from '@angular/forms';
-import { ValidationService} from '../../validation-service/validation.service';
-import { SelectAttributes } from '../../shared-control/attributes'
+import {RadioAttributes, SelectAttributes} from '../../shared-control/attributes';
+import {FormGroupDirective} from '@angular/forms';
+import {ValidationService} from '../../validation-service/validation.service';
 
 @Component({
-  selector: 'app-select-control-box',
-  templateUrl: './select-control-box.component.html',
-  styleUrls: ['./select-control-box.component.css']
+  selector: 'app-radio-control-box',
+  templateUrl: './radio-control-box.component.html',
+  styleUrls: ['./radio-control-box.component.css']
 })
-export class SelectControlBoxComponent implements OnInit {
-  @Input() attrContent : SelectAttributes;
+export class RadioControlBoxComponent implements OnInit {
+  @Input() attrContent : RadioAttributes;
 
   constructor(
     private formGroupDirective:FormGroupDirective
@@ -23,11 +23,12 @@ export class SelectControlBoxComponent implements OnInit {
       if (this.control.errors.hasOwnProperty(propertyName) && this.control.touched) {
         return ValidationService.getValidatorErrorMessage(propertyName, this.control.errors[propertyName]);
       }
-    return null;
-   }
+      return null;
+    }
   }
 
   get control(){
     return this.formGroupDirective.form.controls[this.attrContent.name]
   }
+
 }

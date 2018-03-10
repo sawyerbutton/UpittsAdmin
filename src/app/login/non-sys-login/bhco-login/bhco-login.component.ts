@@ -12,8 +12,8 @@ import { InputAttributes } from '../../../shared/shared-control/attributes';
 })
 export class BhcoLoginComponent implements OnInit {
   public userForm:any;
-  public userName: InputAttributes = {name:'username',min:4,max:32};
-  public passWord: InputAttributes = {name:'password',min:8,max:32};
+  public userName: InputAttributes = {name:'username',min:4,max:32, placeholder: 'username', type: 'text'};
+  public passWord: InputAttributes = {name:'password',min:8,max:32, placeholder: 'password', type: 'password'};
   constructor(
     private fb: FormBuilder,
     public router : Router
