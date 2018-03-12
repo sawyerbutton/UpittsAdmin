@@ -30,7 +30,7 @@ export class BhcoLoginComponent implements OnInit {
   }
 
   login() {
-    this.router.navigateByUrl('layout')
+    this.router.navigateByUrl('BhcoDashboard')
   }
 
   back() {

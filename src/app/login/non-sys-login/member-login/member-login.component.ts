@@ -29,7 +29,7 @@ export class MemberLoginComponent implements OnInit {
   }
 
   login() {
-    this.router.navigateByUrl('layout')
+    this.router.navigateByUrl('MemberDashboard')
   }
 
   back() {

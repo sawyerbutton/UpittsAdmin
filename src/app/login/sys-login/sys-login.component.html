@@ -11,7 +11,7 @@
           <form [formGroup]="userForm">
             <app-input-control-box [attrContent]="userName"></app-input-control-box>
             <app-input-control-box [attrContent]="passWord"></app-input-control-box>
-            <app-select-control-box [attrContent]="admin"></app-select-control-box>
+            <app-select-control-box class="userRole" [attrContent]="admin" (selectVal)="getRole($event)"></app-select-control-box>
             <div class="button-row">
               <button mat-raised-button color="primary" (click)="login()" [disabled]="userForm.invalid">Login</button>
               <button mat-raised-button color="accent" (click)="back()">Switch</button>

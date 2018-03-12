@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormGroupDirective} from '@angular/forms';
 import { ValidationService} from '../../validation-service/validation.service';
 import { SelectAttributes } from '../../shared-control/attributes'
@@ -10,6 +10,14 @@ import { SelectAttributes } from '../../shared-control/attributes'
 })
 export class SelectControlBoxComponent implements OnInit {
   @Input() attrContent : SelectAttributes;
+
+  @Output() selectVal = new EventEmitter<string>();
+  selectedValue: string;
+
+  onChange(value: string) {
+    this.selectVal.emit(value);
+  }
+
 
   constructor(
     private formGroupDirective:FormGroupDirective

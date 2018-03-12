@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {QuestionService} from '../../../shared/shared-control/question.service';
 
 @Component({
   selector: 'app-bhco-level',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bhco-level.component.css']
 })
 export class BhcoLevelComponent implements OnInit {
+  questions: any[];
 
-  constructor() { }
+  constructor(service: QuestionService) {
+    this.questions = service.getQuestions();
+  }
 
   ngOnInit() {
   }

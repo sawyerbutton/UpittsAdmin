@@ -3,13 +3,17 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators} from '@angular/forms';
 import { ValidationService } from '../../shared/validation-service/validation.service';
 import {InputAttributes, SelectAttributes,Admins} from '../../shared/shared-control/attributes';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-sys-login',
   templateUrl: './sys-login.component.html',
-  styleUrls: ['./sys-login.component.css']
+  styleUrls: ['./sys-login.component.css'],
+  providers: [ NgModel ]
 })
 export class SysLoginComponent implements OnInit {
+  private roleName;
+
   public role = Admins;
 
   public userName: InputAttributes = {name:'username',min:4,max:32, placeholder:'username', type: 'text'};
@@ -34,8 +38,22 @@ export class SysLoginComponent implements OnInit {
     console.log(this.admin.roles);
   }
 
+
+  getRole(value : string) {
+    console.log(value);
+    return this.admin.roles;
+  }
+
   login(){
-    this.router.navigateByUrl('layout');
+    //this.roleName = this.getRole();
+    if (this.roleName == "system") {
+      this.router.navigateByUrl('SysDashboard');
+    } else if (this.roleName == "state") {
+      this.router.navigateByUrl('StateDashboard');
+    } else {
+      this.router.navigateByUrl('CommunityDashboard');
+    }
+
   }
 
   back(){

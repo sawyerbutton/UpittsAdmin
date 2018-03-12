@@ -5,6 +5,11 @@ import {MemberLoginComponent} from './login/non-sys-login/member-login/member-lo
 import {ForgotPwdComponent} from './login/forgot-pwd/forgot-pwd.component';
 import {HeadBarComponent} from './layout/head-bar/head-bar.component';
 import { LayoutComponent } from './layout/layout.component'
+import {BhcoLevelComponent} from './layout/left-nav/bhco-level/bhco-level.component';
+import {SysLevelComponent} from './layout/left-nav/sys-level/sys-level.component';
+import {StaLevelComponent} from './layout/left-nav/sta-level/sta-level.component';
+import {ComLevelComponent} from './layout/left-nav/com-level/com-level.component';
+import {MemLevelComponent} from './layout/left-nav/mem-level/mem-level.component';
 
 export const appRoutes = [
   {
@@ -39,5 +44,25 @@ export const appRoutes = [
   {
     path: 'layout',
     component: LayoutComponent
+  },
+  {
+    path: 'SysDashboard',
+    component: SysLevelComponent
+  },
+  {
+    path: 'StateDashboard',
+    component: StaLevelComponent
+  },
+  {
+    path: 'CommunityDashboard',
+    component: ComLevelComponent
+  },
+  {
+    path: 'BhcoDashboard',
+    component: BhcoLevelComponent
+  },
+  {
+    path: 'MemberDashboard',
+    component: MemLevelComponent
   }
 ];
