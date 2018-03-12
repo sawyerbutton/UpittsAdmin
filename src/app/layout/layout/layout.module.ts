@@ -22,6 +22,7 @@ import { CreateComComponent } from '../workspace/sta-admin/create-com/create-com
 import { CreateCMemComponent } from '../workspace/com-admin/create-c-mem/create-c-mem.component'
 import { CreateFamilyComponent } from '../workspace/com-admin/create-family/create-family.component'
 import { WorkspaceComponent } from '../workspace/workspace.component'
+import { AnalysisComponent } from '../workspace/sys-admin/analysis/analysis.component'
 @NgModule({
   imports: [
     CommonModule,
@@ -50,7 +51,8 @@ import { WorkspaceComponent } from '../workspace/workspace.component'
     EqualValidatorDirective,
     CreateCMemComponent,
     CreateFamilyComponent,
-    WorkspaceComponent
+    WorkspaceComponent,
+    AnalysisComponent
   ],
   exports: [
     CommonModule,

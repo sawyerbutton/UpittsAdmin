@@ -1,17 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { comUser } from './comUser-model'
 import { Router } from '@angular/router';
-
-const States = [
-  'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
-  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-  'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-  'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico',
-  'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-  'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-];
+import { SelectAttributes} from '../../../../shared/shared-control/attributes';
+import { InputAttributes } from '../../../../shared/shared-control/attributes';
+import { ValidationService} from '../../../../shared/validation-service/validation.service';
+import { States} from '../../../../shared/shared-control/attributes';
 
 @Component({
   selector: 'app-create-com',
@@ -19,31 +12,21 @@ const States = [
   styleUrls: ['./create-com.component.css']
 })
 export class CreateComComponent implements OnInit {
+  //state import
   public states = States;
-  public userInfo: comUser = new comUser();
-  public userForm: FormGroup;
+  //default value of stepper
   public isLinear = true;
+  //initialize the formGroup
+  public userForm: FormGroup;
   public communityGroup: FormGroup;
-  public formErrors = {
-    'userName': '',
-    'password': '',
-    'confirmPassword': '',
-  };
-  public validationMessages = {
-    'userName': {
-      'required': 'UserName must input.',
-      'minlength': 'UserName must be in 4-32 characters.'
-    },
-    'password': {
-      'required': 'Password must input',
-      'minlength': 'Password must be greater than 8 characters. '
-    },
-    'confirmPassword': {
-      'required': 'ConfirmPassword must be input.',
-      'minlength': 'Password must be greater than 8 characters. ',
-      'validateEqual': 'Password and ConfirmPassword must be same. '
-    }
-  };
+
+  public selectStates : SelectAttributes = {name:'state',roles:this.states};
+  public selectCounty: SelectAttributes = {name:'county',roles:this.states};
+  public selectCity: SelectAttributes = {name:'city',roles:this.states};
+  public selectCommunity: SelectAttributes = {name:'community',roles:this.states};
+  public userName : InputAttributes = {name:'username',min:4,max:32};
+  public passWord: InputAttributes = {name:'password',min:8,max:32};
+  public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32};
   constructor(
     private fb: FormBuilder
   ) { }
@@ -54,55 +37,17 @@ export class CreateComComponent implements OnInit {
 
   buildForm(): void {
     this.communityGroup = this.fb.group({
-      state: ['', Validators.required],
-      county: ['', Validators.required],
-      city: ['', Validators.required],
-      community: ['', Validators.required]
+      state: ['', [Validators.required]],
+      county:['',[Validators.required]],
+      city:['',[Validators.required]],
+      community:['',[Validators.required]]
     });
     this.userForm = this.fb.group({
-      "userName": [
-        this.userInfo.userName,
-        [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(32)
-        ]
-      ],
-      "password": [
-        this.userInfo.password,
-        [
-          Validators.required,
-          Validators.minLength(8),
-        ]
-      ],
-      "confirmPassword": [
-        this.userInfo.confirmPassword,
-        [
-          Validators.required,
-          Validators.minLength(8)
-        ]
-      ],
+      username:['',[ Validators.required,Validators.minLength(4)]],
+      password:['',[Validators.required,ValidationService.passwordValidator]],
+      confirmPassword: ['',[Validators.required,Validators.minLength(8)]]
     });
-    this.userForm.valueChanges
-      .subscribe(data => this.onValueChanged(data));
-    this.onValueChanged();
   }
 
-  onValueChanged(data?: any) {
-    if (!this.userForm) {
-      return;
-    }
-    const form = this.userForm;
-    for (const field in this.formErrors) {
-      this.formErrors[field] = '';
-      const control = form.get(field);
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessages[field];
-        for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
-        }
-      }
-    }
-  }
 
 }

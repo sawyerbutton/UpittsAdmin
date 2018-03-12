@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
+import {AbstractControl} from '@angular/forms';
 
 @Injectable()
 export class ValidationService {
 
-  constructor() { }
+  constructor(
+
+  ) { }
   static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
     let config = {
       'required': 'Required',
       'email':'Invalid email address',
       'invalidEmailAddress': 'Invalid email address',
-      'invalidPassword': 'Invalid password. Password must be at least 6 characters long, and contain a number.',
+      'invalidPassword': `Invalid password. Password must be at least 8 characters long, and contain a number.`,
+      'validateEqual': 'Password must be same as confirm Password',
       'minlength': `Minimum length ${validatorValue.requiredLength}`,
       'adminRequired': 'Invalid role'
     };
@@ -35,5 +39,7 @@ export class ValidationService {
       return { 'invalidEmailAddress': true };
     }
   }
+
+  w
 
 }

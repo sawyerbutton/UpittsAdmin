@@ -50,7 +50,7 @@ import { DemographicComponent } from './layout/workspace/bhco/demographic/demogr
 import { WorkspaceComponent } from './layout/workspace/workspace.component';
 import { SocialNetworkComponent } from './layout/workspace/bhco/social-network/social-network.component';
 import { SocialNetworkAnswerGroupComponent } from './layout/workspace/bhco/social-network/social-network-answer-group/social-network-answer-group.component';
-
+import { AnalysisComponent } from './layout/workspace/sys-admin/analysis/analysis.component'
 //import route
 import { appRoutes } from './app.routes';
 
@@ -89,7 +89,8 @@ import { SelectControlBoxComponent } from './shared/select-box/select-control-bo
     SocialNetworkAnswerGroupComponent,
     WorkspaceComponent,
     InputControlBoxComponent,
-    SelectControlBoxComponent
+    SelectControlBoxComponent,
+    AnalysisComponent,
 
   ],
   imports: [
