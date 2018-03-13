@@ -2,11 +2,21 @@ export interface InputAttributes {
   name:string;
   min:Number;
   max:Number;
+  placeholder: string;
+  type: string;
+}
+
+export interface defaultAttributes{
+  name:string;
+  value:string;
+  type:string;
+  placeholder: string;
 }
 
 export interface SelectAttributes{
   name:string;
   roles: {};
+  placeholder: string;
 }
 
 export const Admins =  [
@@ -70,4 +80,59 @@ export const States = [
   {value: 'West Virginia', viewValue: 'West Virginia'},
   {value: 'Wisconsin', viewValue: 'Wisconsin'},
   {value: 'Wyoming', viewValue: 'Wyoming'},
+];
+
+
+export const Block = [
+  {value: 'Apple', viewValue:'Apple'},
+  {value: 'Orange', viewValue:'Orange'},
+  {value: 'Banana', viewValue:'Banana'},
+];
+
+export const Family = [
+  {value:'Alice', viewValue:'Alice'},
+  {value:'Bob',viewValue:'Bob'},
+  {value:'Cici',viewValue:'Cici'}
+];
+
+
+export const Gender = [
+  {value:'Male',viewValue:'Male'},
+  {value:'Female',viewValue:'Female'}
+];
+
+
+export const Race = [
+  {value:'Caucasian',viewValue:'Caucasian'},
+  {value:'African American',viewValue:'African American'},
+  {value:'Hispanic',viewValue:'Hispanic'},
+  {value:'Bi-Racial',viewValue:'Bi-Racial'},
+  {value:'Asian',viewValue:'Asian'},
+  {value:'White',viewValue:'White'},
+  {value:'Other',viewValue:'Other'}
+];
+
+export const MaritalStatus = [
+  {value:'Single',viewValue:'Single'},
+  {value:'Married',viewValue:'Married'},
+  {value:'Separated',viewValue:'Separated'},
+  {value:'Divorced',viewValue:'Divorced'}
+];
+
+
+export const Education = [
+  {value:'Did Not Complete High School',viewValue:'Did Not Complete High School'},
+  {value:'High School/GED',viewValue:'High School/GED'},
+  {value:'Some College',viewValue:'Some College'},
+  {value:'Bachelor',viewValue:'Bachelor'},
+  {value:'Master',viewValue:'Master'},
+  {value:'Advanced Graduate Work ot h.D',viewValue:'Advanced Graduate Work ot h.D'}
+];
+
+export const Employment = [
+  {value:'Currently Employed',viewValue:'Unemployed and Looking for Work'},
+  {value:'Unemployed but Not Currently Looking for Work',viewValue:'Unemployed but Not Currently Looking for Work'},
+  {value:'Student',viewValue:'Student'},
+  {value:'Homemaker',viewValue:'Homemaker'},
+  {value:'Retired',viewValue:'Retired'},
 ];

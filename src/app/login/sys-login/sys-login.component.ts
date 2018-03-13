@@ -12,14 +12,24 @@ import {InputAttributes, SelectAttributes,Admins} from '../../shared/shared-cont
 export class SysLoginComponent implements OnInit {
   public role = Admins;
 
-  public userName: InputAttributes = {name:'username',min:4,max:32};
-  public passWord: InputAttributes = {name:'password',min:8,max:32};
-  public admin: SelectAttributes = {name:'admin',roles:this.role};
+  public userName: InputAttributes = {name:'username',min:4,max:32, placeholder:'username', type: 'text'};
+  public passWord: InputAttributes = {name:'password',min:8,max:32, placeholder: 'password', type: 'password'};
+  public admin: SelectAttributes = {name:'admin',roles:this.role, placeholder: 'admin'};
   public userForm:any;
+
+  //backend para
+  userNamePara :string;
+  userPasswordPara: string;
+  userAdminPara:string;
+
   constructor(
     public router: Router,
     private fb: FormBuilder
   ) {
+
+  }
+
+  ngOnInit() {
     this.userForm= this.fb.group(
       {
         'password': ['',[ Validators.required,ValidationService.passwordValidator]],
@@ -27,11 +37,29 @@ export class SysLoginComponent implements OnInit {
         'admin': ['',[ Validators.required]]
       }
     );
+    // console.log(this.userForm.invalid)
+    // console.log(this.admin.roles);
   }
 
-  ngOnInit() {
-    console.log(this.userForm.invalid)
-    console.log(this.admin.roles);
+  getUserName(value:string){
+    if(value){
+      this.userNamePara = value;
+      console.log("username:"+this.userNamePara);
+    }
+  }
+
+  getUserPassword(value: string){
+    if(value){
+      this.userPasswordPara = value;
+      console.log("password:"+this.userPasswordPara);
+    }
+  }
+
+  getUserAdmin(value: string){
+    if(value){
+      this.userAdminPara = value;
+      console.log("role:"+this.userAdminPara);
+    }
   }
 
   login(){

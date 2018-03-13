@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {memUser} from './memUser-model';
-
-
-const States = [
-  'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
-  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-  'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-  'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico',
-  'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-  'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-];
-
+import { SelectAttributes} from '../../../../shared/shared-control/attributes';
+import { InputAttributes } from '../../../../shared/shared-control/attributes';
+import { defaultAttributes} from '../../../../shared/shared-control/attributes';
+import { ValidationService} from '../../../../shared/validation-service/validation.service';
+import { Block} from '../../../../shared/shared-control/attributes';
+import { Family} from '../../../../shared/shared-control/attributes';
+import { Gender} from '../../../../shared/shared-control/attributes';
+import { States} from '../../../../shared/shared-control/attributes';
+import { Race } from '../../../../shared/shared-control/attributes';
+import { MaritalStatus } from '../../../../shared/shared-control/attributes';
+import { Education} from '../../../../shared/shared-control/attributes';
+import { Employment} from '../../../../shared/shared-control/attributes';
 
 @Component({
   selector: 'app-create-c-mem',
@@ -21,191 +20,83 @@ const States = [
 })
 export class CreateCMemComponent implements OnInit {
   public userForm: FormGroup;
-  public userInfo: memUser = new memUser();
-  public firstFormGroup: FormGroup;
-  public thirdFormGroup: FormGroup;
-  public states = States;
-  public isLinear = true;
-  public formErrors = {
-    'userName': '',
-    'password': '',
-    'confirmPassword': '',
-    'firstName': '',
-    'lastName': '',
-    'phone': '',
-    'address1': '',
-    'address2': '',
-    'city': '',
-    'zipcode': ''
-  };
-  public validationMessages = {
-    'userName': {
-      'required': 'UserName must input.',
-      'minlength': 'UserName must be in 4-32 characters.',
-      'maxlength': 'UserName must be in 4-32 characters.'
-    },
-    'password': {
-      'required': 'Password must input',
-      'minlength': 'Password must be greater than 8 characters. '
-    },
-    'confirmPassword': {
-      'required': 'ConfirmPassword must be input.',
-      'minlength': 'Password must be greater than 8 characters. ',
-      'validateEqual': 'Password and ConfirmPassword must be same. '
-    },
-    'firstName': {
-      'required': 'First name must input.',
-      'maxlength': 'Phone number must in 32 characters.'
-    },
-    'lastName': {
-      'required': 'Last name must input.',
-      'maxlength': 'Last name must be in 32 characters.',
-    },
-    'midName': {
-      'maxlength': 'Mid name must be in 32 characters.',
-    },
-    'phone': {
-      'required': 'Phone number must input.',
-      'minlength': 'Phone number must be 10 characters.',
-      'maxlength': 'Phone number must be 10 characters.'
-    },
-    'address1': {
-      'required': 'Address must input.',
-      'maxlength': 'Address must in 32 characters.'
-    },
-    'address2': {
-      'maxlength': 'Address number must in 32 characters.'
-    },
-    'city': {
-      'required': 'City must input.',
-      'maxlength': 'City must in 32 characters.'
-    },
-    'zipcode': {
-      'required': 'Zipcode must input.',
-      'maxlength': 'Zipcode must be 5 characters.',
-      'minlength': 'Zipcode must be 5 characters.'
-    },
 
-  };
+  public addressFormGroup: FormGroup;
+  public otherFormGroup: FormGroup;
+
+  public blocks = Block;
+  public familys = Family;
+  public gender = Gender;
+  public states = States;
+  public races = Race;
+  public matrialS = MaritalStatus;
+  public educationS = Education;
+  public employmentS = Employment;
+
+  public isLinear = true;
+  public selectFamily: SelectAttributes = {name:'family',roles:this.familys,placeholder:'family'};
+  public selectBlock :SelectAttributes = {name:'block',roles:this.blocks,placeholder:'block'};
+  public userName : InputAttributes = {name:'username',min:4,max:32,placeholder:'username', type: 'text'};
+  public passWord: InputAttributes = {name:'password',min:8,max:32,placeholder:'password',type:'password'};
+  public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
+  public firstName :InputAttributes = {name:'firstname',min:4,max:32,placeholder:'first name',type:'text'};
+  public midName: InputAttributes = {name:'midname',min:4,max:32,placeholder:'mid name',type:'text'};
+  public lastName :InputAttributes = {name:'lastname',min:4,max:32,placeholder:'first name',type:'text'};
+  public selectGender :SelectAttributes = {name:'gender',roles:this.gender,placeholder:'gender'};
+  public phoneNumber: InputAttributes = {name:'phone',min:8,max:32,placeholder:'phone number',type:'tel'};
+  public date: InputAttributes = {name:'date',min:8,max:10,placeholder:'date',type:'text'};
+  public addressOne: InputAttributes = {name:'address1',min:6,max:32,placeholder:'address one',type:'text'};
+  public addressTwo: InputAttributes = {name:'address2',min:6,max:32,placeholder:'address two',type:'text'};
+  public selectState: SelectAttributes = {name:'state',roles:this.states,placeholder:'state'};
+  public cities: InputAttributes = {name:'city',min:3,max:32,placeholder:'city',type:'text'};
+  public zipCode :InputAttributes = {name:'zipcode',min:5,max:32,placeholder:'zip code',type:'text'};
+  public race: SelectAttributes = {name:'race',roles:this.races,placeholder:'race'};
+  public matrialStatus :SelectAttributes = {name:'marital',roles:this.matrialS,placeholder:'marital status'};
+  public educations: SelectAttributes = {name:'education',roles:this.educationS,placeholder:'education status'};
+  public employments: SelectAttributes = {name:'employment',roles:this.employmentS,placeholder:'employment status'};
+  public defaultState: defaultAttributes = {name:'dState',value:'Pennsylvania',type:'text',placeholder:'state'};
+  public defaultCounty: defaultAttributes = {name:'dCounty',value:'Allegheny',type:'text',placeholder:'county'};
+  public defaultCity: defaultAttributes = {name:'dCity',value:'Pittsburgh',type:'text',placeholder:'city'};
+  public defaultCommunity: defaultAttributes = {name:'dCommunity',value:'North Oakland',type:'text',placeholder:'community'};
   constructor(
-    public fb: FormBuilder,
-  ) { }
+    private fb:FormBuilder
+  ){ }
 
   ngOnInit() {
-    this.firstFormGroup = this.fb.group({
-      "block": ['', Validators.required],
-      "family": ['', Validators.required]
-    });
-    this.thirdFormGroup = this.fb.group({
-      "race": ['', Validators.required],
-      "marital": ['', Validators.required],
-      "education": ['', Validators.required],
-      "employment": ['', Validators.required],
+    this. buildForm();
+  }
+
+  buildForm(): void {
+    this.addressFormGroup = this.fb.group({
+
+      block: ['', [Validators.required]],
+      family:['',[Validators.required]],
+      dState:['',[]],
+      dCounty:['',[]],
+      dCity:['',[]],
+      dCommunity:['',[]],
     });
     this.userForm = this.fb.group({
-      "userName": [
-        this.userInfo.userName,
-        [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(32)
-        ]
-      ],
-      "password": [
-        this.userInfo.password,
-        [
-          Validators.required,
-          Validators.minLength(8),
-        ]
-      ],
-      "confirmPassword": [
-        this.userInfo.confirmPassword,
-        [
-          Validators.required,
-          Validators.minLength(8)
-        ]
-      ],
-      "firstName": [
-        this.userInfo.firstName,
-        [
-          Validators.required,
-          Validators.maxLength(32)
-        ]
-      ],
-      "lastName": [
-        this.userInfo.lastName,
-        [
-          Validators.required,
-          Validators.maxLength(32)
-        ]
-      ],
-      'midName': [
-        this.userInfo.midName,
-        [
-          Validators.maxLength(32)
-        ]
-      ],
-      'gender' : ['', Validators.required],
-      'phone' : [
-        this.userInfo.phone,
-        [
-          Validators.required,
-          Validators.minLength(10),
-          Validators.maxLength(10)
-        ]
-      ],
-      'birth': ['', Validators.required],
-      'address1' : [
-        this.userInfo.address1,
-        [
-          Validators.required,
-          Validators.maxLength(32)
-        ]
-      ],
-      'address2' :
-        [
-          this.userInfo.address2,
-          [
-            Validators.maxLength(32)
-          ]
-        ],
-      'city': [
-        this.userInfo.city,
-        [
-          Validators.required,
-          Validators.maxLength(32)
-        ]
-      ],
-      'state': ['', Validators.required],
-      'zipcode': [
-        this.userInfo.zipcode,
-        [
-          Validators.required,
-          Validators.maxLength(5),
-          Validators.minLength(5)
-        ]
-      ],
+      username:['',[ Validators.required,Validators.minLength(4)]],
+      password:['',[Validators.required,ValidationService.passwordValidator]],
+      confirmPassword: ['',[Validators.required,Validators.minLength(8)]],
+      firstname:['',[ Validators.required,Validators.minLength(4)]],
+      midname:['',[Validators.required,Validators.minLength(4)]],
+      lastname:['',[Validators.required,Validators.minLength(4)]],
+      gender:['',[Validators.required]],
+      phone:['',[Validators.required,Validators.minLength(8)]],
+      date:['',[Validators.required]],
+      address1:['',[Validators.required,Validators.minLength(6)]],
+      address2:['',[Validators.required,Validators.minLength(6)]],
+      state:['',[Validators.required]],
+      city:['',[Validators.required,Validators.minLength(3)]],
+      zipcode:['',[Validators.required,Validators.minLength(5)]],
     });
-    this.userForm.valueChanges
-      .subscribe(data => this.onValueChanged(data));
-    this.onValueChanged();
+    this.otherFormGroup = this.fb.group({
+      race:['',[Validators.required]],
+      marital:['',[Validators.required]],
+      education:['',[Validators.required]],
+      employment:['',[Validators.required]]
+    })
   }
-
-  onValueChanged(data?: any) {
-    if (!this.userForm) {
-      return;
-    }
-    const form = this.userForm;
-    for (const field in this.formErrors) {
-      this.formErrors[field] = '';
-      const control = form.get(field);
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessages[field];
-        for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
-        }
-      }
-    }
-  }
-
 }

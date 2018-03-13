@@ -58,6 +58,8 @@ import { appRoutes } from './app.routes';
 import { EqualValidatorDirective } from './layout/workspace/equal-validator/equal-validator.directive';
 import { InputControlBoxComponent } from './shared/input-box/input-control-box/input-control-box.component';
 import { SelectControlBoxComponent } from './shared/select-box/select-control-box/select-control-box.component';
+import { InputDateBoxComponent } from './shared/input-box/input-date-box/input-date-box.component';
+import { InputDefaultBoxComponent } from './shared/input-box/input-default-box/input-default-box.component';
 //import pipe
 
 @NgModule({
@@ -91,6 +93,8 @@ import { SelectControlBoxComponent } from './shared/select-box/select-control-bo
     InputControlBoxComponent,
     SelectControlBoxComponent,
     AnalysisComponent,
+    InputDateBoxComponent,
+    InputDefaultBoxComponent,
 
   ],
   imports: [

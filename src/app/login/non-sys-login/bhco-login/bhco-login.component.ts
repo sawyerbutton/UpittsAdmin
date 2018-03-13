@@ -11,13 +11,22 @@ import { InputAttributes } from '../../../shared/shared-control/attributes';
   styleUrls: ['./bhco-login.component.css']
 })
 export class BhcoLoginComponent implements OnInit {
+
   public userForm:any;
-  public userName: InputAttributes = {name:'username',min:4,max:32};
-  public passWord: InputAttributes = {name:'password',min:8,max:32};
+  public userName: InputAttributes = {name:'username',min:4,max:32, placeholder: 'username', type: 'text'};
+  public passWord: InputAttributes = {name:'password',min:8,max:32, placeholder: 'password', type: 'password'};
+
+  userNamePara :string;
+  userPasswordPara: string;
+
   constructor(
     private fb: FormBuilder,
     public router : Router
   ) {
+
+  }
+
+  ngOnInit() {
     this.userForm= this.fb.group(
       {
         'password': ['',[ Validators.required,ValidationService.passwordValidator]],
@@ -26,7 +35,18 @@ export class BhcoLoginComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
+  getUserName(value:string){
+    if(value){
+      this.userNamePara = value;
+      console.log("username:"+this.userNamePara);
+    }
+  }
+
+  getUserPassword(value: string){
+    if(value){
+      this.userPasswordPara = value;
+      console.log("password:"+this.userPasswordPara);
+    }
   }
 
   login() {

@@ -12,22 +12,28 @@ import { InputAttributes} from '../../shared/shared-control/attributes';
 export class ForgotPwdComponent implements OnInit {
 
   public userForm : any;
-  public email: InputAttributes = {name:'email',min:6,max:32};
+  public email: InputAttributes = {name:'email',min:6,max:32, placeholder: 'email', type: 'email'};
+
+  userEmailPara : string;
   constructor(
     public router : Router,
     private fb:  FormBuilder
-  ) {
+  ) {}
+
+
+  ngOnInit() {
     this.userForm= this.fb.group(
       {
         'email': ['',[ Validators.required,ValidationService.emailValidator]]
       }
     );
-
-    //console.log(this.userForm);
   }
 
-  ngOnInit() {
-
+  getUserEmail(value:string){
+    if(value){
+      this.userEmailPara = value;
+      console.log("username:"+this.userEmailPara);
+    }
   }
 
   back() {

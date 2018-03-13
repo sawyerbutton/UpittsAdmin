@@ -10,7 +10,7 @@
         <mat-step [stepControl]="firstFormGroup">
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Select State</ng-template>
-            <app-select-control-box [attrContent]="selectStates"></app-select-control-box>
+            <app-select-control-box [attrContent]="selectStates" (follow)=""></app-select-control-box>
             <div>
               <button mat-raised-button color ="primary" [disabled]="firstFormGroup.invalid"matStepperNext>Next</button>
             </div>

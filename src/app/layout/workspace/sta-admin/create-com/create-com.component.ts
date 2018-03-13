@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
 import { SelectAttributes} from '../../../../shared/shared-control/attributes';
 import { InputAttributes } from '../../../../shared/shared-control/attributes';
 import { ValidationService} from '../../../../shared/validation-service/validation.service';
-import { States} from '../../../../shared/shared-control/attributes';
+import { States } from '../../../../shared/shared-control/attributes';
+
 
 @Component({
   selector: 'app-create-com',
@@ -20,13 +20,13 @@ export class CreateComComponent implements OnInit {
   public userForm: FormGroup;
   public communityGroup: FormGroup;
 
-  public selectStates : SelectAttributes = {name:'state',roles:this.states};
-  public selectCounty: SelectAttributes = {name:'county',roles:this.states};
-  public selectCity: SelectAttributes = {name:'city',roles:this.states};
-  public selectCommunity: SelectAttributes = {name:'community',roles:this.states};
-  public userName : InputAttributes = {name:'username',min:4,max:32};
-  public passWord: InputAttributes = {name:'password',min:8,max:32};
-  public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32};
+  public selectStates : SelectAttributes = {name:'state',roles:this.states,placeholder:'state'};
+  public selectCounty: SelectAttributes = {name:'county',roles:this.states,placeholder:'county'};
+  public selectCity: SelectAttributes = {name:'city',roles:this.states,placeholder:'city'};
+  public selectCommunity: SelectAttributes = {name:'community',roles:this.states,placeholder:'community'};
+  public userName : InputAttributes = {name:'username',min:4,max:32,placeholder:'username', type: 'text'};
+  public passWord: InputAttributes = {name:'password',min:8,max:32,placeholder:'password',type:'password'};
+  public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
   constructor(
     private fb: FormBuilder
   ) { }

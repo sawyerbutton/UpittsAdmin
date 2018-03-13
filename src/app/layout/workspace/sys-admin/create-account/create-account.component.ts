@@ -11,21 +11,24 @@ import { ValidationService} from '../../../../shared/validation-service/validati
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
+  //Form group
   public userForm: FormGroup;
   public firstFormGroup: FormGroup;
-
+  //front-end para
   public states = States;
-
   public state: string;
   public name: string;
 
-
+  //structure para
   public isLinear = true;
+  //validator para
+  public selectStates : SelectAttributes = {name:'state',roles:this.states,placeholder:'states'};
+  public userName : InputAttributes = {name:'username',min:4,max:32,placeholder:'username',type:'text'};
+  public passWord: InputAttributes = {name:'password',min:8,max:32,placeholder:'password',type:'password'};
+  public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
 
-  public selectStates : SelectAttributes = {name:'state',roles:this.states};
-  public userName : InputAttributes = {name:'username',min:4,max:32};
-  public passWord: InputAttributes = {name:'password',min:8,max:32};
-  public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32};
+  //backend para
+
   constructor(
     public fb: FormBuilder,
     //public router: Router,
