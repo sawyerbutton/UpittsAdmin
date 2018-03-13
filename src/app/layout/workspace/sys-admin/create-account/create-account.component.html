@@ -10,7 +10,7 @@
         <mat-step [stepControl]="firstFormGroup">
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Select State</ng-template>
-            <app-select-control-box [attrContent]="selectStates" (follow)=""></app-select-control-box>
+            <app-select-control-box [attrContent]="selectStates" (follow)="getState($event)"></app-select-control-box>
             <div>
               <button mat-raised-button color ="primary" [disabled]="firstFormGroup.invalid"matStepperNext>Next</button>
             </div>
@@ -20,9 +20,9 @@
         <mat-step [stepControl]="userForm">
           <form [formGroup]="userForm" novalidate>
             <ng-template matStepLabel>Registration Information</ng-template>
-            <app-input-control-box [attrContent]="userName"></app-input-control-box>
-            <app-input-control-box [attrContent]="passWord"></app-input-control-box>
-            <app-input-control-box [attrContent]="confirmPassword" validateEqual="password"></app-input-control-box>
+            <app-input-control-box [attrContent]="userName" (follow)="getUserName($event)"></app-input-control-box>
+            <app-input-control-box [attrContent]="passWord" (follow)="getUserPassword($event)"></app-input-control-box>
+            <app-input-control-box [attrContent]="confirmPassword" validateEqual="password" (follow)="getUserConPassword($event)"></app-input-control-box>
             <div>
               <button mat-raised-button color ="primary" [disabled]="userForm.invalid" matStepperNext>Next</button>
               <button mat-raised-button color ="accent" matStepperPrevious>Back</button>

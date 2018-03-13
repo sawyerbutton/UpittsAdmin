@@ -19,11 +19,11 @@ import { Employment} from '../../../../shared/shared-control/attributes';
   styleUrls: ['./create-c-mem.component.css']
 })
 export class CreateCMemComponent implements OnInit {
+  //form group
   public userForm: FormGroup;
-
   public addressFormGroup: FormGroup;
   public otherFormGroup: FormGroup;
-
+  //front-end para
   public blocks = Block;
   public familys = Family;
   public gender = Gender;
@@ -32,8 +32,9 @@ export class CreateCMemComponent implements OnInit {
   public matrialS = MaritalStatus;
   public educationS = Education;
   public employmentS = Employment;
-
+  //structure para
   public isLinear = true;
+  //validator para
   public selectFamily: SelectAttributes = {name:'family',roles:this.familys,placeholder:'family'};
   public selectBlock :SelectAttributes = {name:'block',roles:this.blocks,placeholder:'block'};
   public userName : InputAttributes = {name:'username',min:4,max:32,placeholder:'username', type: 'text'};
@@ -41,7 +42,7 @@ export class CreateCMemComponent implements OnInit {
   public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
   public firstName :InputAttributes = {name:'firstname',min:4,max:32,placeholder:'first name',type:'text'};
   public midName: InputAttributes = {name:'midname',min:4,max:32,placeholder:'mid name',type:'text'};
-  public lastName :InputAttributes = {name:'lastname',min:4,max:32,placeholder:'first name',type:'text'};
+  public lastName :InputAttributes = {name:'lastname',min:4,max:32,placeholder:'last name',type:'text'};
   public selectGender :SelectAttributes = {name:'gender',roles:this.gender,placeholder:'gender'};
   public phoneNumber: InputAttributes = {name:'phone',min:8,max:32,placeholder:'phone number',type:'tel'};
   public date: InputAttributes = {name:'date',min:8,max:10,placeholder:'date',type:'text'};
@@ -58,6 +59,27 @@ export class CreateCMemComponent implements OnInit {
   public defaultCounty: defaultAttributes = {name:'dCounty',value:'Allegheny',type:'text',placeholder:'county'};
   public defaultCity: defaultAttributes = {name:'dCity',value:'Pittsburgh',type:'text',placeholder:'city'};
   public defaultCommunity: defaultAttributes = {name:'dCommunity',value:'North Oakland',type:'text',placeholder:'community'};
+  //input value
+  userNamePara: string;
+  userPasswordPara: string;
+  userConPasswordPara: string;
+  blockPara: string;
+  familyPara: string;
+  firstNamePara: string;
+  lastNamePara: string;
+  midNamePara: string;
+  genderPara: string;
+  phonePara: string;
+  datePara: string;
+  addressOnePara: string;
+  addressTwoPara: string;
+  cityPara: string;
+  statePara: string;
+  zipcodePara: string;
+  racePara: string;
+  matrialPara: string;
+  empolymentPara: string;
+  educationPara: string;
   constructor(
     private fb:FormBuilder
   ){ }
@@ -99,4 +121,146 @@ export class CreateCMemComponent implements OnInit {
       employment:['',[Validators.required]]
     })
   }
+
+  getUserName(value:string){
+    if(value){
+      this.userNamePara = value;
+      console.log("username:"+this.userNamePara);
+    }
+  }
+
+  getUserPassword(value: string){
+    if(value){
+      this.userPasswordPara = value;
+      console.log("password:"+this.userPasswordPara);
+    }
+  }
+
+  getUserConPassword(value: string){
+    if(value){
+      this.userConPasswordPara = value;
+      console.log("password:"+this.userConPasswordPara);
+    }
+  }
+
+  getBlock(value:string){
+    if(value){
+      this.blockPara = value;
+      console.log("username:"+this.blockPara);
+    }
+  }
+
+  getFamily(value:string){
+    if(value){
+      this.familyPara = value;
+      console.log("username:"+this.familyPara);
+    }
+  }
+
+  getLastName(value:string){
+    if(value){
+      this.lastNamePara = value;
+      console.log("username:"+this.lastNamePara);
+    }
+  }
+
+  getFirstName(value:string){
+    if(value){
+      this.firstNamePara = value;
+      console.log("username:"+this.firstNamePara);
+    }
+  }
+
+  getMidName(value:string){
+    if(value){
+      this.midNamePara = value;
+      console.log("username:"+this.midNamePara);
+    }
+  }
+
+  getGender(value:string){
+    if(value){
+      this.genderPara = value;
+      console.log("username:"+this.genderPara);
+    }
+  }
+
+  getPhone(value:string){
+    if(value){
+      this.phonePara = value;
+      console.log("username:"+this.phonePara);
+    }
+  }
+
+  getDate(value:string){
+    if(value){
+      this.datePara = value;
+      console.log("username:"+this.datePara);
+    }
+  }
+
+  getAddressOne(value:string){
+    if(value){
+      this.addressOnePara = value;
+      console.log("username:"+this.addressOnePara);
+    }
+  }
+
+  getAddressTwo(value:string){
+    if(value){
+      this.addressTwoPara = value;
+      console.log("username:"+this.addressTwoPara);
+    }
+  }
+
+  getCity(value:string){
+    if(value){
+      this.cityPara = value;
+      console.log("username:"+this.cityPara);
+    }
+  }
+
+  getState(value:string){
+    if(value){
+      this.statePara = value;
+      console.log("username:"+this.statePara);
+    }
+  }
+
+  getZipcode(value:string){
+    if(value){
+      this.zipcodePara = value;
+      console.log("username:"+this.zipcodePara);
+    }
+  }
+
+  getRace(value:string){
+    if(value){
+      this.racePara = value;
+      console.log("username:"+this.racePara);
+    }
+  }
+
+  getMatrial(value:string){
+    if(value){
+      this.matrialPara = value;
+      console.log("username:"+this.matrialPara);
+    }
+  }
+
+  getEmployment(value:string){
+    if(value){
+      this.empolymentPara = value;
+      console.log("username:"+this.empolymentPara);
+    }
+  }
+
+  getEducation(value:string){
+    if(value){
+      this.educationPara = value;
+      console.log("username:"+this.educationPara);
+    }
+  }
+
+
 }

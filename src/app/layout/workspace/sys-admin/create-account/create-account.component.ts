@@ -28,6 +28,10 @@ export class CreateAccountComponent implements OnInit {
   public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
 
   //backend para
+  statePara: string;
+  userNamePara: string;
+  userPasswordPara: string;
+  userConPasswordPara: string;
 
   constructor(
     public fb: FormBuilder,
@@ -47,6 +51,34 @@ export class CreateAccountComponent implements OnInit {
       password:['',[Validators.required,ValidationService.passwordValidator]],
       confirmPassword: ['',[Validators.required,Validators.minLength(8)]]
     });
+  }
+
+  getState(value:string){
+    if(value){
+      this.statePara = value;
+      console.log("username:"+this.statePara);
+    }
+  }
+
+  getUserName(value:string){
+    if(value){
+      this.userNamePara = value;
+      console.log("username:"+this.userNamePara);
+    }
+  }
+
+  getUserPassword(value: string){
+    if(value){
+      this.userPasswordPara = value;
+      console.log("password:"+this.userPasswordPara);
+    }
+  }
+
+  getUserConPassword(value: string){
+    if(value){
+      this.userConPasswordPara = value;
+      console.log("password:"+this.userConPasswordPara);
+    }
   }
 
 }
