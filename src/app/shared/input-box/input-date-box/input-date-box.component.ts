@@ -1,19 +1,20 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormGroupDirective} from '@angular/forms';
 import { ValidationService} from '../../validation-service/validation.service';
 import { InputAttributes } from '../../shared-control/attributes'
 @Component({
-  selector: 'app-input-control-box',
-  templateUrl: './input-control-box.component.html',
-  styleUrls: ['./input-control-box.component.css']
+  selector: 'app-input-date-box',
+  templateUrl: './input-date-box.component.html',
+  styleUrls: ['./input-date-box.component.css']
 })
-export class InputControlBoxComponent implements OnInit {
+export class InputDateBoxComponent implements OnInit {
+
   @Input() attrContent : InputAttributes;
   @Output()  follow = new EventEmitter<string>();
 
   constructor(
     private formGroupDirective:FormGroupDirective
-  ){ }
+  ) { }
 
   ngOnInit() {
     this.valueChange()
@@ -40,4 +41,5 @@ export class InputControlBoxComponent implements OnInit {
   get control(){
     return this.formGroupDirective.form.controls[this.attrContent.name]
   }
+
 }

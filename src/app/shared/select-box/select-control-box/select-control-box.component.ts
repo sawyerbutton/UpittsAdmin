@@ -1,7 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit ,EventEmitter, Output} from '@angular/core';
 import { FormGroupDirective} from '@angular/forms';
-import { ValidationService} from '../../validation-service/validation.service';
+//import { ValidationService} from '../../validation-service/validation.service';
 import { SelectAttributes } from '../../shared-control/attributes'
+
+
 
 @Component({
   selector: 'app-select-control-box',
@@ -11,29 +13,38 @@ import { SelectAttributes } from '../../shared-control/attributes'
 export class SelectControlBoxComponent implements OnInit {
   @Input() attrContent : SelectAttributes;
 
-  @Output() selectVal = new EventEmitter<string>();
-  selectedValue: string;
+  @Output()  follow = new EventEmitter<string>();
 
-  onChange(value: string) {
-    this.selectVal.emit(value);
+  selectValue: string;
+  constructor(
+    private formGroupDirective:FormGroupDirective,
+  ) {
+    //this.valueChange()
   }
 
-
-  constructor(
-    private formGroupDirective:FormGroupDirective
-  ) { }
 
   ngOnInit() {
+    this.valueChange()
+  }
 
-  }
-  get errorMessage() {
-    for (let propertyName in this.control.errors) {
-      if (this.control.errors.hasOwnProperty(propertyName) && this.control.touched) {
-        return ValidationService.getValidatorErrorMessage(propertyName, this.control.errors[propertyName]);
+  valueChange(){
+    this.control.valueChanges.forEach(
+      (value:string) => {
+        this.follow.emit(value);
+        //console.log(value);
       }
-    return null;
-   }
+    );
   }
+
+  // get errorMessage() {
+  //   for (let propertyName in this.control.errors) {
+  //     if (this.control.errors.hasOwnProperty(propertyName) && this.control.touched) {
+  //       return ValidationService.getValidatorErrorMessage(propertyName, this.control.errors[propertyName]);
+  //     }
+  //   }
+  //
+  //   return null;
+  // }
 
   get control(){
     return this.formGroupDirective.form.controls[this.attrContent.name]

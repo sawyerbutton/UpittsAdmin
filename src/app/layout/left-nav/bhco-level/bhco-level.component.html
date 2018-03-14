@@ -30,8 +30,10 @@
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <mat-icon class="main-icon">assignment_ind</mat-icon> &nbsp;
+                <mat-icon class="main-icon">assignment_ind</mat-icon>
                 <span class="main-menu"> <h4> Demographic </h4> </span>
+                <!--<span class="main-menu"> <a routerLink="/demographic" routerLinkActive="active"> <h4> Demographic </h4> </a> </span>
+                <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>-->
               </mat-panel-title>
             </mat-expansion-panel-header>
             <button mat-menu-item color="white">
@@ -72,6 +74,7 @@
 
     <mat-sidenav-content>
       <!--<app-create-bhco></app-create-bhco>-->
+      <!--<router-outlet></router-outlet>-->
       <app-demographic [questions]="questions"></app-demographic>
       <!--<app-social-network></app-social-network>-->
       <!--<app-create-c-mem></app-create-c-mem>-->

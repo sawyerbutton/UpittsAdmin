@@ -52,16 +52,28 @@ import { SocialNetworkComponent } from './layout/workspace/bhco/social-network/s
 import { SocialNetworkAnswerGroupComponent } from './layout/workspace/bhco/social-network/social-network-answer-group/social-network-answer-group.component';
 
 // import route
-import { appRoutes } from './app.routes';
+//import { appRoutes } from './app.routes';
 
 // import directives
 import { EqualValidatorDirective } from './layout/workspace/equal-validator/equal-validator.directive';
 import { InputControlBoxComponent } from './shared/input-box/input-control-box/input-control-box.component';
 import { SelectControlBoxComponent } from './shared/select-box/select-control-box/select-control-box.component';
 import { DemoQuestionsComponent } from './layout/workspace/bhco/demographic/demo-questions/demo-questions.component';
-import {QuestionControlService} from './shared/shared-control/question-control.service';
-import {QuestionService} from './shared/shared-control/question.service';
+import { QuestionControlService} from './shared/shared-control/question-control.service';
+import { QuestionService} from './shared/shared-control/question.service';
 import { RadioControlBoxComponent } from './shared/radio-box/radio-control-box/radio-control-box.component';
+import { AppRoutingModule } from './/app-routing.module';
+import {BhcoModule} from './layout/left-nav/bhco-level/bhco.module';
+import {SharedModuleModule} from './shared/shared-module/shared-module.module';
+import { InputDateBoxComponent } from './shared/input-box/input-date-box/input-date-box.component';
+import { InputDefaultBoxComponent } from './shared/input-box/input-default-box/input-default-box.component';
+import {HeaderModule} from './layout/head-bar/header/header/header.module';
+import {UserInfoModule} from './layout/left-nav/user-info/user-info/user-info.module';
+import {InputControlBoxModule} from './shared/input-box/input-control-box/input-control-box.module';
+import {InputDefaultBoxModule} from './shared/input-box/input-default-box/input-default-box/input-default-box.module';
+import {SelectControlBoxModule} from './shared/select-box/select-control-box/select-control-box/select-control-box.module';
+import {InputDateBoxModule} from './shared/input-box/input-date-box/input-date-box.module';
+import {RadioControlBoxModule} from './shared/radio-box/radio-control-box/radio-control-box/radio-control-box.module';
 // import pipe
 
 
@@ -92,38 +104,28 @@ import { RadioControlBoxComponent } from './shared/radio-box/radio-control-box/r
     DemographicComponent,
     SocialNetworkComponent,
     SocialNetworkAnswerGroupComponent,
+    DemoQuestionsComponent,
     WorkspaceComponent,
     InputControlBoxComponent,
     SelectControlBoxComponent,
-    DemoQuestionsComponent,
-    RadioControlBoxComponent
-
+    RadioControlBoxComponent,
+    InputDateBoxComponent,
+    InputDefaultBoxComponent
   ],
   imports: [
-    BrowserModule,
     RouterModule,
-    RouterModule.forRoot(appRoutes),
-    MatButtonModule,
-    MatCardModule,
-    MatInputModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatStepperModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
+    //RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    MatExpansionModule,
-    MatDividerModule,
-    MatDatepickerModule,
-    MatChipsModule,
-    MatNativeDateModule,
-    MatProgressBarModule,
-    MatRadioModule
+    SharedModuleModule,
+    //HeaderModule,
+    //UserInfoModule,
+    //InputControlBoxModule,
+    //InputDefaultBoxModule,
+    //SelectControlBoxModule,
+    //InputDateBoxModule,
+    //RadioControlBoxModule,
+    //BhcoModule,
+    AppRoutingModule
   ],
   providers: [QuestionControlService, QuestionService],
   bootstrap: [AppComponent]
