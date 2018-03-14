@@ -60,6 +60,7 @@ import { InputControlBoxComponent } from './shared/input-box/input-control-box/i
 import { SelectControlBoxComponent } from './shared/select-box/select-control-box/select-control-box.component';
 import { InputDateBoxComponent } from './shared/input-box/input-date-box/input-date-box.component';
 import { InputDefaultBoxComponent } from './shared/input-box/input-default-box/input-default-box.component';
+import { InputCheckBoxComponent } from './shared/input-box/input-check-box/input-check-box.component';
 //import pipe
 
 @NgModule({
@@ -95,6 +96,7 @@ import { InputDefaultBoxComponent } from './shared/input-box/input-default-box/i
     AnalysisComponent,
     InputDateBoxComponent,
     InputDefaultBoxComponent,
+    InputCheckBoxComponent,
 
   ],
   imports: [

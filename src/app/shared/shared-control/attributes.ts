@@ -13,6 +13,11 @@ export interface defaultAttributes{
   placeholder: string;
 }
 
+export interface CheckAttributes{
+  name:string;
+  placeholder:string;
+}
+
 export interface SelectAttributes{
   name:string;
   roles: {};
@@ -135,4 +140,11 @@ export const Employment = [
   {value:'Student',viewValue:'Student'},
   {value:'Homemaker',viewValue:'Homemaker'},
   {value:'Retired',viewValue:'Retired'},
+];
+
+export const Relation = [
+  {value:'family',viewValue:'Family'},
+  {value:'friend',viewValue:'Friend'},
+  {value:'co-worker',viewValue:'Co-worker'},
+  {value:'other-Acquaintance',viewValue:'Other Acquaintance'}
 ];

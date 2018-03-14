@@ -25,7 +25,14 @@
             <div class="col-sm-12">
               <label> 1.Who positively impacts your life the most?</label>
             </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
+            <div class="full-width">
+              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberOne($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameOne($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameOne($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameOne($event)"></app-input-control-box>
+              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsOne($event)"></app-select-control-box>
+              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxOne($event)"></app-input-check-box>
+            </div>
             <div>
               <button mat-raised-button color="primary" matStepperNext>Next</button>
             </div>
@@ -39,7 +46,14 @@
             <div class="col-sm-12">
               <label> 2. Who do you spend most of your time with?</label>
             </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
+            <div class="full-width">
+              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberTwo($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameTwo($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameTwo($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameTwo($event)"></app-input-control-box>
+              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsTwo($event)"></app-select-control-box>
+              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxTwo($event)"></app-input-check-box>
+            </div>
             <div>
               <button mat-raised-button color="primary" matStepperNext>Next</button>
               <button mat-raised-button color="accent" matStepperPrevious>Back</button>
@@ -54,7 +68,14 @@
             <div class="col-sm-12">
               <label> 3. Who do you go for help?</label>
             </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
+            <div class="full-width">
+              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberThree($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameThree($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameThree($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameThree($event)"></app-input-control-box>
+              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsThree($event)"></app-select-control-box>
+              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxThree($event)"></app-input-check-box>
+            </div>
             <div>
               <button mat-raised-button color="primary" matStepperNext>Next</button>
               <button mat-raised-button color="accent" matStepperPrevious>Back</button>
@@ -69,7 +90,14 @@
             <div class="col-sm-12">
               <label> 4. Who typically inspires you?</label>
             </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
+            <div class="full-width">
+              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberFour($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameFour($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameFour($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameFour($event)"></app-input-control-box>
+              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsFour($event)"></app-select-control-box>
+              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxFour($event)"></app-input-check-box>
+            </div>
             <div>
               <button mat-raised-button color="primary" matStepperNext>Next</button>
               <button mat-raised-button color="accent" matStepperPrevious>Back</button>
@@ -84,8 +112,14 @@
             <div class="col-sm-12">
               <label> 5. Who do you get along with the best</label>
             </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
-
+            <div class="full-width">
+              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberFive($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameFive($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameFive($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameFive($event)"></app-input-control-box>
+              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsFive($event)"></app-select-control-box>
+              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxFive($event)"></app-input-check-box>
+            </div>
             <div>
               <button mat-raised-button color="primary" matStepperNext>Next</button>
               <button mat-raised-button color="accent" matStepperPrevious>Back</button>
@@ -101,8 +135,14 @@
             <div class="col-sm-12">
               <label> 6. Who has the most negative influence on you? </label>
             </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
-
+            <div class="full-width">
+              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberSix($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameSix($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameSix($event)"></app-input-control-box>
+              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameSix($event)"></app-input-control-box>
+              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsSix($event)"></app-select-control-box>
+              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxSix($event)"></app-input-check-box>
+            </div>
             <div>
               <button mat-raised-button color="primary" matStepperNext>Done</button>
               <button mat-raised-button color="accent" matStepperPrevious>Back</button>
