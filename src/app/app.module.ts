@@ -74,6 +74,8 @@ import {InputDefaultBoxModule} from './shared/input-box/input-default-box/input-
 import {SelectControlBoxModule} from './shared/select-box/select-control-box/select-control-box/select-control-box.module';
 import {InputDateBoxModule} from './shared/input-box/input-date-box/input-date-box.module';
 import {RadioControlBoxModule} from './shared/radio-box/radio-control-box/radio-control-box/radio-control-box.module';
+import { PhysicalDomainComponent } from './layout/workspace/bhco/questionnaire/physical-domain/physical-domain.component';
+import { SinglePhyQuestionComponent } from './layout/workspace/bhco/questionnaire/physical-domain/single-phy-question/single-phy-question.component';
 // import pipe
 
 
@@ -110,7 +112,9 @@ import {RadioControlBoxModule} from './shared/radio-box/radio-control-box/radio-
     SelectControlBoxComponent,
     RadioControlBoxComponent,
     InputDateBoxComponent,
-    InputDefaultBoxComponent
+    InputDefaultBoxComponent,
+    PhysicalDomainComponent,
+    SinglePhyQuestionComponent
   ],
   imports: [
     RouterModule,

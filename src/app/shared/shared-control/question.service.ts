@@ -5,6 +5,419 @@ import { TextboxQuestion } from './questionBase';
 
 @Injectable()
 export class QuestionService {
+  getHealthq() {
+    let question: QuestionBase<any>[] = [
+      new RadioQuestion({
+        key: 'q1',
+        label: '1. How would you rate your overall health on a scale of 1(very poor health) - 4(excellent health)?',
+        options: [
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+        ],
+        order: 1,
+        domain: 'physical',
+        subdomain: 'health'
+      }),
+      new RadioQuestion({
+        key: 'q2',
+        label: '2. To what extent do you feel that physical pain prevents you from what you need to do?',
+        options: [
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'},
+          {value: '8'},
+        ],
+        order: 2,
+        domain: 'physical',
+        subdomain: 'health',
+      }),
+      new RadioQuestion({
+        key: 'q3',
+        label: '3. Do you have enough energy for everyday activities?',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 3,
+        domain: 'physical',
+        subdomain: 'health'
+      }),
+      new RadioQuestion({
+        key: 'q4',
+        label: '4. Do you take prescribed medications? (If no, skip the next question)',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 4,
+        domain: 'physical',
+        subdomain: 'health'
+      }),
+      new RadioQuestion({
+        key: 'q5',
+        label: '5. Are there times when you do not take your prescribed meds when you are supposed to? (due to cost, access, etc.)?',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 5,
+        domain: 'physical',
+        subdomain: 'health'
+      }),
+      new RadioQuestion({
+        key: 'q6',
+        label: '6. Do you feel rested upon awaking? ',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 6,
+        domain: 'physical',
+        subdomain: 'health'
+      }),
+      new RadioQuestion({
+        key: 'q7',
+        label: '7. Is your sleep interrupted?',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 7,
+        domain: 'physical',
+        subdomain: 'health'
+      }),
+      new RadioQuestion({
+        key: 'q8',
+        label: '8. Do you have nightmares?',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 8,
+        domain: 'physical',
+        subdomain: 'health'
+      }),
+      new RadioQuestion({
+        key: 'q9',
+        label: '9. In the last month, how often have you felt stressed?',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'},
+          {value: '8'},
+          {value: '9'}
+        ],
+        order: 9,
+        domain: 'physical',
+        subdomain: 'health'
+      })
+    ];
+    return question.sort((a, b) => a.order - b.order);
+  }
+
+  getDrugq() {
+    let question: QuestionBase<any>[] = [
+      new RadioQuestion({
+        key: 'q10',
+        label: '10. Do you have difficulty performing daily tasks?  (For example, cooking, bathing, getting dressed?)',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 10,
+        domain: 'physical',
+        subdomain: 'mobility'
+      }),
+      new RadioQuestion({
+        key: 'q11',
+        label: '11. Have you found that you are doing tasks less frequently?',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 11,
+        domain: 'physical',
+        subdomain: 'mobility'
+      }),
+      new RadioQuestion({
+        key: 'q12',
+        label: '12. Have you found that you are doing tasks in a different way than you used to do them?',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 12,
+        domain: 'physical',
+        subdomain: 'mobility'
+      }),
+      new RadioQuestion({
+        key: 'q13',
+        label: '13. How satisfied are you with your ability to ambulate or move around?',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'},
+          {value: '8'},
+          {value: '9'}
+        ],
+        order: 13,
+        domain: 'physical',
+        subdomain: 'mobility'
+      }),
+      new RadioQuestion({
+        key: 'q14',
+        label: '14. Are you able to run errands and shop without assistance?',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 14,
+        domain: 'physical',
+        subdomain: 'mobility'
+      }),
+      new RadioQuestion({
+        key: 'q15',
+        label: '15. How many times a week do you exercise moderately? ',
+        description: 'Example from the American Heart Association include:' +
+        'Walking briskly(3 miles per hour or faster, but not race-walking), Water aerobic, Bicycling slower than 10 miled per hour,' +
+        'Tennis(doubles), Ballroom dancing, General gardening',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'}
+        ],
+        order: 15,
+        domain: 'physical',
+        subdomain: 'mobility'
+      }),
+      new RadioQuestion({
+        key: 'q16',
+        label: '16. How many times a week do you exercise vigorously? ',
+        description: 'Example from the American Heart Association include:' +
+        'Walking briskly(3 miles per hour or faster, but not race-walking), Water aerobic, Bicycling slower than 10 miled per hour,' +
+        'Tennis(doubles), Ballroom dancing, General gardening',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'}
+        ],
+        order: 16,
+        domain: 'physical',
+        subdomain: 'mobility'
+      })
+    ];
+    return question.sort((a, b) => a.order - b.order);
+  }
+
+  getFoodQuestions() {
+    let physicalQuestion: QuestionBase<any>[] = [
+      new RadioQuestion({
+        key: 'q17',
+        label: '17. Do you smoke cigarettes? (If no, skip the next question)',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 17,
+        domain: 'physical',
+        subdomain: 'drug'
+      }),
+      new RadioQuestion({
+        key: 'q18',
+        label: '18. If you do smoke, how many cigarettes do you smoke in one day?',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'},
+          {value: '8'},
+          {value: '9'}
+        ],
+        order: 18,
+        domain: 'physical',
+        subdomain: 'drug'
+      }),
+      new RadioQuestion({
+        key: 'q19',
+        label: '19. Do you currently use chewing tobacco, (snuff)?',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 19,
+        domain: 'physical',
+        subdomain: 'drug'
+      }),
+      new RadioQuestion({
+        key: 'q20',
+        label: '20. How many drinks do you have in a week?',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'},
+          {value: '8'},
+        ],
+        order: 20,
+        domain: 'physical',
+        subdomain: 'drug'
+      }),
+      new RadioQuestion({
+        key: 'q21',
+        label: '21. How many drinks do you have at one time?',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'},
+          {value: '8'},
+        ],
+        order: 21,
+        domain: 'physical',
+        subdomain: 'drug'
+      }),
+      new RadioQuestion({
+        key: 'q22',
+        label: '22. Do you smoke marijuana? (If no, skip the next question)',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 22,
+        domain: 'physical',
+        subdomain: 'drug'
+      }),
+      new RadioQuestion({
+        key: 'q23',
+        label: '23. How many times in a week do you smoke marijuana? ',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'},
+          {value: '8'},
+        ],
+        order: 23,
+        domain: 'physical',
+        subdomain: 'drug'
+      }),
+      new RadioQuestion({
+        key: 'q24',
+        label: '24. Do you use any other recreational drugs (including drugs prescribed for other people)?   (If no, skip the next question)?',
+        options: [
+          {value: 'Yes'},
+          {value: 'No'}
+        ],
+        order: 24,
+        domain: 'physical',
+        subdomain: 'drug'
+      }),
+      new RadioQuestion({
+        key: 'q25',
+        label: '25. How often do you use/take the drug(s)in a week? ',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'},
+          {value: '8'}
+        ],
+        order: 25,
+        domain: 'physical',
+        subdomain: 'drug'
+      }),
+      //subdomain 3 food
+      new RadioQuestion({
+        key: 'q26',
+        label: '26. How many meals a day do you eat?',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'},
+          {value: '8'},
+          {value: '9'},
+          {value: '10'}
+        ],
+        order: 26,
+        domain: 'physical',
+        subdomain: 'food'
+      }),
+      new RadioQuestion({
+        key: 'q28',
+        label: '28. How many glasses of water do you drink per day?',
+        options: [
+          {value: '0'},
+          {value: '1'},
+          {value: '2'},
+          {value: '3'},
+          {value: '4'},
+          {value: '5'},
+          {value: '6'},
+          {value: '7'},
+          {value: '8'},
+          {value: '9'},
+          {value: '10'}
+        ],
+        order: 28,
+        domain: 'physical',
+        subdomain: 'food'
+      })
+    ];
+    return physicalQuestion.sort((a, b) => a.order - b.order);
+  }
+
+
   getQuestions() {
     let questions: QuestionBase<any>[] = [
       new DropdownQuestion({

@@ -5,6 +5,9 @@ export class QuestionBase<T> {
   required: boolean;
   order: number;
   controlType: string;
+  domain: string;
+  subdomain: string;
+  description: string;
   constructor(options: {
     value?: T,
     key?: string,
@@ -12,6 +15,9 @@ export class QuestionBase<T> {
     required?: boolean,
     order?: number,
     controlType?: string
+    domain?: string,
+    subdomain?: string,
+    description?: string
   } = {}) {
     this.value = options.value;
     this.key = options.key || '';
@@ -19,6 +25,9 @@ export class QuestionBase<T> {
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;
     this.controlType = options.controlType || '';
+    this.domain = options.domain || '';
+    this.subdomain = options.subdomain || '';
+    this.description = options.description || ''
   }
 }
 
@@ -49,3 +58,4 @@ export class DropdownQuestion extends QuestionBase<string> {
     this.options = options['options'] || [];
   }
 }
+

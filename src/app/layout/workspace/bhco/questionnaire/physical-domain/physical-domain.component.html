@@ -1,0 +1,66 @@
+<div class="workspace-container mid-position">
+  <h3 class="workspace-title">Demographic</h3>
+  <mat-card class="com-member-info">
+    <mat-card-header>
+      <div class="col-sm-12">
+        <p class="com-member-detail">Community Member: <b class="com-member-detail-item"> John Smith </b></p>
+        <p class="com-member-detail">Gender: <b class="com-member-detail-item"> Male </b></p>
+        <p class="com-member-detail">DOB: <b class="com-member-detail-item"> 03-22-2018 </b></p>
+      </div>
+    </mat-card-header>
+  </mat-card>
+  <mat-toolbar class="full-width"><mat-progress-bar class="full-width" mode="determinate" value="40"></mat-progress-bar></mat-toolbar>
+
+  <mat-card class="system-card">
+    <mat-card-header >
+      <div class="col-sm-12">
+        <mat-card-title>Physical Domain Questionnaire</mat-card-title>
+      </div>
+    </mat-card-header>
+    <mat-divider> </mat-divider>
+    <mat-card-content>
+      <br>
+
+      <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="form">
+            <ng-template matStepLabel>Health Subdomain (9)</ng-template>
+            <div *ngFor="let question of healthQuestions" class="col-sm-12">
+              <app-demo-questions [question]="question" [form]="form"></app-demo-questions>
+            </div>
+            <div class="col-sm-12">
+              <button type="submit" [disabled]="!form.valid"  matStepperNext mat-raised-button color="primary">Next</button>
+              <button mat-raised-button color="accent">Reset</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="form">
+            <ng-template matStepLabel>Drug and Alcohol Subdomain (9)</ng-template>
+            <div *ngFor="let question of drugQuestions" class="col-sm-12">
+              <app-demo-questions [question]="question" [form]="form"></app-demo-questions>
+            </div>
+            <div class="col-sm-12">
+              <button type="submit" [disabled]="!form.valid"  matStepperNext mat-raised-button color="primary">Next</button>
+              <button mat-raised-button matStepperPrevious color="accent">Back</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <form (ngSubmit)="onSubmit()" [formGroup]="form">
+            <ng-template matStepLabel>Food Subdomain (9)</ng-template>
+            <div *ngFor="let question of foodQuestions" class="col-sm-12">
+              <app-demo-questions [question]="question" [form]="form"></app-demo-questions>
+            </div>
+            <div class="col-sm-12">
+              <button type="submit" [disabled]="!form.valid"  matStepperNext mat-raised-button color="primary">Submit</button>
+              <button mat-raised-button color="accent">Reset</button>
+            </div>
+          </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+
+
+    </mat-card-content>
+  </mat-card>
+</div>
