@@ -11,12 +11,14 @@ export class BhcoLevelComponent implements OnInit {
   foodQuestion: any[];
   drugQuestion: any[];
   healthQuestion: any[];
+  mobilityQuestion: any[];
 
   constructor(service: QuestionService) {
     //this.questions = service.getQuestions();
-    this.foodQuestion = service.getFoodQuestions();
+    this.foodQuestion = service.getFoodq();
     this.drugQuestion = service.getDrugq();
     this.healthQuestion = service.getHealthq();
+    this.mobilityQuestion = service.getMobilityq();
   }
 
   ngOnInit() {

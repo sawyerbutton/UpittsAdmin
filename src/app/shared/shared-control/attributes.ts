@@ -11,6 +11,11 @@ export interface InputAttributes {
   type: string;
 }
 
+export interface CheckAttributes{
+  name:string;
+  placeholder:string;
+}
+
 export interface defaultAttributes{
   name:string;
   value:string;

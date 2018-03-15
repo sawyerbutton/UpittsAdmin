@@ -126,7 +126,7 @@ export class QuestionService {
     return question.sort((a, b) => a.order - b.order);
   }
 
-  getDrugq() {
+  getMobilityq() {
     let question: QuestionBase<any>[] = [
       new RadioQuestion({
         key: 'q10',
@@ -235,7 +235,7 @@ export class QuestionService {
     return question.sort((a, b) => a.order - b.order);
   }
 
-  getFoodQuestions() {
+  getDrugq() {
     let physicalQuestion: QuestionBase<any>[] = [
       new RadioQuestion({
         key: 'q17',
@@ -371,8 +371,14 @@ export class QuestionService {
         order: 25,
         domain: 'physical',
         subdomain: 'drug'
-      }),
+      })
       //subdomain 3 food
+    ];
+    return physicalQuestion.sort((a, b) => a.order - b.order);
+  }
+
+  getFoodq() {
+    let questions: QuestionBase<any>[] = [
       new RadioQuestion({
         key: 'q26',
         label: '26. How many meals a day do you eat?',
@@ -414,9 +420,8 @@ export class QuestionService {
         subdomain: 'food'
       })
     ];
-    return physicalQuestion.sort((a, b) => a.order - b.order);
+    return questions.sort((a, b) => a.order - b.order);
   }
-
 
   getQuestions() {
     let questions: QuestionBase<any>[] = [

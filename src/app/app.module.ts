@@ -12,7 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatIconModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material';
@@ -76,6 +76,7 @@ import {InputDateBoxModule} from './shared/input-box/input-date-box/input-date-b
 import {RadioControlBoxModule} from './shared/radio-box/radio-control-box/radio-control-box/radio-control-box.module';
 import { PhysicalDomainComponent } from './layout/workspace/bhco/questionnaire/physical-domain/physical-domain.component';
 import { SinglePhyQuestionComponent } from './layout/workspace/bhco/questionnaire/physical-domain/single-phy-question/single-phy-question.component';
+import { InputCheckBoxComponent } from './shared/input-box/input-check-box/input-check-box.component';
 // import pipe
 
 
@@ -114,10 +115,12 @@ import { SinglePhyQuestionComponent } from './layout/workspace/bhco/questionnair
     InputDateBoxComponent,
     InputDefaultBoxComponent,
     PhysicalDomainComponent,
-    SinglePhyQuestionComponent
+    SinglePhyQuestionComponent,
+    InputCheckBoxComponent
   ],
   imports: [
     RouterModule,
+    FormsModule,
     //RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     SharedModuleModule,
