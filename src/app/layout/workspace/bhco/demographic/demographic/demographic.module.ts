@@ -7,7 +7,7 @@ import {RadioControlBoxModule} from '../../../../../shared/radio-box/radio-contr
 import {demographicRoutes} from '../demographic.routes';
 import {RouterModule} from '@angular/router';
 import {DemographicComponent} from '../demographic.component';
-import {DemoQuestionsComponent} from '../demo-questions/demo-questions.component';
+import {DemoQuestionComponent} from '../demo-question/demo-question.component';
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import {DemoQuestionsComponent} from '../demo-questions/demo-questions.component
   ],
   declarations: [
     DemographicComponent,
-    DemoQuestionsComponent
+    DemoQuestionComponent
   ]
 })
 export class DemographicModule { }

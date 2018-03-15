@@ -26,7 +26,7 @@
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Health Subdomain (9)</ng-template>
             <div *ngFor="let question of health" class="col-sm-12">
-              <app-demo-questions [question]="question" [form]="firstFormGroup"></app-demo-questions>
+              <app-demo-question [question]="question" [form]="firstFormGroup"></app-demo-question>
             </div>
             <div class="col-sm-12">
               <button type="submit" [disabled]="!firstFormGroup.valid"  matStepperNext mat-raised-button color="primary">Next</button>
@@ -38,7 +38,7 @@
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Mobility Subdomain (9)</ng-template>
           <div *ngFor="let question of mobility" class="col-sm-12">
-            <app-demo-questions [question]="question" [form]="secondFormGroup"></app-demo-questions>
+            <app-demo-question [question]="question" [form]="secondFormGroup"></app-demo-question>
           </div>
           <div class="col-sm-12">
             <button type="submit" [disabled]="!secondFormGroup.valid"  matStepperNext mat-raised-button color="primary">Next</button>
@@ -51,7 +51,7 @@
           <form [formGroup]="thirdFormGroup">
             <ng-template matStepLabel>Drug and Alcolhol Subdomain (9)</ng-template>
             <div *ngFor="let question of drug" class="col-sm-12">
-              <app-demo-questions [question]="question" [form]="thirdFormGroup"></app-demo-questions>
+              <app-demo-question [question]="question" [form]="thirdFormGroup"></app-demo-question>
             </div>
             <div class="col-sm-12">
               <button type="submit" [disabled]="!thirdFormGroup.valid"  matStepperNext mat-raised-button color="primary">Next</button>
@@ -64,7 +64,7 @@
           <form (ngSubmit)="onSubmit()" [formGroup]="forthFormGroup">
             <ng-template matStepLabel>Food Subdomain (9)</ng-template>
             <div *ngFor="let question of food" class="col-sm-12">
-              <app-demo-questions [question]="question" [form]="forthFormGroup"></app-demo-questions>
+              <app-demo-question [question]="question" [form]="forthFormGroup"></app-demo-question>
             </div>
             <div class="col-sm-12">
               <button type="submit" [disabled]="!forthFormGroup.valid"  matStepperNext mat-raised-button color="primary">Submit</button>

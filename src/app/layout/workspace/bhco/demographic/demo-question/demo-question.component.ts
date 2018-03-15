@@ -4,11 +4,11 @@ import { FormGroup } from '@angular/forms';
 import {InputAttributes, RadioAttributes, SelectAttributes} from '../../../../../shared/shared-control/attributes';
 
 @Component({
-  selector: 'app-demo-questions',
-  templateUrl: './demo-questions.component.html',
-  styleUrls: ['./demo-questions.component.css']
+  selector: 'app-demo-question',
+  templateUrl: './demo-question.component.html',
+  styleUrls: ['./demo-question.component.css']
 })
-export class DemoQuestionsComponent implements OnInit {
+export class DemoQuestionComponent implements OnInit {
   @Input() question: QuestionBase<any>;
   @Input() form: FormGroup;
 

@@ -58,7 +58,7 @@ import { SocialNetworkAnswerGroupComponent } from './layout/workspace/bhco/socia
 import { EqualValidatorDirective } from './layout/workspace/equal-validator/equal-validator.directive';
 import { InputControlBoxComponent } from './shared/input-box/input-control-box/input-control-box.component';
 import { SelectControlBoxComponent } from './shared/select-box/select-control-box/select-control-box.component';
-import { DemoQuestionsComponent } from './layout/workspace/bhco/demographic/demo-questions/demo-questions.component';
+
 import { QuestionControlService} from './shared/shared-control/question-control.service';
 import { QuestionService} from './shared/shared-control/question.service';
 import { RadioControlBoxComponent } from './shared/radio-box/radio-control-box/radio-control-box.component';
@@ -75,8 +75,8 @@ import {SelectControlBoxModule} from './shared/select-box/select-control-box/sel
 import {InputDateBoxModule} from './shared/input-box/input-date-box/input-date-box.module';
 import {RadioControlBoxModule} from './shared/radio-box/radio-control-box/radio-control-box/radio-control-box.module';
 import { PhysicalDomainComponent } from './layout/workspace/bhco/questionnaire/physical-domain/physical-domain.component';
-import { SinglePhyQuestionComponent } from './layout/workspace/bhco/questionnaire/physical-domain/single-phy-question/single-phy-question.component';
 import { InputCheckBoxComponent } from './shared/input-box/input-check-box/input-check-box.component';
+import { DemoQuestionComponent } from './layout/workspace/bhco/demographic/demo-question/demo-question.component';
 // import pipe
 
 
@@ -107,7 +107,6 @@ import { InputCheckBoxComponent } from './shared/input-box/input-check-box/input
     DemographicComponent,
     SocialNetworkComponent,
     SocialNetworkAnswerGroupComponent,
-    DemoQuestionsComponent,
     WorkspaceComponent,
     InputControlBoxComponent,
     SelectControlBoxComponent,
@@ -115,8 +114,8 @@ import { InputCheckBoxComponent } from './shared/input-box/input-check-box/input
     InputDateBoxComponent,
     InputDefaultBoxComponent,
     PhysicalDomainComponent,
-    SinglePhyQuestionComponent,
-    InputCheckBoxComponent
+    InputCheckBoxComponent,
+    DemoQuestionComponent
   ],
   imports: [
     RouterModule,
