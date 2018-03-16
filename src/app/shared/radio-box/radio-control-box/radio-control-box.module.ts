@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {SharedModuleModule} from '../../../shared-module/shared-module.module';
-import {RadioControlBoxComponent} from '../radio-control-box.component';
+import {SharedModuleModule} from '../../shared-module/shared-module.module';
+import {RadioControlBoxComponent} from './radio-control-box.component';
 
 @NgModule({
   imports: [
@@ -9,6 +9,9 @@ import {RadioControlBoxComponent} from '../radio-control-box.component';
     SharedModuleModule
   ],
   declarations: [
+    RadioControlBoxComponent
+  ],
+  exports: [
     RadioControlBoxComponent
   ]
 })

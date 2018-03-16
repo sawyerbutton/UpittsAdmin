@@ -23,7 +23,7 @@
             </mat-expansion-panel-header>
             <button mat-menu-item color="white">
               <mat-icon>thumbs_up_down</mat-icon>
-              <span>Social Network</span>
+              <span><a routerLink="socialNetwork" routerLinkActive="active">Social Network</a></span>
             </button>
           </mat-expansion-panel>
 
@@ -51,7 +51,7 @@
             </mat-expansion-panel-header>
             <button mat-menu-item color="white">
               <mat-icon>assignment</mat-icon>
-              <span>Questionnaire</span>
+              <span><a routerLink="questionnaire" routerLinkActive="active">Physical</a></span>
             </button>
           </mat-expansion-panel>
 
@@ -73,13 +73,9 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <!--<app-create-bhco></app-create-bhco>-->
-      <!--<router-outlet></router-outlet>-->
       <!--<app-demographic [questions]="questions"></app-demographic>-->
-      <app-physical-domain [health]="healthQuestion" [drug]="drugQuestion" [food]="foodQuestion" [mobility]="mobilityQuestion"></app-physical-domain>
-      <!--<app-social-network></app-social-network>-->
-      <!--<app-create-c-mem></app-create-c-mem>-->
-
+      <router-outlet></router-outlet>
+      <!--<app-physical-domain [health]="healthQuestion" [drug]="drugQuestion" [food]="foodQuestion" [mobility]="mobilityQuestion"></app-physical-domain>-->
     </mat-sidenav-content>
 
   </mat-sidenav-container>

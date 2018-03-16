@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {InputCheckBoxComponent} from './input-check-box.component';
 import {SharedModuleModule} from '../../shared-module/shared-module.module';
-import {InputDateBoxComponent} from './input-date-box.component';
 
 @NgModule({
   imports: [
@@ -9,10 +9,10 @@ import {InputDateBoxComponent} from './input-date-box.component';
     SharedModuleModule
   ],
   declarations: [
-    InputDateBoxComponent
+    InputCheckBoxComponent
   ],
   exports: [
-    InputDateBoxComponent
+    InputCheckBoxComponent
   ]
 })
-export class InputDateBoxModule { }
+export class InputCheckBoxModule { }

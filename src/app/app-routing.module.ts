@@ -14,6 +14,10 @@ import {SysLevelComponent} from './layout/left-nav/sys-level/sys-level.component
 import {BhcoLevelComponent} from './layout/left-nav/bhco-level/bhco-level.component';
 import {LoginComponent} from './login/login.component';
 import {BhcoModule} from './layout/left-nav/bhco-level/bhco.module';
+import {ComLevelModule} from './layout/left-nav/com-level/com-level.module';
+import {StaLevelModule} from './layout/left-nav/sta-level/sta-level.module';
+import {SysLevelModule} from './layout/left-nav/sys-level/sys-level.module';
+import {MemLevelModule} from './layout/left-nav/mem-level/mem-level.module';
 
 
 export const appRoutes = [
@@ -52,24 +56,23 @@ export const appRoutes = [
   },
   {
     path: 'SysDashboard',
-    component: SysLevelComponent
+    loadChildren: './layout/left-nav/sys-level/sys-level.module#SysLevelModule'
   },
   {
     path: 'StateDashboard',
-    component: StaLevelComponent
+    loadChildren: './layout/left-nav/sta-level/sta-level.module#StaLevelModule'
   },
   {
     path: 'CommunityDashboard',
-    component: ComLevelComponent
+    loadChildren: './layout/left-nav/com-level/com-level.module#ComLevelModule'
   },
   {
     path: 'BhcoDashboard',
-    component: BhcoLevelComponent
-    //loadChildren: './layout/left-nav/bhco-level/bhco.module#BhcoModule'
+    loadChildren: './layout/left-nav/bhco-level/bhco.module#BhcoModule'
   },
   {
     path: 'MemberDashboard',
-    component: MemLevelComponent
+    loadChildren: './layout/left-nav/mem-level/mem-level.module#MemLevelModule'
   }
 ];
 

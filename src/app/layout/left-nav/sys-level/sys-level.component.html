@@ -23,7 +23,7 @@
             </mat-expansion-panel-header>
             <button mat-menu-item color="white">
               <mat-icon>account_box</mat-icon>
-              <span>State Admin</span>
+              <span><a routerLink="createAccount" routerLinkActive="active"> State Admin</a></span>
             </button>
           </mat-expansion-panel>
 
@@ -36,7 +36,7 @@
             </mat-expansion-panel-header>
             <button mat-menu-item color="white">
               <mat-icon>assessment</mat-icon>
-              <span>Assessment</span>
+              <span><a routerLink="analysis" routerLinkActive="active">Assessment</a></span>
             </button>
           </mat-expansion-panel>
         </mat-accordion>
@@ -45,11 +45,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <app-create-account></app-create-account>
-      <!--<app-create-bhco></app-create-bhco>-->
-      <!--<app-demographic [questions]="questions"></app-demographic>-->
-      <!--<app-social-network></app-social-network>-->
-      <!--<app-create-c-mem></app-create-c-mem>-->
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
 
   </mat-sidenav-container>

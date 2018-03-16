@@ -23,7 +23,7 @@
             </mat-expansion-panel-header>
             <button mat-menu-item color="white">
               <mat-icon>account_box</mat-icon>
-              <span>Com-Admin</span>
+              <span><a routerLink="createCom" routerLinkActive="active">Com-Admin</a></span>
             </button>
           </mat-expansion-panel>
 
@@ -46,10 +46,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <app-create-com></app-create-com>
-      <!--<app-create-bhco></app-create-bhco>-->
-      <!--<app-social-network></app-social-network>-->
-      <!--<app-create-c-mem></app-create-c-mem>-->
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
 
   </mat-sidenav-container>

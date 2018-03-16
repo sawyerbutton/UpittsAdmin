@@ -23,11 +23,15 @@
             </mat-expansion-panel-header>
             <button mat-menu-item color="white">
               <mat-icon>account_box</mat-icon>
-              <span>BHCO</span>
+              <span><a routerLink="create-bhco" routerLinkActive="active">BHCO</a></span>
             </button>
             <button mat-menu-item color="white">
               <mat-icon>account_box</mat-icon>
-              <span>Com-Member</span>
+              <span><a routerLink="create-c-mem" routerLinkActive="active">Community Member</a></span>
+            </button>
+            <button mat-menu-item color="white">
+              <mat-icon>account_box</mat-icon>
+              <span><a routerLink="create-family" routerLinkActive="active">Family</a></span>
             </button>
           </mat-expansion-panel>
 
@@ -63,10 +67,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <!--<app-create-bhco></app-create-bhco>-->
-      <!--app-create-bhco></app-create-bhco>-->
-      <!--<app-social-network></app-social-network>-->
-      <app-create-c-mem></app-create-c-mem>
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
 
   </mat-sidenav-container>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {SharedModuleModule} from '../../../../shared/shared-module/shared-module.module';
-import {UserInfoComponent} from '../user-info.component';
+import {SharedModuleModule} from '../../../shared/shared-module/shared-module.module';
+import {UserInfoComponent} from './user-info.component';
 
 @NgModule({
   imports: [
@@ -9,6 +9,9 @@ import {UserInfoComponent} from '../user-info.component';
     SharedModuleModule
   ],
   declarations: [
+    UserInfoComponent
+  ],
+  exports: [
     UserInfoComponent
   ]
 })

@@ -10,6 +10,9 @@ import {InputControlBoxComponent} from './input-control-box.component';
   ],
   declarations: [
     InputControlBoxComponent
+  ],
+  exports:[
+    InputControlBoxComponent
   ]
 })
 export class InputControlBoxModule { }
