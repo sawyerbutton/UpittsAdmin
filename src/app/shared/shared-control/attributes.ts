@@ -1,3 +1,8 @@
+export interface RadioAttributes{
+  name: string;
+  options: {};
+}
+
 export interface InputAttributes {
   name:string;
   min:Number;
