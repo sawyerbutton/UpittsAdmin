@@ -1,17 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { comUser } from './comUser-model'
-import { Router } from '@angular/router';
+import { SelectAttributes} from '../../../../shared/shared-control/attributes';
+import { InputAttributes } from '../../../../shared/shared-control/attributes';
+import { ValidationService} from '../../../../shared/validation-service/validation.service';
+import { States } from '../../../../shared/shared-control/attributes';
 
-const States = [
-  'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
-  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-  'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-  'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico',
-  'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-  'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-];
 
 @Component({
   selector: 'app-create-com',
@@ -19,31 +12,30 @@ const States = [
   styleUrls: ['./create-com.component.css']
 })
 export class CreateComComponent implements OnInit {
+  //state import
   public states = States;
-  public userInfo: comUser = new comUser();
-  public userForm: FormGroup;
+  //default value of stepper
   public isLinear = true;
+  //initialize the formGroup
+  public userForm: FormGroup;
   public communityGroup: FormGroup;
-  public formErrors = {
-    'userName': '',
-    'password': '',
-    'confirmPassword': '',
-  };
-  public validationMessages = {
-    'userName': {
-      'required': 'UserName must input.',
-      'minlength': 'UserName must be in 4-32 characters.'
-    },
-    'password': {
-      'required': 'Password must input',
-      'minlength': 'Password must be greater than 8 characters. '
-    },
-    'confirmPassword': {
-      'required': 'ConfirmPassword must be input.',
-      'minlength': 'Password must be greater than 8 characters. ',
-      'validateEqual': 'Password and ConfirmPassword must be same. '
-    }
-  };
+  //validator para
+  public selectStates : SelectAttributes = {name:'state',roles:this.states,placeholder:'state'};
+  public selectCounty: SelectAttributes = {name:'county',roles:this.states,placeholder:'county'};
+  public selectCity: SelectAttributes = {name:'city',roles:this.states,placeholder:'city'};
+  public selectCommunity: SelectAttributes = {name:'community',roles:this.states,placeholder:'community'};
+  public userName : InputAttributes = {name:'username',min:4,max:32,placeholder:'username', type: 'text'};
+  public passWord: InputAttributes = {name:'password',min:8,max:32,placeholder:'password',type:'password'};
+  public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
+  //input value
+  statePara: string;
+  countyPara: string;
+  cityPara: string;
+  communityPara: string;
+  userNamePara: string;
+  userPasswordPara: string;
+  userConPasswordPara: string;
+
   constructor(
     private fb: FormBuilder
   ) { }
@@ -54,54 +46,64 @@ export class CreateComComponent implements OnInit {
 
   buildForm(): void {
     this.communityGroup = this.fb.group({
-      state: ['', Validators.required],
-      county: ['', Validators.required],
-      city: ['', Validators.required],
-      community: ['', Validators.required]
+      state: ['', [Validators.required]],
+      county:['',[Validators.required]],
+      city:['',[Validators.required]],
+      community:['',[Validators.required]]
     });
     this.userForm = this.fb.group({
-      "userName": [
-        this.userInfo.userName,
-        [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(32)
-        ]
-      ],
-      "password": [
-        this.userInfo.password,
-        [
-          Validators.required,
-          Validators.minLength(8),
-        ]
-      ],
-      "confirmPassword": [
-        this.userInfo.confirmPassword,
-        [
-          Validators.required,
-          Validators.minLength(8)
-        ]
-      ],
+      username:['',[ Validators.required,Validators.minLength(4)]],
+      password:['',[Validators.required,ValidationService.passwordValidator]],
+      confirmPassword: ['',[Validators.required,Validators.minLength(8)]]
     });
-    this.userForm.valueChanges
-      .subscribe(data => this.onValueChanged(data));
-    this.onValueChanged();
   }
 
-  onValueChanged(data?: any) {
-    if (!this.userForm) {
-      return;
+  getState(value:string){
+    if(value){
+      this.statePara = value;
+      console.log("username:"+this.statePara);
     }
-    const form = this.userForm;
-    for (const field in this.formErrors) {
-      this.formErrors[field] = '';
-      const control = form.get(field);
-      if (control && control.dirty && !control.valid) {
-        const messages = this.validationMessages[field];
-        for (const key in control.errors) {
-          this.formErrors[field] += messages[key] + ' ';
-        }
-      }
+  }
+
+  getCounty(value:string){
+    if(value){
+      this.countyPara = value;
+      console.log("username:"+this.countyPara);
+    }
+  }
+
+  getCity(value:string){
+    if(value){
+      this.cityPara = value;
+      console.log("username:"+this.cityPara);
+    }
+  }
+
+  getCommunity(value:string){
+    if(value){
+      this.communityPara = value;
+      console.log("username:"+this.communityPara);
+    }
+  }
+
+  getUserName(value:string){
+    if(value){
+      this.userNamePara = value;
+      console.log("username:"+this.userNamePara);
+    }
+  }
+
+  getUserPassword(value: string){
+    if(value){
+      this.userPasswordPara = value;
+      console.log("password:"+this.userPasswordPara);
+    }
+  }
+
+  getUserConPassword(value: string){
+    if(value){
+      this.userConPasswordPara = value;
+      console.log("password:"+this.userConPasswordPara);
     }
   }
 

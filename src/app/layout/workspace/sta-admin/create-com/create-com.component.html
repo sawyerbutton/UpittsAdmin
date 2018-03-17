@@ -10,30 +10,10 @@
         <mat-step [stepControl]="communityGroup">
           <form [formGroup]="communityGroup">
             <ng-template matStepLabel>Select the Community</ng-template>
-            <mat-form-field class="col-sm-12">
-              <mat-select placeholder="State" formControlName="state" required>
-                <mat-option>None</mat-option>
-                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="col-sm-12">
-              <mat-select placeholder="County" required formControlName="county">
-                <mat-option>None</mat-option>
-                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="col-sm-12">
-              <mat-select placeholder="City"required formControlName="city">
-                <mat-option>None</mat-option>
-                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="col-sm-12">
-              <mat-select placeholder="Community" required formControlName="community">
-                <mat-option>None</mat-option>
-                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-              </mat-select>
-            </mat-form-field>
+            <app-select-control-box [attrContent]="selectStates" (follow)="getState($event)"></app-select-control-box>
+            <app-select-control-box [attrContent]="selectCounty" (follow)="getCounty($event)"></app-select-control-box>
+            <app-select-control-box [attrContent]="selectCity" (follow)="getCity($event)"></app-select-control-box>
+            <app-select-control-box [attrContent]="selectCommunity" (follow)="getCommunity($event)"></app-select-control-box>
             <div class="col-sm-12">
               <button mat-raised-button color ="primary" matStepperNext [disabled]="communityGroup.invalid">Next</button>
             </div>
@@ -43,21 +23,9 @@
         <mat-step [stepControl]="userForm">
           <form [formGroup]="userForm">
             <ng-template matStepLabel>Registration Information</ng-template>
-            <mat-form-field class="col-sm-12">
-              <input matInput type="text" placeholder="User Name" formControlName="userName" #userName minlength="4" maxlength="32" required>
-              <mat-hint align="start" *ngIf="formErrors.userName" class="text-danger">{{ formErrors.userName }}</mat-hint>
-              <mat-hint align="end">{{userName.value.length}} / 32</mat-hint>
-            </mat-form-field>
-            <mat-form-field class="col-sm-12" [ngClass]="{'has-error': formErrors.password }">
-              <input matInput type="password" validateEqual="confirmPassword" reverse=true required placeholder="Password"  #password minlength="8" maxlength="256" formControlName="password">
-              <mat-hint align="start" *ngIf="formErrors.password" class="text-danger">{{ formErrors.password }}</mat-hint>
-              <mat-hint align="end">{{password.value.length}} / 256</mat-hint>
-            </mat-form-field>
-            <mat-form-field class="col-sm-12" [ngClass]="{'has-error': formErrors.confirmPassword }">
-              <input matInput type="password" validateEqual="password" placeholder="Reenter Password" formControlName="confirmPassword" #confirmPassword minlength="8" maxlength="256" required>
-              <mat-hint align="start" *ngIf="formErrors.confirmPassword" class="text-danger">{{ formErrors.confirmPassword }}</mat-hint>
-              <mat-hint align="end">{{confirmPassword.value.length}} / 256</mat-hint>
-            </mat-form-field>
+            <app-input-control-box [attrContent]="userName" (follow)="getUserName($event)"></app-input-control-box>
+            <app-input-control-box [attrContent]="passWord" (follow)="getUserPassword($event)"></app-input-control-box>
+            <app-input-control-box [attrContent]="confirmPassword" validateEqual="password" (follow)="getUserConPassword($event)"></app-input-control-box>
             <div class="col-sm-12">
               <button mat-raised-button color ="primary" [disabled]="userForm.invalid" matStepperNext>Next</button>
               <button mat-raised-button color ="accent" matStepperPrevious>Back</button>

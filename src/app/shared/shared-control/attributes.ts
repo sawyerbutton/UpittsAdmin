@@ -11,10 +11,6 @@ export interface InputAttributes {
   type: string;
 }
 
-export interface CheckAttributes{
-  name:string;
-  placeholder:string;
-}
 
 export interface defaultAttributes{
   name:string;
@@ -23,10 +19,20 @@ export interface defaultAttributes{
   placeholder: string;
 }
 
+export interface CheckAttributes{
+  name:string;
+  placeholder:string;
+}
+
 export interface SelectAttributes{
   name:string;
   roles: {};
   placeholder: string;
+}
+
+export interface validationTool{
+  QNumber: number;
+  QTitle: string;
 }
 
 export const Admins =  [
@@ -147,3 +153,9 @@ export const Employment = [
   {value:'Retired',viewValue:'Retired'},
 ];
 
+export const Relation = [
+  {value:'family',viewValue:'Family'},
+  {value:'friend',viewValue:'Friend'},
+  {value:'co-worker',viewValue:'Co-worker'},
+  {value:'other-Acquaintance',viewValue:'Other Acquaintance'}
+];

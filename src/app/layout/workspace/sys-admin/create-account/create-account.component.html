@@ -10,12 +10,7 @@
         <mat-step [stepControl]="firstFormGroup">
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Select State</ng-template>
-            <mat-form-field class="col-sm-12">
-              <mat-select placeholder="State" formControlName="firstCtrl" required>
-                <mat-option>None</mat-option>
-                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-              </mat-select>
-            </mat-form-field>
+            <app-select-control-box [attrContent]="selectStates" (follow)="getState($event)"></app-select-control-box>
             <div>
               <button mat-raised-button color ="primary" [disabled]="firstFormGroup.invalid"matStepperNext>Next</button>
             </div>
@@ -25,21 +20,9 @@
         <mat-step [stepControl]="userForm">
           <form [formGroup]="userForm" novalidate>
             <ng-template matStepLabel>Registration Information</ng-template>
-            <mat-form-field class="col-sm-12">
-              <input matInput type="text" placeholder="User Name" formControlName="userName" #userName minlength="4" maxlength="32" required>
-              <mat-hint align="start" *ngIf="formErrors.userName" class="text-danger">{{ formErrors.userName }}</mat-hint>
-              <mat-hint align="end">{{userName.value.length}} / 32</mat-hint>
-            </mat-form-field>
-            <mat-form-field class="col-sm-12" [ngClass]="{'has-error': formErrors.password }">
-              <input matInput type="password" validateEqual="confirmPassword" reverse=true required placeholder="Password"  #password minlength="8" maxlength="256" formControlName="password">
-              <mat-hint align="start" *ngIf="formErrors.password" class="text-danger">{{ formErrors.password }}</mat-hint>
-              <mat-hint align="end">{{password.value.length}} / 256</mat-hint>
-            </mat-form-field>
-            <mat-form-field class="col-sm-12" [ngClass]="{'has-error': formErrors.confirmPassword }">
-              <input matInput type="password" validateEqual="password" placeholder="Reenter Password" formControlName="confirmPassword" #confirmPassword minlength="8" maxlength="256" required>
-              <mat-hint align="start" *ngIf="formErrors.confirmPassword" class="text-danger">{{ formErrors.confirmPassword }}</mat-hint>
-              <mat-hint align="end">{{confirmPassword.value.length}} / 256</mat-hint>
-            </mat-form-field>
+            <app-input-control-box [attrContent]="userName" (follow)="getUserName($event)"></app-input-control-box>
+            <app-input-control-box [attrContent]="passWord" (follow)="getUserPassword($event)"></app-input-control-box>
+            <app-input-control-box [attrContent]="confirmPassword" validateEqual="password" (follow)="getUserConPassword($event)"></app-input-control-box>
             <div>
               <button mat-raised-button color ="primary" [disabled]="userForm.invalid" matStepperNext>Next</button>
               <button mat-raised-button color ="accent" matStepperPrevious>Back</button>
@@ -52,7 +35,7 @@
           <p> You have assigned <b class="admin-name"> John Smith </b></p>
           <p> to be the <b> PA </b> administartor.</p>
           <div>
-            <button mat-raised-button color="accent" matStepperPrevious>Confirm</button>
+            <button mat-raised-button color="accent" matStepperPrevious >Confirm</button>
             <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
           </div>
         </mat-step>

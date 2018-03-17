@@ -11,6 +11,8 @@ export class InputControlBoxComponent implements OnInit {
   @Input() attrContent : InputAttributes;
   @Output()  follow = new EventEmitter<string>();
 
+
+
   constructor(
     private formGroupDirective:FormGroupDirective
   ){ }

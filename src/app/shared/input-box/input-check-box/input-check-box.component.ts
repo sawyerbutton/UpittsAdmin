@@ -8,15 +8,24 @@ import { CheckAttributes } from '../../shared-control/attributes';
 })
 export class InputCheckBoxComponent implements OnInit {
   @Input() attrContent : CheckAttributes;
-  @Output()  follow = new EventEmitter<boolean>();
-  checked = false;
+  @Output()  follow = new EventEmitter<string>();
+  //private formGroupDirective:FormGroupDirective;
   constructor() { }
 
   ngOnInit() {
-    this.valueChange()
+    // this.valueChange()
+    //  console.log(this.formGroupDirective);
   }
 
-  valueChange(){
-    this.follow.emit(this.checked);
-  }
+  // valueChange(){
+  //   this.control.valueChanges.forEach(
+  //     (value:string) => {
+  //       this.follow.emit(value);
+  //       //console.log(value);
+  //     }
+  //   );
+  // }
+  // get control(){
+  //   return this.formGroupDirective.form.controls[this.attrContent.name];
+  // }
 }

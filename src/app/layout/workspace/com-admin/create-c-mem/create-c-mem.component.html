@@ -6,46 +6,19 @@
     </mat-card-header>
     <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
 
-      <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
+      <mat-step [stepControl]="addressFormGroup">
+        <form [formGroup]="addressFormGroup">
           <ng-template matStepLabel>Select the family</ng-template>
           <div class="chip">
-            <!--<mat-chip-list>-->
-              <!--<mat-chip color="primary" selected="true">Pennslyvania</mat-chip>-->
-              <!--<mat-chip color="primary" selected="true">Allegheny</mat-chip>-->
-              <!--<mat-chip color="primary" selected="true">Pittsburgh</mat-chip>-->
-              <!--<mat-chip color="primary" selected="true">North Oakland</mat-chip>-->
-            <!--</mat-chip-list>-->
-            <mat-form-field class="col-sm-3">
-              <input matInput placeholder="State" disabled value="Pennslyvania">
-            </mat-form-field>
-            <mat-form-field class="col-sm-3">
-              <input matInput placeholder="County" disabled value="Allegheny">
-            </mat-form-field>
-            <mat-form-field class="col-sm-3">
-              <input matInput placeholder="City" disabled value="Pittsburgh">
-            </mat-form-field>
-            <mat-form-field class="col-sm-3">
-              <input matInput placeholder="Community" disabled value="North Oakland">
-            </mat-form-field>
+            <app-input-default-box [attrContent]="defaultState" class="col-sm-3"></app-input-default-box>
+            <app-input-default-box [attrContent]="defaultCounty" class="col-sm-3"></app-input-default-box>
+            <app-input-default-box [attrContent]="defaultCity" class="col-sm-3"></app-input-default-box>
+            <app-input-default-box [attrContent]="defaultCommunity" class="col-sm-3"></app-input-default-box>
           </div>
-          <mat-form-field class="col-sm-12">
-            <mat-select placeholder="Select a block" disableRipple formControlName="block">
-              <mat-option value="1">Option 1</mat-option>
-              <mat-option value="2">Option 2</mat-option>
-              <mat-option value="3">Option 3</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field class="col-sm-12">
-            <mat-select placeholder="Select a family" disableRipple formControlName="family">
-              <mat-option value="1">Option 1</mat-option>
-              <mat-option value="2">Option 2</mat-option>
-              <mat-option value="3">Option 3</mat-option>
-            </mat-select>
-          </mat-form-field>
-
+          <app-select-control-box [attrContent]="selectBlock" (follow)="getBlock($event)"></app-select-control-box>
+          <app-select-control-box [attrContent]="selectFamily" (follow)="getFamily($event)"></app-select-control-box>
           <div>
-            <button mat-raised-button color="primary" matStepperNext [disabled]="firstFormGroup.invalid">Next</button>
+            <button mat-raised-button color="primary" matStepperNext [disabled]="addressFormGroup.invalid">Next</button>
             <button mat-raised-button matStepperNext color="accent">Create Family</button>
           </div>
         </form>
@@ -56,97 +29,34 @@
         <form [formGroup]="userForm">
           <ng-template matStepLabel>Basic Information</ng-template>
           <h4> Register Information</h4>
-          <mat-form-field class="col-sm-12">
-            <input matInput type="text" placeholder="User Name" formControlName="userName" #userName minlength="4" maxlength="32">
-            <mat-hint align="start" *ngIf="formErrors.userName" class="text-danger">{{ formErrors.userName }}</mat-hint>
-            <mat-hint align="end">{{userName.value.length}} / 32</mat-hint>
-          </mat-form-field>
-          <mat-form-field class="col-sm-12">
-            <input matInput placeholder="Password" disabled value="FOCUS@pitt2018">
-          </mat-form-field>
-
-          <mat-form-field class="col-sm-12" [ngClass]="{'has-error': formErrors.password }">
-            <input matInput type="password" validateEqual="confirmPassword" reverse=true placeholder="Password"  #password minlength="8" maxlength="256" formControlName="password">
-            <mat-hint align="start" *ngIf="formErrors.password" class="text-danger">{{ formErrors.password }}</mat-hint>
-            <mat-hint align="end">{{password.value.length}} / 256</mat-hint>
-          </mat-form-field>
-          <mat-form-field class="col-sm-12" [ngClass]="{'has-error': formErrors.confirmPassword }">
-            <input matInput type="password" validateEqual="password" placeholder="Reenter Password" formControlName="confirmPassword" #confirmPassword minlength="8" maxlength="256">
-            <mat-hint align="start" *ngIf="formErrors.confirmPassword" class="text-danger">{{ formErrors.confirmPassword }}</mat-hint>
-            <mat-hint align="end">{{confirmPassword.value.length}} / 256</mat-hint>
-          </mat-form-field>
-
+          <div>
+            <app-input-control-box [attrContent]="userName" class="col-sm-4" (follow)="getUserName($event)"></app-input-control-box>
+            <app-input-control-box [attrContent]="passWord" class="col-sm-4" (follow)="getUserPassword($event)"></app-input-control-box>
+            <app-input-control-box [attrContent]="confirmPassword" validateEqual="password" class="col-sm-4" (follow)="getUserConPassword($event)"></app-input-control-box>
+          </div>
+          <br>
           <h4>Personal Information</h4>
           <div>
-            <mat-form-field class="col-sm-4">
-              <input matInput placeholder="First Name" formControlName="firstName" #firstName maxlength="32">
-              <mat-hint align="start" *ngIf="formErrors.firstName" class="text-danger">{{ formErrors.firstName }}</mat-hint>
-              <mat-hint align="end">{{firstName.value.length}} / 32</mat-hint>
-            </mat-form-field>
-            <mat-form-field class="col-sm-4">
-              <input matInput placeholder="Middle Name" formControlName="midName" #midName maxlength="32">
-              <mat-hint align="start" *ngIf="formErrors.midName" class="text-danger">{{ formErrors.midName }}</mat-hint>
-              <mat-hint align="end">{{midName.value.length}} / 32</mat-hint>
-            </mat-form-field>
-            <mat-form-field class="col-sm-4">
-              <input matInput placeholder="Last Name" formControlName="lastName" #lastName maxlength="32">
-              <mat-hint align="start" *ngIf="formErrors.lastName" class="text-danger">{{ formErrors.lastName }}</mat-hint>
-              <mat-hint align="end">{{lastName.value.length}} / 32</mat-hint>
-            </mat-form-field>
+            <app-input-control-box [attrContent]="firstName" class="col-sm-4" (follow)="getFirstName($event)"></app-input-control-box>
+            <app-input-control-box [attrContent]="midName" class="col-sm-4" (follow)="getMidName($event)"></app-input-control-box>
+            <app-input-control-box [attrContent]="lastName" class="col-sm-4" (follow)="getLastName($event)"></app-input-control-box>
+          </div>
+          <div class="col-sm-12">
+            <app-select-control-box [attrContent]="selectGender" class="col-sm-12" (follow)="getGender($event)"></app-select-control-box>
           </div>
           <div>
-            <mat-form-field class="col-sm-12">
-              <mat-select placeholder="Gender" disableRipple formControlName="gender">
-                <mat-option value="1">Male</mat-option>
-                <mat-option value="2">Female</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div>
-            <mat-form-field class="col-sm-6">
-              <input matInput placeholder="Phone Number" formControlName="phone" #phone maxlength="10">
-              <mat-icon matSuffix>phone </mat-icon>
-              <mat-hint align="start" *ngIf="formErrors.phone" class="text-danger">{{ formErrors.phone }}</mat-hint>
-              <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
-            </mat-form-field>
-
-            <mat-form-field class="col-sm-6">
-              <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="birth">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+            <app-input-control-box [attrContent]="phoneNumber" class="col-sm-6" (follow)="getPhone($event)"></app-input-control-box>
+            <app-input-date-box [attrContent]="date" class="col-sm-6" (follow)="getDate($event)"></app-input-date-box>
           </div>
 
           <div>
-            <mat-form-field class="col-sm-6">
-              <input matInput placeholder="Address 1" formControlName="address1" #address1 maxlength="32">
-              <mat-hint align="start" *ngIf="formErrors.address1" class="text-danger">{{ formErrors.address1 }}</mat-hint>
-              <mat-hint align="end">{{address1.value.length}} / 32</mat-hint>
-            </mat-form-field>
-            <mat-form-field class="col-sm-6">
-              <input matInput placeholder="Address 2" formControlName="address2" #address2 maxlength="32">
-              <mat-hint align="start" *ngIf="formErrors.address2" class="text-danger">{{ formErrors.address2 }}</mat-hint>
-              <mat-hint align="end">{{address2.value.length}} / 32</mat-hint>
-            </mat-form-field>
+            <app-input-control-box class="col-sm-6" [attrContent]="addressOne" (follow)="getAddressOne($event)"></app-input-control-box>
+            <app-input-control-box class="col-sm-6" [attrContent]="addressTwo" (follow)="getAddressTwo($event)"></app-input-control-box>
           </div>
-
           <div>
-            <mat-form-field class="col-sm-4">
-              <input matInput placeholder="City" formControlName="city" #city maxlength="32">
-              <mat-hint align="start" *ngIf="formErrors.city" class="text-danger">{{ formErrors.city }}</mat-hint>
-              <mat-hint align="end">{{city.value.length}} / 32</mat-hint>
-            </mat-form-field>
-            <mat-form-field class="col-sm-4">
-              <mat-select placeholder="State" disableRipple formControlName="state">
-                <mat-option value="1">none</mat-option>
-                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="col-sm-4">
-              <input matInput placeholder="Zipcode" formControlName="zipcode" #zipcode maxlength="5" minlength="5">
-              <mat-hint align="start" *ngIf="formErrors.zipcode" class="text-danger">{{ formErrors.zipcode }}</mat-hint>
-              <mat-hint align="end">{{zipcode.value.length}} / 5</mat-hint>
-            </mat-form-field>
+            <app-input-control-box class="col-sm-4" [attrContent]="cities" (follow)="getCity($event)"></app-input-control-box>
+            <app-select-control-box class="col-sm-4" [attrContent]="selectState" (follow)="getState($event)"></app-select-control-box>
+            <app-input-control-box class="col-sm-4" [attrContent]="zipCode" (follow)="getZipcode($event)"></app-input-control-box>
           </div>
           <div class="col-sm-12">
             <button mat-raised-button color="primary" matStepperNext [disabled]="userForm.invalid">Next</button>
@@ -156,56 +66,20 @@
       </mat-step>
 
       <!--start of the third step -->
-      <mat-step [stepControl]="thirdFormGroup">
-        <form [formGroup]="thirdFormGroup">
+      <mat-step [stepControl]="otherFormGroup">
+        <form [formGroup]="otherFormGroup">
           <ng-template matStepLabel>Additional Information</ng-template>
           <div>
-            <mat-form-field class="col-sm-6">
-              <mat-select placeholder="Race" disableRipple formControlName="race">
-                <mat-option value="1">Caucasian</mat-option>
-                <mat-option value="2">African American</mat-option>
-                <mat-option value="3">Hispanic</mat-option>
-                <mat-option value="4">Bi-Racial</mat-option>
-                <mat-option value="5">Asian</mat-option>
-                <mat-option value="6">White</mat-option>
-                <mat-option value="7">Other</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="col-sm-6">
-              <mat-select placeholder="Marital Status" disableRipple formControlName="marital">
-                <mat-option value="1">Single</mat-option>
-                <mat-option value="2">Married</mat-option>
-                <mat-option value="3">Seperated</mat-option>
-                <mat-option value="4">Divorced</mat-option>
-              </mat-select>
-            </mat-form-field>
+            <app-select-control-box [attrContent]="race" class="col-sm-6" (follow)="getRace($event)"></app-select-control-box>
+            <app-select-control-box [attrContent]="matrialStatus" class="col-sm-6" (follow)="getMatrial($event)"></app-select-control-box>
+          </div>
+          <div>
+            <app-select-control-box [attrContent]="employments" class="col-sm-6" (follow)="getEmployment($event)"></app-select-control-box>
+            <app-select-control-box [attrContent]="educations" class="col-sm-6" (follow)="getEducation($event)"></app-select-control-box>
           </div>
 
-          <div>
-            <mat-form-field class="col-sm-6">
-              <mat-select placeholder="Education" disableRipple formControlName="education">
-                <mat-option value="1">Did Not Complete High School</mat-option>
-                <mat-option value="2">High School/GED</mat-option>
-                <mat-option value="3">Some College</mat-option>
-                <mat-option value="4">Bachelor</mat-option>
-                <mat-option value="5">Master</mat-option>
-                <mat-option value="6">Advanced Graduate Work ot h.D</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field class="col-sm-6">
-              <mat-select placeholder="Employment" disableRipple formControlName="employment">
-                <mat-option value="1">Currently Employed</mat-option>
-                <mat-option value="2">Unemployed and Looking for Work</mat-option>
-                <mat-option value="3">Unemployed but Not Currently Looking for Work</mat-option>
-                <mat-option value="4">Student</mat-option>
-                <mat-option value="5">Homemaker</mat-option>
-                <mat-option value="6">Retired</mat-option>
-                <mat-option value="6">Retired</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
           <div class="col-sm-12">
-            <button mat-raised-button color="primary" matStepperNext [disabled]="thirdFormGroup.invalid">Next</button>
+            <button mat-raised-button color="primary" matStepperNext [disabled]="otherFormGroup.invalid">Next</button>
             <button mat-raised-button color="accent" matStepperPrevious>Beck</button>
           </div>
         </form>
@@ -216,7 +90,7 @@
         You have register new patient <b>John Smith</b>
         <br><br>
         <div class="col-sm-12">
-          <button mat-raised-button color="primary" matStepperPrevious  [disabled]="thirdFormGroup.invalid && userForm.invalid && firstFormGroup.invalid">Confirm</button>
+          <button mat-raised-button color="primary" matStepperPrevious  [disabled]="otherFormGroup.invalid && userForm.invalid && addressFormGroup.invalid">Confirm</button>
           <button mat-raised-button color="accent" (click)="stepper.reset()">Reset</button>
         </div>
       </mat-step>

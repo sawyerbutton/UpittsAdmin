@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {QuestionControlService} from '../../../../../shared/shared-control/question-control.service';
 import {QuestionBase} from '../../../../../shared/shared-control/questionBase';
 import {Form, FormGroup} from '@angular/forms';
+import {QuestionService} from '../../../../../shared/shared-control/question.service';
 
 @Component({
   selector: 'app-physical-domain',
@@ -11,10 +12,10 @@ import {Form, FormGroup} from '@angular/forms';
 export class PhysicalDomainComponent implements OnInit {
   //@Input() physicalQuestions: QuestionBase<any>[] = [];
 
-  @Input() health: QuestionBase<any>[] = [];
-  @Input() drug: QuestionBase<any>[] = [];
-  @Input() food: QuestionBase<any>[] = [];
-  @Input() mobility: QuestionBase<any>[] = [];
+  health: QuestionBase<any>[] = [];
+  drug: QuestionBase<any>[] = [];
+  food: QuestionBase<any>[] = [];
+  mobility: QuestionBase<any>[] = [];
 
 
   isLinear: true;
@@ -26,7 +27,12 @@ export class PhysicalDomainComponent implements OnInit {
   form: FormGroup;
   payLoad = '';
 
-  constructor(private qcs: QuestionControlService) { }
+  constructor(service: QuestionService, private qcs: QuestionControlService) {
+    this.food = service.getFoodq();
+    this.drug = service.getDrugq();
+    this.health = service.getHealthq();
+    this.mobility = service.getMobilityq();
+  }
 
   ngOnInit() {
     this.firstFormGroup = this.qcs.toFormGroup(this.health);

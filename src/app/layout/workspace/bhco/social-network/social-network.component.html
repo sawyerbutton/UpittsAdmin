@@ -1,3 +1,4 @@
+
 <div class="workspace-container mid-position">
   <h3 class="workspace-title">Social Network</h3>
   <mat-card class="com-member-info">
@@ -10,108 +11,71 @@
     </mat-card-header>
   </mat-card>
   <br><br>
+
   <mat-card class="system-card">
     <mat-card-header>
       <mat-card-title>Network Analysis</mat-card-title>
     </mat-card-header>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
 
-    <mat-card-content>
-      <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
-        <mat-step [stepControl]="firstFormGroup">
-          <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Question 1</ng-template>
-            <!--Question 1 -->
-            <div class="col-sm-12">
-              <label> 1.Who positively impacts your life the most?</label>
-            </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Step 1</ng-template>
+        <app-social-network-answer-group [attrContents]="ValidatorOne"></app-social-network-answer-group>
+        <br><br>
+        <div class="col-sm-12">
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </mat-step>
 
-        <mat-step [stepControl]="secondFormGroup">
-          <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Question 2</ng-template>
-            <!--Question 2 -->
-            <div class="col-sm-12">
-              <label> 2. Who do you spend most of your time with?</label>
-            </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            </div>
-          </form>
-        </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Step 2</ng-template>
+        <app-social-network-answer-group [attrContents]="ValidatorOne"></app-social-network-answer-group>
+        <br><br>
+        <div class="col-sm-12">
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+          <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
 
-        <mat-step [stepControl]="thirdFormGroup">
-          <form [formGroup]="thirdFormGroup">
-            <ng-template matStepLabel>Question 3</ng-template>
-            <!--Question 3 -->
-            <div class="col-sm-12">
-              <label> 3. Who do you go for help?</label>
-            </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            </div>
-          </form>
-        </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Step 3</ng-template>
+        <app-social-network-answer-group [attrContents]="ValidatorTwo"></app-social-network-answer-group>
+        <br><br>
+        <div class="col-sm-12">
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+          <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
 
-        <mat-step [stepControl]="forthFormGroup">
-          <form [formGroup]="forthFormGroup">
-            <ng-template matStepLabel>Question 4</ng-template>
-            <!--Question 4 -->
-            <div class="col-sm-12">
-              <label> 4. Who typically inspires you?</label>
-            </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            </div>
-          </form>
-        </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Step 4</ng-template>
+        <app-social-network-answer-group [attrContents]="ValidatorThree"></app-social-network-answer-group>
+        <br><br>
+        <div class="col-sm-12">
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+          <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
 
-        <mat-step [stepControl]="fifthFormGroup">
-          <form [formGroup]="fifthFormGroup">
-            <ng-template matStepLabel>Question 5</ng-template>
-            <!--Question 5 -->
-            <div class="col-sm-12">
-              <label> 5. Who do you get along with the best</label>
-            </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
+      <mat-step>
+        <ng-template matStepLabel>Step 5</ng-template>
+        <app-social-network-answer-group [attrContents]="ValidatorFour"></app-social-network-answer-group>
+        <br><br>
+        <div class="col-sm-12">
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+          <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
 
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            </div>
-
-          </form>
-        </mat-step>
-
-        <mat-step [stepControl]="sixthFormGroup">
-          <form [formGroup]="sixthFormGroup">
-            <ng-template matStepLabel>Question 6</ng-template>
-            <!--Question 6 -->
-            <div class="col-sm-12">
-              <label> 6. Who has the most negative influence on you? </label>
-            </div>
-            <app-social-network-answer-group></app-social-network-answer-group>
-
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Done</button>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            </div>
-
-          </form>
-        </mat-step>
-
-      </mat-horizontal-stepper>
-    </mat-card-content>
-
+      <mat-step>
+        <ng-template matStepLabel>Step 6</ng-template>
+        <app-social-network-answer-group [attrContents]="ValidatorFive"></app-social-network-answer-group>
+        <br><br>
+        <div class="col-sm-12">
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+          <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
   </mat-card>
 </div>

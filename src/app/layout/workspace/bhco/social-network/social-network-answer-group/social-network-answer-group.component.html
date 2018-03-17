@@ -1,144 +1,45 @@
-<!--Anwser Group for social network -->
-<div class="full-width">
-  <mat-form-field class="col-sm-2">
-    <input matInput type="number" value="1">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="First Name">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="Last Name">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="Middle/Suffix">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <mat-select placeholder="Select relation" disableRipple>
-      <mat-option value="1">Family</mat-option>
-      <mat-option value="2">Friend</mat-option>
-      <mat-option value="3">Co-worker</mat-option>
-      <mat-option value="4">Other Acquaintance</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-checkbox color="primary" class="col-sm-2">Same Block</mat-checkbox>
-</div>
-
-<!--Anwser Group 1.2 -->
-<div class="full-width">
-  <mat-form-field class="col-sm-2">
-    <input matInput type="number" value="2">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="First Name">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="Last Name">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="Middle/Suffix">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <mat-select placeholder="Select relation" disableRipple>
-      <mat-option value="1">Family</mat-option>
-      <mat-option value="2">Friend</mat-option>
-      <mat-option value="3">Co-worker</mat-option>
-      <mat-option value="4">Other Acquaintance</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-checkbox color="primary" class="col-sm-2">Same Block</mat-checkbox>
-</div>
-
-<!--Anwser Group 1.3 -->
-<div class="full-width">
-  <mat-form-field class="col-sm-2">
-    <input matInput type="number" value="3">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="First Name">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="Last Name">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="Middle/Suffix">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <mat-select placeholder="Select relation" disableRipple>
-      <mat-option value="1">Family</mat-option>
-      <mat-option value="2">Friend</mat-option>
-      <mat-option value="3">Co-worker</mat-option>
-      <mat-option value="4">Other Acquaintance</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-checkbox color="primary" class="col-sm-2">Same Block</mat-checkbox>
-</div>
-
-<!--Anwser Group 1.4 -->
-<div class="full-width">
-  <mat-form-field class="col-sm-2">
-    <input matInput type="number" value="4">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="First Name">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="Last Name">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="Middle/Suffix">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <mat-select placeholder="Select relation" disableRipple>
-      <mat-option value="1">Family</mat-option>
-      <mat-option value="2">Friend</mat-option>
-      <mat-option value="3">Co-worker</mat-option>
-      <mat-option value="4">Other Acquaintance</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-checkbox color="primary" class="col-sm-2">Same Block</mat-checkbox>
-</div>
-
-<!--Anwser Group 1.5 -->
-<div class="full-width">
-  <mat-form-field class="col-sm-2">
-    <input matInput type="number" value="5">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="First Name">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="Last Name">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <input matInput placeholder="Middle/Suffix">
-  </mat-form-field>
-
-  <mat-form-field class="col-sm-2">
-    <mat-select placeholder="Select relation" disableRipple>
-      <mat-option value="1">Family</mat-option>
-      <mat-option value="2">Friend</mat-option>
-      <mat-option value="3">Co-worker</mat-option>
-      <mat-option value="4">Other Acquaintance</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-checkbox color="primary" class="col-sm-2">Same Block</mat-checkbox>
-</div> <br> <br>
+<form [formGroup]="tempFormGroup">
+  <ng-template matStepLabel>Question + {{attrContents.QNumber}}</ng-template>
+  <!--Question 1 -->
+  <h4>{{attrContents.QTitle}}</h4>
+  <div class="full-width-block">
+    <app-input-control-box [attrContent]="inputNumber" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputLastName" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputMidName" class="col-sm-2"></app-input-control-box>
+    <app-select-control-box [attrContent]="selectRelation" class="col-sm-2"></app-select-control-box>
+    <app-input-check-box class="col-sm-2" [attrContent]="checkBlock"></app-input-check-box>
+  </div>
+  <div class="full-width-block">
+    <app-input-control-box [attrContent]="inputNumber" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputLastName" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputMidName" class="col-sm-2"></app-input-control-box>
+    <app-select-control-box [attrContent]="selectRelation" class="col-sm-2"></app-select-control-box>
+    <app-input-check-box class="col-sm-2" [attrContent]="checkBlock"></app-input-check-box>
+  </div>
+  <div class="full-width-block">
+    <app-input-control-box [attrContent]="inputNumber" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputLastName" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputMidName" class="col-sm-2"></app-input-control-box>
+    <app-select-control-box [attrContent]="selectRelation" class="col-sm-2"></app-select-control-box>
+    <app-input-check-box class="col-sm-2" [attrContent]="checkBlock"></app-input-check-box>
+  </div>
+  <div class="full-width-block">
+    <app-input-control-box [attrContent]="inputNumber" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputLastName" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputMidName" class="col-sm-2"></app-input-control-box>
+    <app-select-control-box [attrContent]="selectRelation" class="col-sm-2"></app-select-control-box>
+    <app-input-check-box class="col-sm-2" [attrContent]="checkBlock"></app-input-check-box>
+  </div>
+  <div class="full-width-block">
+    <app-input-control-box [attrContent]="inputNumber" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputLastName" class="col-sm-2"></app-input-control-box>
+    <app-input-control-box [attrContent]="inputMidName" class="col-sm-2"></app-input-control-box>
+    <app-select-control-box [attrContent]="selectRelation" class="col-sm-2"></app-select-control-box>
+    <app-input-check-box class="col-sm-2" [attrContent]="checkBlock"></app-input-check-box>
+  </div>
+</form>
