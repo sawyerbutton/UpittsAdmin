@@ -63,7 +63,14 @@ export class SysLoginComponent implements OnInit {
   }
 
   login(){
-    this.router.navigateByUrl('layout');
+    //this.roleName = this.getRole();
+    if (this.userAdminPara === "system") {
+      this.router.navigateByUrl('SysDashboard');
+    } else if (this.userAdminPara === "state") {
+      this.router.navigateByUrl('StateDashboard');
+    } else {
+      this.router.navigateByUrl('CommunityDashboard');
+    }
   }
 
   back(){
