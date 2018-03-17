@@ -4,7 +4,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 // import modules
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import {LayoutModule} from './layout/layout/layout.module';
 
 // import component
