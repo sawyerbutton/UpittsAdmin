@@ -80,7 +80,6 @@ export class CreateCMemComponent implements OnInit {
   matrialPara: string;
   empolymentPara: string;
   educationPara: string;
-
   constructor(
     private fb:FormBuilder
   ){ }

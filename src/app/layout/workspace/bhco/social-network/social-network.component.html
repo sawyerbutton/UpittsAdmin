@@ -11,148 +11,71 @@
     </mat-card-header>
   </mat-card>
   <br><br>
+
   <mat-card class="system-card">
     <mat-card-header>
       <mat-card-title>Network Analysis</mat-card-title>
     </mat-card-header>
-
-    <mat-card-content>
       <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
-        <mat-step [stepControl]="firstFormGroup">
-          <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Question 1</ng-template>
-            <!--Question 1 -->
-            <div class="col-sm-12">
-              <label> 1.Who positively impacts your life the most?</label>
-            </div>
-            <div class="full-width">
-              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberOne($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameOne($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameOne($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameOne($event)"></app-input-control-box>
-              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsOne($event)"></app-select-control-box>
-              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxOne($event)"></app-input-check-box>
-            </div>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-            </div>
-          </form>
+
+        <mat-step>
+          <ng-template matStepLabel>Step 1</ng-template>
+          <app-social-network-answer-group [attrContents]="ValidatorOne"></app-social-network-answer-group>
+          <br><br>
+          <div class="col-sm-12">
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
         </mat-step>
 
-        <mat-step [stepControl]="secondFormGroup">
-          <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Question 2</ng-template>
-            <!--Question 2 -->
-            <div class="col-sm-12">
-              <label> 2. Who do you spend most of your time with?</label>
-            </div>
-            <div class="full-width">
-              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberTwo($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameTwo($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameTwo($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameTwo($event)"></app-input-control-box>
-              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsTwo($event)"></app-select-control-box>
-              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxTwo($event)"></app-input-check-box>
-            </div>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            </div>
-          </form>
+        <mat-step>
+          <ng-template matStepLabel>Step 2</ng-template>
+          <app-social-network-answer-group [attrContents]="ValidatorOne"></app-social-network-answer-group>
+          <br><br>
+          <div class="col-sm-12">
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+          </div>
         </mat-step>
 
-        <mat-step [stepControl]="thirdFormGroup">
-          <form [formGroup]="thirdFormGroup">
-            <ng-template matStepLabel>Question 3</ng-template>
-            <!--Question 3 -->
-            <div class="col-sm-12">
-              <label> 3. Who do you go for help?</label>
-            </div>
-            <div class="full-width">
-              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberThree($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameThree($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameThree($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameThree($event)"></app-input-control-box>
-              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsThree($event)"></app-select-control-box>
-              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxThree($event)"></app-input-check-box>
-            </div>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            </div>
-          </form>
+        <mat-step>
+          <ng-template matStepLabel>Step 3</ng-template>
+          <app-social-network-answer-group [attrContents]="ValidatorTwo"></app-social-network-answer-group>
+          <br><br>
+          <div class="col-sm-12">
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+          </div>
         </mat-step>
 
-        <mat-step [stepControl]="forthFormGroup">
-          <form [formGroup]="forthFormGroup">
-            <ng-template matStepLabel>Question 4</ng-template>
-            <!--Question 4 -->
-            <div class="col-sm-12">
-              <label> 4. Who typically inspires you?</label>
-            </div>
-            <div class="full-width">
-              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberFour($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameFour($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameFour($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameFour($event)"></app-input-control-box>
-              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsFour($event)"></app-select-control-box>
-              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxFour($event)"></app-input-check-box>
-            </div>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            </div>
-          </form>
+        <mat-step>
+          <ng-template matStepLabel>Step 4</ng-template>
+          <app-social-network-answer-group [attrContents]="ValidatorThree"></app-social-network-answer-group>
+          <br><br>
+          <div class="col-sm-12">
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+          </div>
         </mat-step>
 
-        <mat-step [stepControl]="fifthFormGroup">
-          <form [formGroup]="fifthFormGroup">
-            <ng-template matStepLabel>Question 5</ng-template>
-            <!--Question 5 -->
-            <div class="col-sm-12">
-              <label> 5. Who do you get along with the best</label>
-            </div>
-            <div class="full-width">
-              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberFive($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameFive($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameFive($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameFive($event)"></app-input-control-box>
-              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsFive($event)"></app-select-control-box>
-              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxFive($event)"></app-input-check-box>
-            </div>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            </div>
-
-          </form>
+        <mat-step>
+          <ng-template matStepLabel>Step 5</ng-template>
+          <app-social-network-answer-group [attrContents]="ValidatorFour"></app-social-network-answer-group>
+          <br><br>
+          <div class="col-sm-12">
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+          </div>
         </mat-step>
 
-        <mat-step [stepControl]="sixthFormGroup">
-          <form [formGroup]="sixthFormGroup">
-            <ng-template matStepLabel>Question 6</ng-template>
-            <!--Question 6 -->
-            <div class="col-sm-12">
-              <label> 6. Who has the most negative influence on you? </label>
-            </div>
-            <div class="full-width">
-              <app-input-control-box [attrContent]="inputNumber" class="col-sm-2" (follow)="getNumberSix($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputFirstName" class="col-sm-2" (follow)="getFirstNameSix($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputLastName" class="col-sm-2" (follow)="getLastNameSix($event)"></app-input-control-box>
-              <app-input-control-box [attrContent]="inputMidName" class="col-sm-2" (follow)="getMidNameSix($event)"></app-input-control-box>
-              <app-select-control-box [attrContent]="selectRelation" class="col-sm-2" (follow)="relationsSix($event)"></app-select-control-box>
-              <app-input-check-box [attrContent]="checkBlock" class="col-sm-2" (follow)="checkBoxSix($event)"></app-input-check-box>
-            </div>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Done</button>
-              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-            </div>
-
-          </form>
+        <mat-step>
+          <ng-template matStepLabel>Step 6</ng-template>
+          <app-social-network-answer-group [attrContents]="ValidatorFive"></app-social-network-answer-group>
+          <br><br>
+          <div class="col-sm-12">
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+          </div>
         </mat-step>
-
       </mat-horizontal-stepper>
-    </mat-card-content>
-
   </mat-card>
 </div>

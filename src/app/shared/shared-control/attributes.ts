@@ -6,6 +6,7 @@ export interface InputAttributes {
   type: string;
 }
 
+
 export interface defaultAttributes{
   name:string;
   value:string;
@@ -22,6 +23,11 @@ export interface SelectAttributes{
   name:string;
   roles: {};
   placeholder: string;
+}
+
+export interface validationTool{
+  QNumber: number;
+  QTitle: string;
 }
 
 export const Admins =  [

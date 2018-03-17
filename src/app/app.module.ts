@@ -23,6 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatNativeDateModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 //import component
 import { AppComponent } from './app.component';
@@ -123,7 +124,8 @@ import { InputCheckBoxComponent } from './shared/input-box/input-check-box/input
     MatChipsModule,
     MatNativeDateModule,
     MatProgressBarModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
