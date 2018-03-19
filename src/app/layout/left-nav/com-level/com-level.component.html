@@ -16,69 +16,69 @@
         <mat-accordion>
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title> <a routerLink="create-c-mem" routerLinkActive="active">
                 <mat-icon class="main-icon">account_box</mat-icon> &nbsp;
-                <span class="main-menu"> <h4>Create Account</h4> </span>
+                <span class="main-menu"> <h4>Create Account</h4> </span> </a>
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <a routerLink="create-bhco" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="create-bhco" routerLinkActive="active">
               <mat-icon>account_box</mat-icon>
               <span>BHCO</span>
-              </a>
             </button>
+            </a>
+            <a routerLink="create-c-mem" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="create-c-mem" routerLinkActive="active">
               <mat-icon>account_box</mat-icon>
               <span>Community Member</span>
-              </a>
             </button>
+            </a>
+            <a routerLink="create-family" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="create-family" routerLinkActive="active">
               <mat-icon>account_box</mat-icon>
               <span>Family</span>
-              </a>
             </button>
+            </a>
           </mat-expansion-panel>
 
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title> <a routerLink="memberList" routerLinkActive="active">
                 <mat-icon class="main-icon">trending_up</mat-icon> &nbsp;
-                <span class="main-menu"> <h4>Tables</h4> </span>
+                <span class="main-menu"> <h4>Tables</h4> </span> </a>
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <a routerLink="bhcoList" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="bhcoList" routerLinkActive="active">
               <span>BHCO</span>
-              </a>
             </button>
+            </a>
+            <a routerLink="memberList" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="memberList" routerLinkActive="active">
                 <span>Community Member</span>
-              </a>
             </button>
+            </a>
           </mat-expansion-panel>
 
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title> <a routerLink="assignMember" routerLinkActive="active">
                 <mat-icon class="main-icon">supervisor_account</mat-icon> &nbsp;
-                <span class="main-menu"> <h4>Assignment</h4> </span>
+                <span class="main-menu"> <h4>Assignment</h4> </span> </a>
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <a routerLink="assignMember" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="assignMember" routerLinkActive="active">
               <mat-icon>supervisor_account</mat-icon>
               <span>Assign Member</span>
-              </a>
             </button>
+            </a>
+            <a routerLink="unassignMember" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="unassignMember" routerLinkActive="active">
               <mat-icon>supervisor_account</mat-icon>
               <span>Unassign Member</span>
-              </a>
             </button>
+            </a>
 
           </mat-expansion-panel>
 
@@ -91,7 +91,15 @@
             </mat-expansion-panel-header>
             <button mat-menu-item color="white">
               <mat-icon>assessment</mat-icon>
-              <span>Assessment</span>
+              <span>Questionnaire</span>
+            </button>
+            <button mat-menu-item color="white">
+              <mat-icon>assessment</mat-icon>
+              <span>Social Network</span>
+            </button>
+            <button mat-menu-item color="white">
+              <mat-icon>assessment</mat-icon>
+              <span>Demographic</span>
             </button>
           </mat-expansion-panel>
 

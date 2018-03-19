@@ -16,62 +16,89 @@
         <mat-accordion>
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title><a routerLink="socialNetwork" routerLinkActive="active">
                 <mat-icon class="main-icon">thumbs_up_down</mat-icon> &nbsp;
-                <span class="main-menu"> <h4> Social </h4> </span>
+                <span class="main-menu"> <h4> &nbsp; Social Network</h4> </span> </a>
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <a routerLink="socialNetwork" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="socialNetwork" routerLinkActive="active">
               <mat-icon>thumbs_up_down</mat-icon>
               <span>Social Network</span>
-              </a>
             </button>
+            </a>
           </mat-expansion-panel>
 
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title>  <a routerLink="demographic" routerLinkActive="active">
                 <mat-icon class="main-icon">assignment_ind</mat-icon>
-                <span class="main-menu"> <h4> Demographic </h4> </span>
+                <span class="main-menu"> <h4>&nbsp; Demographic </h4> </span> </a>
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <a routerLink="demographic" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="demographic" routerLinkActive="active">
               <mat-icon>assignment_ind</mat-icon>
               <span>Demographic</span>
-              </a>
             </button>
+            </a>
           </mat-expansion-panel>
 
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title> <a routerLink="session" routerLinkActive="active">
                 <mat-icon class="main-icon">assignment</mat-icon> &nbsp;
-                <span class="main-menu"> <h4> Questionnaire </h4> </span>
+                <span class="main-menu"> <h4>&nbsp; Questionnaire </h4> </span></a>
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <a routerLink="questionnaire" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="questionnaire" routerLinkActive="active">
               <mat-icon>assignment</mat-icon>
               <span>Physical</span>
-              </a>
             </button>
+            </a>
+            <a routerLink="questionnaire" routerLinkActive="active">
+              <button mat-menu-item color="white">
+                <mat-icon>assignment</mat-icon>
+                <span>Behavior</span>
+              </button>
+            </a>
           </mat-expansion-panel>
 
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
-              <mat-panel-title>
-                <mat-icon class="main-icon">trending_up</mat-icon> &nbsp;
-                <span class="main-menu"> <h4> Assignment </h4> </span>
+              <mat-panel-title>  <a routerLink="assign" routerLinkActive="active">
+                <mat-icon class="main-icon">trending_up</mat-icon>
+                <span class="main-menu"> <h4>&nbsp; Assignment </h4> </span>  </a>
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <a routerLink="assign" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="assign" routerLinkActive="active">
               <mat-icon>assessment</mat-icon>
               <span>Assignment</span>
-              </a>
             </button>
+            </a>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel class="panel-format">
+            <mat-expansion-panel-header>
+              <mat-panel-title>  <a routerLink="assign" routerLinkActive="active">
+                <mat-icon class="main-icon">assessment</mat-icon>
+                <span class="main-menu"> <h4>&nbsp; Assessment </h4> </span>  </a>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a routerLink="assign" routerLinkActive="active">
+              <button mat-menu-item color="white">
+                <mat-icon>assessment</mat-icon>
+                <span>Demographic</span>
+              </button>
+            </a>
+            <a routerLink="assign" routerLinkActive="active">
+              <button mat-menu-item color="white">
+                <mat-icon>assessment</mat-icon>
+                <span>Questionnaire</span>
+              </button>
+            </a>
           </mat-expansion-panel>
         </mat-accordion>
         <app-footer></app-footer>

@@ -15,6 +15,8 @@ import {ControlBoxModule} from '../../../../shared/shared-module/control-box.mod
   ],
   declarations: [EditProfileComponent],
   exports: [
+    SharedModuleModule,
+    RouterModule,
     EditProfileComponent
   ]
 })

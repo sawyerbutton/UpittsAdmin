@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {QuestionControlService} from '../../../../../shared/shared-control/question-control.service';
 import {QuestionBase} from '../../../../../shared/shared-control/questionBase';
-import {Form, FormGroup} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 import {QuestionService} from '../../../../../shared/shared-control/question.service';
 
 @Component({

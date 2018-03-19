@@ -16,50 +16,50 @@
         <mat-accordion>
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title> <a routerLink="createAccount" routerLinkActive="active">
                 <mat-icon class="main-icon">account_box</mat-icon> &nbsp;
-                <span class="main-menu"> <h4>Create Account</h4> </span>
+                <span class="main-menu"> <h4>Create Account</h4> </span> </a>
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <a routerLink="createAccount" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="createAccount" routerLinkActive="active">
               <mat-icon>account_box</mat-icon>
               <span> State Admin</span>
-              </a>
             </button>
+            </a>
           </mat-expansion-panel>
 
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title> <a routerLink="stateList" routerLinkActive="active">
                 <mat-icon class="main-icon">view_list</mat-icon> &nbsp;
-                <span class="main-menu"> <h4>Tables</h4> </span>
+                <span class="main-menu"> <h4>Tables</h4> </span> </a>
               </mat-panel-title>
             </mat-expansion-panel-header>
+            <a routerLink="stateList" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="stateList" routerLinkActive="active">
                 <!--<mat-icon>account_box</mat-icon>-->
                 <span> State Admins</span>
-              </a>
             </button>
+            </a>
+            <a routerLink="comList" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="comList" routerLinkActive="active">
                 <!--<mat-icon>account_box</mat-icon>-->
                 <span>Community Admins</span>
-              </a>
             </button>
+            </a>
+            <a routerLink="bhcoList" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="bhcoList" routerLinkActive="active">
                 <!--<mat-icon>account_box</mat-icon>-->
                 <span> BHCO </span>
-              </a>
             </button>
+            </a>
+            <a routerLink="memberList" routerLinkActive="active">
             <button mat-menu-item color="white">
-              <a routerLink="memberList" routerLinkActive="active">
                 <!--<mat-icon>account_box</mat-icon>-->
                 <span> Community Members</span>
-              </a>
             </button>
+            </a>
           </mat-expansion-panel>
 
 

@@ -12,6 +12,8 @@ import {RouterModule} from '@angular/router';
   ],
   declarations: [ProfileComponent],
   exports: [
+    SharedModuleModule,
+    RouterModule,
     ProfileComponent
   ]
 })

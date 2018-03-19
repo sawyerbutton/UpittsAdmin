@@ -10,7 +10,7 @@
     </mat-card-header>
   </mat-card>
   <!--<mat-toolbar class="full-width"><mat-progress-bar class="full-width" mode="determinate" value="40"></mat-progress-bar></mat-toolbar>-->
-
+  <br>
   <mat-card class="system-card">
     <mat-card-header >
       <div class="col-sm-12">
@@ -36,7 +36,7 @@
         </mat-step>
         <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
-          <ng-template matStepLabel>Mobility Subdomain (9)</ng-template>
+          <ng-template matStepLabel>Mobility Subdomain (7)</ng-template>
           <div *ngFor="let question of mobility" class="col-sm-12">
             <app-demo-question [question]="question" [form]="secondFormGroup"></app-demo-question>
           </div>
@@ -62,7 +62,7 @@
 
         <mat-step [stepControl]="forthFormGroup">
           <form (ngSubmit)="onSubmit()" [formGroup]="forthFormGroup">
-            <ng-template matStepLabel>Food Subdomain (9)</ng-template>
+            <ng-template matStepLabel>Food Subdomain (2)</ng-template>
             <div *ngFor="let question of food" class="col-sm-12">
               <app-demo-question [question]="question" [form]="forthFormGroup"></app-demo-question>
             </div>
