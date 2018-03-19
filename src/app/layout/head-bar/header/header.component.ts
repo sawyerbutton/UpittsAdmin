@@ -18,4 +18,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.router.navigateByUrl('login');
   }
+  profile() {
+    this.router.navigateByUrl('/BhcoDashboard/profile');
+  }
 }

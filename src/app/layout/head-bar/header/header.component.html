@@ -5,7 +5,7 @@
     <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #user="matMenu" [overlapTrigger]="false">
-    <button mat-menu-item color="white">
+    <button mat-menu-item color="white" (click)="profile()">
       <mat-icon>mode_edit</mat-icon>
       <span>Edit Profile</span>
     </button>

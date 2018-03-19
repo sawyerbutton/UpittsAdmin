@@ -12,7 +12,8 @@ export const routes = [
       {path: 'bhcoList', loadChildren: '../../workspace/com-admin/bhco-list/bhco-list.module#BhcoListModule'},
       {path: 'memberList', loadChildren: '../../workspace/bhco/assign-table/assign-table.module#AssignTableModule'},
       {path: 'assignMember', loadChildren: '../../workspace/com-admin/assign-member/assign-member.module#AssignMemberModule'},
-      {path: 'unassignMember', loadChildren: '../../workspace/com-admin/unassign-list/unassign-list.module#UnassignListModule'}
+      {path: 'unassignMember', loadChildren: '../../workspace/com-admin/unassign-list/unassign-list.module#UnassignListModule'},
+      {path: 'profile', loadChildren: '../../workspace/profile/profile.module#ProfileModule'}
     ]
   }
 ];

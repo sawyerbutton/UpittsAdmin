@@ -11,6 +11,7 @@ export const routes = [{
     {path: 'comList', loadChildren: '../../workspace/sta-admin/com-admin-list/com-admin-list.module#ComAdminListModule'},
     {path: 'bhcoList', loadChildren: '../../workspace/com-admin/bhco-list/bhco-list.module#BhcoListModule'},
     {path: 'memberList', loadChildren: '../../workspace/bhco/assign-table/assign-table.module#AssignTableModule'},
+    {path: 'profile', loadChildren: '../../workspace/profile/profile.module#ProfileModule'}
 
   ]
 }

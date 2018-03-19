@@ -7,7 +7,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {
-  MatButtonModule, MatDividerModule,
+  MatButtonModule, MatDividerModule, MatGridListModule,
   MatIconModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule,
   MatProgressBarModule, MatRadioModule, MatSortModule, MatTableModule,
   MatToolbarModule, MatTooltipModule
@@ -49,7 +49,7 @@ import {RouterModule} from '@angular/router';
     MatSortModule,
     MatPaginatorModule,
     MatTooltipModule,
-    //RouterModule,
+    MatGridListModule,
     ReactiveFormsModule,
     FormsModule
   ],
@@ -81,7 +81,7 @@ import {RouterModule} from '@angular/router';
     MatSortModule,
     MatPaginatorModule,
     MatTooltipModule,
-    //RouterModule,
+    MatGridListModule,
     FormsModule
   ]
 })
