@@ -16,6 +16,7 @@
             <app-select-control-box [attrContent]="selectCommunity" (follow)="getCommunity($event)"></app-select-control-box>
             <div class="col-sm-12">
               <button mat-raised-button color ="primary" matStepperNext [disabled]="communityGroup.invalid">Next</button>
+              <button mat-raised-button matStepperNext color="accent">Create Community</button>
             </div>
           </form>
         </mat-step>

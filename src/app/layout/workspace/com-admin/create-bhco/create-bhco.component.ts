@@ -16,7 +16,7 @@ export class CreateBhcoComponent implements OnInit {
   public passWord: InputAttributes = {name:'password',min:8,max:32,placeholder:'password',type:'password'};
   public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
   public firstName :InputAttributes = {name:'firstname',min:2,max:32,placeholder:'first name',type:'text'};
-  public lastName :InputAttributes = {name:'lastname',min:2,max:32,placeholder:'first name',type:'text'};
+  public lastName :InputAttributes = {name:'lastname',min:2,max:32,placeholder:'last name',type:'text'};
   public email: InputAttributes = {name:'email',min:6,max:32,placeholder:'email',type:'email'};
   //input value
   userNamePara: string;

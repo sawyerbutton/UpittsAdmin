@@ -28,6 +28,6 @@ import {QuestionService} from '../../../../shared/shared-control/question.servic
     DemoQuestionModule
   ],
   providers: [QuestionControlService, QuestionService],
-  bootstrap: [DemographicModule]
+  //bootstrap: [DemographicModule]
 })
 export class DemographicModule { }

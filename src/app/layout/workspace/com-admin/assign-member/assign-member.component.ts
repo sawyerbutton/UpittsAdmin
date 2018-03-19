@@ -1,26 +1,47 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {SelectAttributes} from '../../../../shared/shared-control/attributes';
+import {SelectionModel} from '@angular/cdk/collections';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-assign-table',
-  templateUrl: './assign-table.component.html',
-  styleUrls: ['./assign-table.component.css']
+  selector: 'app-assign-member',
+  templateUrl: './assign-member.component.html',
+  styleUrls: ['./assign-member.component.css']
 })
-export class AssignTableComponent{
+export class AssignMemberComponent implements OnInit{
+  public forms: FormGroup;
+  //public bhco = bhcoSample;
+  public selectBhco :SelectAttributes = {name:'bhco',roles:bhcoSample,placeholder:'Select a BHCO'};
+  bhcoPara :string;
 
-  displayedColumns = ['id', 'name', 'gender', 'dob', 'phone', 'address', 'zipcode', 'community', 'state'];
+  displayedColumns = ['select', 'id', 'name', 'gender', 'dob', 'phone', 'address', 'zipcode'];
   dataSource: MatTableDataSource<UserData>;
+  selection = new SelectionModel<UserData>(true, []);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
+  constructor(public fb: FormBuilder) {
     // Create 100 users
     const users: UserData[] = [];
     for (let i = 1; i <= 50; i++) { users.push(createNewUser(i)); }
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
+  }
+
+  ngOnInit() {
+    //this.buildForm();
+    this.forms = this.fb.group({
+      'bhco': ['', [Validators.required]]
+    })
+  }
+
+  buildForm(): void {
+    this.forms = this.fb.group({
+      'bhco': ['', [Validators.required]]
+    })
   }
 
   /**
@@ -37,6 +58,26 @@ export class AssignTableComponent{
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+      this.selection.clear() :
+      this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  getBhco(value:string){
+    if(value){
+      this.bhcoPara = value;
+      console.log("username:"+this.bhcoPara);
+    }
+  }
 }
 
 /** Builds and returns a new User. */
@@ -52,12 +93,7 @@ function createNewUser(id: number): UserData {
     dob: DOB[Math.round(Math.random() * (DOB.length - 1))],
     phone: PHONE[Math.round(Math.random() * (PHONE.length - 1))],
     address: ADDRESS[Math.round(Math.random() * (ADDRESS.length - 1))],
-    zipcode: ZIPCODE[Math.round(Math.random() * (ZIPCODE.length - 1))],
-    state: STATE[Math.round(Math.random() * (STATE.length - 1))],
-    city: CITY[Math.round(Math.random() * (CITY.length - 1))],
-    community: COMMUNITY[Math.round(Math.random() * (COMMUNITY.length - 1))],
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+    zipcode: ZIPCODE[Math.round(Math.random() * (ZIPCODE.length - 1))]
   };
 }
 
@@ -72,9 +108,7 @@ const PHONE = ['412-392-2032', '412-363-8936', '220-384-8364', '412-384-9932'];
 const DOB = ['1987-12-11', '1992-03-17', '1988-08-22', '1996-06-30'];
 const ADDRESS = ['2910 Melwood Ave', '1820 Center Ave', '8829 Fifth Ave', '5382 Forbes Ave'];
 const ZIPCODE = [12242, 30294, 20433, 13932, 14902, 19302];
-const STATE = ['Alaska', 'California', 'Florida', 'Georgia', 'North Carolina', 'New York'];
-const CITY = ['Pittsburgh', 'Los Angels', 'New York', 'Seattle', 'Cleavland'];
-const COMMUNITY = ['Clinton', 'Franklin', 'Madison', 'Bristol', 'GeorgeTown'];
+
 
 export interface UserData {
   id: string;
@@ -84,10 +118,16 @@ export interface UserData {
   phone: string;
   address: string;
   zipcode: number;
-  state: string;
-  city: string;
-  community: string;
-  progress: string;
-  color: string;
-
 }
+
+export const bhcoSample = [
+  {value: 'Apple', viewValue:'Apple'},
+  {value: 'Orange', viewValue:'Orange'},
+  {value: 'Banana', viewValue:'Banana'},
+];
+
+export class demo {
+  bhco: string;
+  familyName: string;
+}
+

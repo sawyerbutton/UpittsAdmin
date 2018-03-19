@@ -13,10 +13,15 @@ export class MemberLoginComponent implements OnInit {
   public userForm: any;
   public userName: InputAttributes = {name:'username',min:4,max:32, placeholder: 'username', type: 'text'};
   public passWord: InputAttributes = {name:'password',min:8,max:32, placeholder: 'password', type: 'password'};
+
+  userNamePara : string;
+  userPasswordPara : string;
   constructor(
     public router: Router,
     public fb: FormBuilder
-  ) {
+  ) { }
+
+  ngOnInit() {
     this.userForm= this.fb.group(
       {
         'password': ['',[ Validators.required,ValidationService.passwordValidator]],
@@ -25,7 +30,19 @@ export class MemberLoginComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
+
+  getUserName(value:string){
+    if(value){
+      this.userNamePara = value;
+      console.log("username:"+this.userNamePara);
+    }
+  }
+
+  getUserPassword(value: string){
+    if(value){
+      this.userPasswordPara = value;
+      console.log("password:"+this.userPasswordPara);
+    }
   }
 
   login() {

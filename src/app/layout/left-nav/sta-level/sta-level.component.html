@@ -23,8 +23,12 @@
             </mat-expansion-panel-header>
             <button mat-menu-item color="white">
               <a routerLink="createCom" routerLinkActive="active">
-              <mat-icon>account_box</mat-icon>
-              <span>Com-Admin</span>
+              <span>Community Admin</span>
+              </a>
+            </button>
+            <button mat-menu-item color="white">
+              <a routerLink="createCommunity" routerLinkActive="active">
+                <span>Community</span>
               </a>
             </button>
           </mat-expansion-panel>
@@ -33,12 +37,23 @@
             <mat-expansion-panel-header>
               <mat-panel-title>
                 <mat-icon class="main-icon">trending_up</mat-icon> &nbsp;
-                <span class="main-menu"> <h4>Analysis</h4> </span>
+                <span class="main-menu"> <h4>Tables</h4> </span>
               </mat-panel-title>
             </mat-expansion-panel-header>
             <button mat-menu-item color="white">
-              <mat-icon>assessment</mat-icon>
-              <span>Assessment</span>
+              <a routerLink="comList" routerLinkActive="active">
+              <span>Community Admins</span>
+              </a>
+            </button>
+            <button mat-menu-item color="white">
+              <a routerLink="bhcoList" routerLinkActive="active">
+                <span>BHCO</span>
+              </a>
+            </button>
+            <button mat-menu-item color="white">
+              <a routerLink="memberList" routerLinkActive="active">
+                <span>Community Member</span>
+              </a>
             </button>
           </mat-expansion-panel>
         </mat-accordion>

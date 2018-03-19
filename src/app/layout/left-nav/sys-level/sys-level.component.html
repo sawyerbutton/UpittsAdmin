@@ -32,6 +32,40 @@
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
               <mat-panel-title>
+                <mat-icon class="main-icon">view_list</mat-icon> &nbsp;
+                <span class="main-menu"> <h4>Tables</h4> </span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <button mat-menu-item color="white">
+              <a routerLink="stateList" routerLinkActive="active">
+                <!--<mat-icon>account_box</mat-icon>-->
+                <span> State Admins</span>
+              </a>
+            </button>
+            <button mat-menu-item color="white">
+              <a routerLink="comList" routerLinkActive="active">
+                <!--<mat-icon>account_box</mat-icon>-->
+                <span>Community Admins</span>
+              </a>
+            </button>
+            <button mat-menu-item color="white">
+              <a routerLink="bhcoList" routerLinkActive="active">
+                <!--<mat-icon>account_box</mat-icon>-->
+                <span> BHCO </span>
+              </a>
+            </button>
+            <button mat-menu-item color="white">
+              <a routerLink="memberList" routerLinkActive="active">
+                <!--<mat-icon>account_box</mat-icon>-->
+                <span> Community Members</span>
+              </a>
+            </button>
+          </mat-expansion-panel>
+
+
+          <mat-expansion-panel class="panel-format">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
                 <mat-icon class="main-icon">trending_up</mat-icon> &nbsp;
                 <span class="main-menu"> <h4>Analysis</h4> </span>
               </mat-panel-title>

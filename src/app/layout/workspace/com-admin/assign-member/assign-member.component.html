@@ -1,20 +1,29 @@
 <div class="workspace-container mid-position">
   <h3 class="workspace-title">Community Member</h3>
 
-  <mat-card class="system-card">
-    <mat-card-header >
-      <div class="col-sm-12">
-        <mat-card-title>Community Member List</mat-card-title>
-      </div>
-    </mat-card-header>
-    <mat-divider> </mat-divider>
-    <mat-card-content>
-      <br>
 
+  <mat-card class="system-card">
+    <mat-card-header>
+      <form [formGroup]="forms" class="col-sm-12">
+      <app-select-control-box [attrContent]="selectBhco" (follow)="getBhco($event)"></app-select-control-box>
+      </form>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card class="system-card">
+
+    <!--<mat-card-header >-->
+      <!--<div class="col-sm-12">-->
+        <!--<mat-card-title>Community Member List</mat-card-title>-->
+      <!--</div>-->
+    <!--</mat-card-header>-->
+    <!--<mat-divider> </mat-divider>-->
+    <mat-card-content>
+      <!--<br>-->
       <!---data table>-->
       <div class="example-header">
-        <mat-form-field>
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        <mat-form-field class="col-sm-12">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter Community Member">
         </mat-form-field>
       </div>
 
@@ -22,9 +31,25 @@
 
         <mat-table [dataSource]="dataSource" matSort>
 
+          !-- Checkbox Column -->
+          <ng-container matColumnDef="select">
+            <mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+              </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)">
+              </mat-checkbox>
+            </mat-cell>
+          </ng-container>
+
           <!-- ID Column -->
           <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Member ID </mat-header-cell>
             <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
           </ng-container>
 
@@ -70,24 +95,17 @@
             <mat-cell *matCellDef="let row"> {{row.zipcode}} </mat-cell>
           </ng-container>
 
-          <!-- Community Column -->
-          <ng-container matColumnDef="community">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Community </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.community}} </mat-cell>
-          </ng-container>
-
-          <!-- State Column -->
-          <ng-container matColumnDef="state">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
-            <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.state}} </mat-cell>
-          </ng-container>
-
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;">
           </mat-row>
         </mat-table>
 
         <mat-paginator [pageSizeOptions]="[6, 15, 25, 50]"></mat-paginator>
+      </div>
+
+      <br>
+      <div class="col-sm-12">
+        <button mat-raised-button color="primary">Confirm</button>
       </div>
 
     </mat-card-content>
