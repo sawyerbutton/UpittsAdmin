@@ -11,10 +11,10 @@ export class QuestionService {
         key: 'q1',
         label: '1. How would you rate your overall health on a scale of 1(very poor health) - 4(excellent health)?',
         options: [
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
+          {key: 1, value: 'Poor Health'},
+          {key: 2, value: 'Fair Health'},
+          {key: 3, value: 'Good Health'},
+          {key: 4, value: 'Excellent Health'},
         ],
         order: 1,
         domain: 'physical',
@@ -24,14 +24,10 @@ export class QuestionService {
         key: 'q2',
         label: '2. To what extent do you feel that physical pain prevents you from what you need to do?',
         options: [
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'},
-          {value: '8'},
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 2,
         domain: 'physical',
@@ -41,8 +37,10 @@ export class QuestionService {
         key: 'q3',
         label: '3. Do you have enough energy for everyday activities?',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 3,
         domain: 'physical',
@@ -52,8 +50,10 @@ export class QuestionService {
         key: 'q4',
         label: '4. Do you take prescribed medications? (If no, skip the next question)',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 4,
         domain: 'physical',
@@ -63,8 +63,10 @@ export class QuestionService {
         key: 'q5',
         label: '5. Are there times when you do not take your prescribed meds when you are supposed to? (due to cost, access, etc.)?',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 5,
         domain: 'physical',
@@ -74,8 +76,10 @@ export class QuestionService {
         key: 'q6',
         label: '6. Do you feel rested upon awaking? ',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 6,
         domain: 'physical',
@@ -85,8 +89,10 @@ export class QuestionService {
         key: 'q7',
         label: '7. Is your sleep interrupted?',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 7,
         domain: 'physical',
@@ -96,8 +102,10 @@ export class QuestionService {
         key: 'q8',
         label: '8. Do you have nightmares?',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 8,
         domain: 'physical',
@@ -107,16 +115,10 @@ export class QuestionService {
         key: 'q9',
         label: '9. In the last month, how often have you felt stressed?',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'},
-          {value: '8'},
-          {value: '9'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 9,
         domain: 'physical',
@@ -132,8 +134,10 @@ export class QuestionService {
         key: 'q10',
         label: '10. Do you have difficulty performing daily tasks?  (For example, cooking, bathing, getting dressed?)',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 10,
         domain: 'physical',
@@ -165,16 +169,10 @@ export class QuestionService {
         key: 'q13',
         label: '13. How satisfied are you with your ability to ambulate or move around?',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'},
-          {value: '8'},
-          {value: '9'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 13,
         domain: 'physical',
@@ -184,8 +182,10 @@ export class QuestionService {
         key: 'q14',
         label: '14. Are you able to run errands and shop without assistance?',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A Moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'},
         ],
         order: 14,
         domain: 'physical',
@@ -198,14 +198,10 @@ export class QuestionService {
         'Walking briskly(3 miles per hour or faster, but not race-walking), Water aerobic, Bicycling slower than 10 miled per hour,' +
         'Tennis(doubles), Ballroom dancing, General gardening',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'}
+          {key: 1, value: '0'},
+          {key: 2, value: '1 - 3 times'},
+          {key: 3, value: '4 - 5 times'},
+          {key: 4, value: '6 or more'},
         ],
         order: 15,
         domain: 'physical',
@@ -218,14 +214,10 @@ export class QuestionService {
         'Walking briskly(3 miles per hour or faster, but not race-walking), Water aerobic, Bicycling slower than 10 miled per hour,' +
         'Tennis(doubles), Ballroom dancing, General gardening',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'}
+          {key: 1, value: '0'},
+          {key: 2, value: '1 - 3 times'},
+          {key: 3, value: '4 - 5 times'},
+          {key: 4, value: '6 or more'},
         ],
         order: 16,
         domain: 'physical',
@@ -252,16 +244,10 @@ export class QuestionService {
         key: 'q18',
         label: '18. If you do smoke, how many cigarettes do you smoke in one day?',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'},
-          {value: '8'},
-          {value: '9'}
+          {key: 1, value: '0 - 5 cigs'},
+          {key: 2, value: '6 - 10 cigs'},
+          {key: 3, value: '11 - 19 cigs'},
+          {key: 4, value: '>20 vigs'},
         ],
         order: 18,
         domain: 'physical',
@@ -271,8 +257,10 @@ export class QuestionService {
         key: 'q19',
         label: '19. Do you currently use chewing tobacco, (snuff)?',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'Sometimes'},
+          {key: 3, value: 'Everyday'},
+          {key: 4, value: 'Refused'}
         ],
         order: 19,
         domain: 'physical',
@@ -280,17 +268,12 @@ export class QuestionService {
       }),
       new RadioQuestion({
         key: 'q20',
-        label: '20. How many drinks do you have in a week?',
+        label: '20. Do you drink alcohol (If no, skip the next two questions)?',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'},
-          {value: '8'},
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'Sometimes'},
+          {key: 3, value: 'Everyday'},
+          {key: 4, value: 'Refused'}
         ],
         order: 20,
         domain: 'physical',
@@ -298,17 +281,12 @@ export class QuestionService {
       }),
       new RadioQuestion({
         key: 'q21',
-        label: '21. How many drinks do you have at one time?',
+        label: '21. How many drinks do you have in a week?',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'},
-          {value: '8'},
+          {key: 1, value: '0 - 5 drinks'},
+          {key: 2, value: '6 - 10 drinks'},
+          {key: 3, value: '11 - 19 drinks'},
+          {key: 4, value: '> 20 drinks'},
         ],
         order: 21,
         domain: 'physical',
@@ -316,10 +294,12 @@ export class QuestionService {
       }),
       new RadioQuestion({
         key: 'q22',
-        label: '22. Do you smoke marijuana? (If no, skip the next question)',
+        label: '22. How many drinks do you have at one time?',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: '1 - 2 drinks'},
+          {key: 2, value: '3 - 4 drinks'},
+          {key: 3, value: '5 - 6 drinks'},
+          {key: 4, value: '> 6 drinks'},
         ],
         order: 22,
         domain: 'physical',
@@ -327,17 +307,12 @@ export class QuestionService {
       }),
       new RadioQuestion({
         key: 'q23',
-        label: '23. How many times in a week do you smoke marijuana? ',
+        label: '23. Do you smoke marijuana? (If no, skip the next question)',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'},
-          {value: '8'},
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'Sometimes'},
+          {key: 3, value: 'Everyday'},
+          {key: 4, value: 'Refused'}
         ],
         order: 23,
         domain: 'physical',
@@ -345,10 +320,12 @@ export class QuestionService {
       }),
       new RadioQuestion({
         key: 'q24',
-        label: '24. Do you use any other recreational drugs (including drugs prescribed for other people)?   (If no, skip the next question)?',
+        label: '24. How many times in a week do you smoke marijuana? ',
         options: [
-          {value: 'Yes'},
-          {value: 'No'}
+          {key: 1, value: '0 - 5 times'},
+          {key: 2, value: '6 - 10 times'},
+          {key: 3, value: '11 - 19 times'},
+          {key: 4, value: '> 20 times'}
         ],
         order: 24,
         domain: 'physical',
@@ -356,19 +333,27 @@ export class QuestionService {
       }),
       new RadioQuestion({
         key: 'q25',
-        label: '25. How often do you use/take the drug(s)in a week? ',
+        label: '25. Do you use any other recreational drugs (including drugs prescribed for other people)?   (If no, skip the next question)?',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'},
-          {value: '8'}
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'Sometimes'},
+          {key: 3, value: 'Everyday'},
+          {key: 4, value: 'Refused'}
         ],
         order: 25,
+        domain: 'physical',
+        subdomain: 'drug'
+      }),
+      new RadioQuestion({
+        key: 'q26',
+        label: '26. How often do you use/take the drug(s)in a week? ',
+        options: [
+          {key: 1, value: '0 - 5 times'},
+          {key: 2, value: '6 - 10 times'},
+          {key: 3, value: '11 - 19 times'},
+          {key: 4, value: '> 20 times'}
+        ],
+        order: 26,
         domain: 'physical',
         subdomain: 'drug'
       })
@@ -380,22 +365,15 @@ export class QuestionService {
   getFoodq() {
     let questions: QuestionBase<any>[] = [
       new RadioQuestion({
-        key: 'q26',
-        label: '26. How many meals a day do you eat?',
+        key: 'q27',
+        label: '27. How many meals a day do you eat?',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'},
-          {value: '8'},
-          {value: '9'},
-          {value: '10'}
+          {key: 1, value: '0 - 1'},
+          {key: 2, value: '2 - 3'},
+          {key: 3, value: '4 - 5'},
+          {key: 4, value: '6 or greater'}
         ],
-        order: 26,
+        order: 27,
         domain: 'physical',
         subdomain: 'food'
       }),
@@ -403,17 +381,10 @@ export class QuestionService {
         key: 'q28',
         label: '28. How many glasses of water do you drink per day?',
         options: [
-          {value: '0'},
-          {value: '1'},
-          {value: '2'},
-          {value: '3'},
-          {value: '4'},
-          {value: '5'},
-          {value: '6'},
-          {value: '7'},
-          {value: '8'},
-          {value: '9'},
-          {value: '10'}
+          {key: 1, value: '0 - 1'},
+          {key: 2, value: '2 - 3'},
+          {key: 3, value: '4 - 5'},
+          {key: 4, value: '6 or greater'}
         ],
         order: 28,
         domain: 'physical',
@@ -422,6 +393,248 @@ export class QuestionService {
     ];
     return questions.sort((a, b) => a.order - b.order);
   }
+
+  getReaction() {
+    let questions: QuestionBase<any>[] = [
+      new RadioQuestion({
+        key: 'q1',
+        label: '1. How much do you enjoy life?',
+        options: [
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'}
+        ],
+        order: 1,
+        domain: 'behavioral',
+        subdomain: 'reaction'
+      }),
+      new RadioQuestion({
+        key: 'q2',
+        label: '2. How much confidence do you have in yourself?',
+        options: [
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'}
+        ],
+        order: 2,
+        domain: 'behavioral',
+        subdomain: 'reaction'
+      }),
+      new RadioQuestion({
+        key: 'q3',
+        label: '3. How satisfied are you with the quality of your life?',
+        options: [
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'}
+        ],
+        order: 3,
+        domain: 'behavioral',
+        subdomain: 'reaction'
+      }),
+      new RadioQuestion({
+        key: 'q4',
+        label: '4. How optimistic are you in your life?',
+        options: [
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'}
+        ],
+        order: 4,
+        domain: 'behavioral',
+        subdomain: 'reaction'
+      }),
+      new RadioQuestion({
+        key: 'q5',
+        label: '5. How often do you have negative feelings?',
+        options: [
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'}
+        ],
+        order: 5,
+        domain: 'behavioral',
+        subdomain: 'reaction'
+      }),
+      new RadioQuestion({
+        key: 'q6',
+        label: '6. How much do feelings of sadness or depression interfere with your everyday functioning?',
+        options: [
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'}
+        ],
+        order: 6,
+        domain: 'behavioral',
+        subdomain: 'reaction'
+      }),
+      new RadioQuestion({
+        key: 'q7',
+        label: '7. Do you have trouble trusting other people?',
+        options: [
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'}
+        ],
+        order: 7,
+        domain: 'behavioral',
+        subdomain: 'reaction'
+      }),
+      new RadioQuestion({
+        key: 'q8',
+        label: '8. Do you have the ability to control strong feelings and impulses?',
+        options: [
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'}
+        ],
+        order: 8,
+        domain: 'behavioral',
+        subdomain: 'reaction'
+      }),
+      new RadioQuestion({
+        key: 'q9',
+        label: '9. When bad things happen to me or anyone else, I feel no emotion.',
+        options: [
+          {key: 1, value: 'Not at all'},
+          {key: 2, value: 'A moderate amount'},
+          {key: 3, value: 'Very much'},
+          {key: 4, value: 'An extreme amount'}
+        ],
+        order: 9,
+        domain: 'behavioral',
+        subdomain: 'reaction'
+      }),
+    ];
+
+    return questions.sort((a, b) => a.order - b.order);
+  }
+
+  getACE() {
+    let questions : QuestionBase<any>[] = [
+      new RadioQuestion({
+        key: 'q1',
+        label: '1.  Did a parent or other adult in the household often or very often swear at you, insult you, put you down, or humiliate you, or act in a way that made you afraid that you might be physically hurt? ',
+        options: [
+          {key: 0, value: 'Yes'},
+          {key: 1, value: 'No'},
+        ],
+        order: 1,
+        domain: 'behavioral',
+        subdomain: 'ace'
+      }),
+      new RadioQuestion({
+        key: 'q2',
+        label: '2. Did a parent or other adult in the household often or very often push, grab, slap, or throw something at you, or ever hit you so hard that you had marks or were injured?',
+        options: [
+          {key: 0, value: 'Yes'},
+          {key: 1, value: 'No'},
+        ],
+        order: 2,
+        domain: 'behavioral',
+        subdomain: 'ace'
+      }),
+      new RadioQuestion({
+        key: 'q3',
+        label: '3. Did an adult or person at least 5 years older than you ever touch or fondle you, or have you touch their body in a sexual way, or attempt, or actually have oral, anal, or vaginal intercourse with you? ',
+        options: [
+          {key: 0, value: 'Yes'},
+          {key: 1, value: 'No'},
+        ],
+        order: 3,
+        domain: 'behavioral',
+        subdomain: 'ace'
+      }),
+      new RadioQuestion({
+        key: 'q4',
+        label: '4. Did you often or very often feel that  no one in your family loved you, or thought you were important, or special, or your family didn\'\t look out for each other, feel close to each other, or support each other? ',
+        options: [
+          {key: 0, value: 'Yes'},
+          {key: 1, value: 'No'},
+        ],
+        order: 4,
+        domain: 'behavioral',
+        subdomain: 'ace'
+      }),
+      new RadioQuestion({
+        key: 'q5',
+        label: '5.Did you often or very often feel that you didn\'t have enough to eat, had to wear dirty clothes, and had no one to protect you, or your parents were too drunk or high to take care of you, or take you to the doctor if you needed it? ',
+        options: [
+          {key: 0, value: 'Yes'},
+          {key: 1, value: 'No'},
+        ],
+        order: 5,
+        domain: 'behavioral',
+        subdomain: 'ace'
+      }),
+      new RadioQuestion({
+        key: 'q6',
+        label: '6. Was a biological parent ever lost to you through divorce, abandonment, or other reason? ',
+        options: [
+          {key: 0, value: 'Yes'},
+          {key: 1, value: 'No'},
+        ],
+        order: 6,
+        domain: 'behavioral',
+        subdomain: 'ace'
+      }),
+      new RadioQuestion({
+        key: 'q7',
+        label: '7. Was your parent or guardian, often or very often pushed, grabbed, slapped, or had something thrown at them, or sometimes, often, or very often kicked, bitten, hit with a fist, or hit with something hard, or ever repeatedly hit over at least a few minutes, or threatened with a gun or knife? ',
+        options: [
+          {key: 0, value: 'Yes'},
+          {key: 1, value: 'No'},
+        ],
+        order: 7,
+        domain: 'behavioral',
+        subdomain: 'ace'
+      }),
+      new RadioQuestion({
+        key: 'q8',
+        label: '8. Did you live with anyone who was a problem drinker, or alcoholic, or who used street drugs? ',
+        options: [
+          {key: 0, value: 'Yes'},
+          {key: 1, value: 'No'},
+        ],
+        order: 8,
+        domain: 'behavioral',
+        subdomain: 'ace'
+      }),
+      new RadioQuestion({
+        key: 'q9',
+        label: '9. Was a household member depressed or mentally ill, or did a household member attempt suicide? ',
+        options: [
+          {key: 0, value: 'Yes'},
+          {key: 1, value: 'No'},
+        ],
+        order: 9,
+        domain: 'behavioral',
+        subdomain: 'ace'
+      }),
+      new RadioQuestion({
+        key: 'q10',
+        label: '10. Did a household member go to prison? ',
+        options: [
+          {key: 0, value: 'Yes'},
+          {key: 1, value: 'No'},
+        ],
+        order: 10,
+        domain: 'behavioral',
+        subdomain: 'ace'
+      }),
+    ];
+    return questions.sort((a, b) => a.order - b.order);
+  }
+
+
 
   getQuestions() {
     let questions: QuestionBase<any>[] = [

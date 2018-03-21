@@ -6,7 +6,6 @@ import {DemoQuestionComponent} from './demo-question.component';
 
 @NgModule({
   imports: [
-    CommonModule,
     SharedModuleModule,
     ControlBoxModule
   ],
