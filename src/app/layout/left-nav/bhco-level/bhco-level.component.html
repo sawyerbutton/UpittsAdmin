@@ -12,23 +12,8 @@
   <mat-sidenav-container class="sideNav-container">
     <mat-sidenav #snav class="left-nav" mode="side" opened>
       <app-user-info></app-user-info>
-      <mat-nav-list>
+      <mat-nav-list class="nav-list">
         <mat-accordion>
-          <mat-expansion-panel class="panel-format">
-            <mat-expansion-panel-header>
-              <mat-panel-title><a routerLink="socialNetwork" routerLinkActive="active">
-                <mat-icon class="main-icon">thumbs_up_down</mat-icon> &nbsp;
-                <span class="main-menu"> <h4> &nbsp; Social Network</h4> </span> </a>
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <a routerLink="socialNetwork" routerLinkActive="active">
-            <button mat-menu-item color="white">
-              <mat-icon>thumbs_up_down</mat-icon>
-              <span>Social Network</span>
-            </button>
-            </a>
-          </mat-expansion-panel>
-
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
               <mat-panel-title>  <a routerLink="demographic" routerLinkActive="active">
@@ -85,6 +70,21 @@
 
           <mat-expansion-panel class="panel-format">
             <mat-expansion-panel-header>
+              <mat-panel-title><a routerLink="socialNetwork" routerLinkActive="active">
+                <mat-icon class="main-icon">thumbs_up_down</mat-icon> &nbsp;
+                <span class="main-menu"> <h4> &nbsp; Social Network</h4> </span> </a>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a routerLink="socialNetwork" routerLinkActive="active">
+              <button mat-menu-item color="white">
+                <mat-icon>thumbs_up_down</mat-icon>
+                <span>Social Network</span>
+              </button>
+            </a>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel class="panel-format">
+            <mat-expansion-panel-header>
               <mat-panel-title>  <a routerLink="assign" routerLinkActive="active">
                 <mat-icon class="main-icon">trending_up</mat-icon>
                 <span class="main-menu"> <h4>&nbsp; Assignment </h4> </span>  </a>
@@ -125,8 +125,8 @@
             </a>
           </mat-expansion-panel>
         </mat-accordion>
-        <app-footer></app-footer>
       </mat-nav-list>
+      <app-footer></app-footer>
     </mat-sidenav>
 
     <mat-sidenav-content>

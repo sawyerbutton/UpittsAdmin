@@ -18,6 +18,7 @@ export class CreateBhcoComponent implements OnInit {
   public firstName :InputAttributes = {name:'firstname',min:2,max:32,placeholder:'first name',type:'text'};
   public lastName :InputAttributes = {name:'lastname',min:2,max:32,placeholder:'last name',type:'text'};
   public email: InputAttributes = {name:'email',min:6,max:32,placeholder:'email',type:'email'};
+  public phone: InputAttributes = {name: 'phone', min: 6, max:32, placeholder: 'phone', type: 'tel'};
   //input value
   userNamePara: string;
   userPasswordPara: string;
@@ -25,6 +26,7 @@ export class CreateBhcoComponent implements OnInit {
   firstNamePara: string;
   lastNamePara: string;
   emailPara: string;
+  phonePara: string;
 
   constructor(private fb: FormBuilder) { }
   ngOnInit() {
@@ -38,7 +40,8 @@ export class CreateBhcoComponent implements OnInit {
       confirmPassword: ['',[Validators.required,Validators.minLength(8)]],
       firstname:['',[ Validators.required,Validators.minLength(4)]],
       lastname:['',[Validators.required,Validators.minLength(4)]],
-      email: ['',[Validators.required,ValidationService.emailValidator]]
+      email: ['',[Validators.required,ValidationService.emailValidator]],
+      phone: ['',[Validators.required,Validators.minLength(6)]]
     });
   }
 
@@ -81,6 +84,12 @@ export class CreateBhcoComponent implements OnInit {
     if(value){
       this.emailPara = value;
       console.log("password:"+this.emailPara);
+    }
+  }
+
+  getPhone(value: string) {
+    if (value) {
+      this.phonePara = value;
     }
   }
 

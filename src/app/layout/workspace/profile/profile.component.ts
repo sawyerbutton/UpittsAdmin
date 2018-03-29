@@ -17,4 +17,8 @@ export class ProfileComponent implements OnInit {
     this.router.navigateByUrl("/BhcoDashboard/editProfile");
   }
 
+  resetPassword() {
+    this.router.navigateByUrl("/BhcoDashboard/resetPassword")
+  }
+
 }

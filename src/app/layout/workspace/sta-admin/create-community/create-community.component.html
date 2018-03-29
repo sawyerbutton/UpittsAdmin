@@ -6,7 +6,8 @@
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="familyGroup">
-        <app-select-control-box [attrContent]="selectBlock" (follow)="getBlock($event)"></app-select-control-box>
+        <app-select-control-box [attrContent]="selectCounty" (follow)="getCounty($event)"></app-select-control-box>
+        <app-select-control-box [attrContent]="selectCity" (follow)="getCity($event)"></app-select-control-box>
         <app-input-control-box [attrContent]="inputFamily" (follow)="getFamily($event)"></app-input-control-box>
         <br><br>
         <div class="col-sm-12">

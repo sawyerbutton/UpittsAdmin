@@ -23,7 +23,24 @@
             <app-input-control-box [attrContent]="userName" (follow)="getUserName($event)"></app-input-control-box>
             <app-input-control-box [attrContent]="passWord" (follow)="getUserPassword($event)"></app-input-control-box>
             <app-input-control-box [attrContent]="confirmPassword" validateEqual="password" (follow)="getUserConPassword($event)"></app-input-control-box>
+            <p>Basic Information</p>
             <div>
+            <app-input-control-box [attrContent]="userFirstName" (follow)="getFirstName($event)" class="col-sm-6"></app-input-control-box>
+              <app-input-control-box [attrContent]="userLastName" (follow)="getLastName($event)" class="col-sm-6"></app-input-control-box>
+            </div>
+            <div>
+              <!--This part needs to changes to input-control-box later-->
+              <mat-form-field class="col-sm-6">
+                <span matPrefix>+1 &nbsp;</span>
+                <input type="tel" matInput placeholder="Telephone">
+                <mat-icon matSuffix>phone</mat-icon>
+              </mat-form-field>
+              <mat-form-field class="col-sm-6">
+                <input type="email" matInput placeholder="Email">
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12">
               <button mat-raised-button color ="primary" [disabled]="userForm.invalid" matStepperNext>Next</button>
               <button mat-raised-button color ="accent" matStepperPrevious>Back</button>
             </div>
@@ -32,9 +49,20 @@
         //third step
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>
-          <p> You have assigned <b class="admin-name"> John Smith </b></p>
-          <p> to be the <b> PA </b> administartor.</p>
-          <div>
+          <div class="col-sm-12">
+            <p class="col-sm-6"> User Name: <b class="admin-name">{{userNamePara}}</b></p>
+            <p class="col-sm-6"> State: <b class="admin-name">{{statePara}}</b></p>
+          </div>
+
+          <div class="col-sm-12">
+            <p class="col-sm-6">First Name: <b class="admin-name">{{firstNamePara}} </b></p>
+            <p class="col-sm-6">Last Name: <b class="admin-name"> {{lastNamePara}} </b></p>
+          </div>
+          <div class="col-sm-12">
+            <p class="col-sm-6">Phone Number: <b class="admin-name"></b></p>
+            <p class="col-sm-6">Email: <b class="admin-name"></b></p>
+          </div>
+          <div class="col-sm-12">
             <button mat-raised-button color="accent" matStepperPrevious >Confirm</button>
             <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
           </div>

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 // import modules
 import { AppRoutingModule } from './app-routing.module';
@@ -34,7 +35,7 @@ import { QuestionService} from './shared/shared-control/question.service';
     LayoutModule,
     AppRoutingModule
   ],
-  providers: [QuestionControlService, QuestionService],
+  providers: [QuestionControlService, QuestionService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

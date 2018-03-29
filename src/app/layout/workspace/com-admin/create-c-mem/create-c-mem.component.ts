@@ -12,6 +12,7 @@ import { Race } from '../../../../shared/shared-control/attributes';
 import { MaritalStatus } from '../../../../shared/shared-control/attributes';
 import { Education} from '../../../../shared/shared-control/attributes';
 import { Employment} from '../../../../shared/shared-control/attributes';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-c-mem',
@@ -38,19 +39,21 @@ export class CreateCMemComponent implements OnInit {
   public selectFamily: SelectAttributes = {name:'family',roles:this.familys,placeholder:'family'};
   public selectBlock :SelectAttributes = {name:'block',roles:this.blocks,placeholder:'block'};
   public userName : InputAttributes = {name:'username',min:4,max:32,placeholder:'username', type: 'text'};
-  public passWord: InputAttributes = {name:'password',min:8,max:32,placeholder:'password',type:'password'};
-  public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
+  // public passWord: InputAttributes = {name:'password',min:8,max:32,placeholder:'password',type:'password'};
+  // public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
+  //
   public firstName :InputAttributes = {name:'firstname',min:4,max:32,placeholder:'first name',type:'text'};
   public midName: InputAttributes = {name:'midname',min:4,max:32,placeholder:'mid name',type:'text'};
   public lastName :InputAttributes = {name:'lastname',min:4,max:32,placeholder:'last name',type:'text'};
   public selectGender :SelectAttributes = {name:'gender',roles:this.gender,placeholder:'gender'};
   public phoneNumber: InputAttributes = {name:'phone',min:8,max:32,placeholder:'phone number',type:'tel'};
-  public date: InputAttributes = {name:'date',min:8,max:10,placeholder:'date',type:'text'};
+  public inputEmail: InputAttributes = {name: 'email', min:8, max:32, placeholder:'email', type: 'email'};
+  public date: InputAttributes = {name:'date',min:8,max:10,placeholder:'date of birth (MM/DD/YYYY)',type:'text'};
   public addressOne: InputAttributes = {name:'address1',min:6,max:32,placeholder:'address one',type:'text'};
   public addressTwo: InputAttributes = {name:'address2',min:6,max:32,placeholder:'address two',type:'text'};
-  public selectState: SelectAttributes = {name:'state',roles:this.states,placeholder:'state'};
-  public cities: InputAttributes = {name:'city',min:3,max:32,placeholder:'city',type:'text'};
-  public zipCode :InputAttributes = {name:'zipcode',min:5,max:32,placeholder:'zip code',type:'text'};
+  // public selectState: SelectAttributes = {name:'state',roles:this.states,placeholder:'state'};
+  // public cities: InputAttributes = {name:'city',min:3,max:32,placeholder:'city',type:'text'};
+  // public zipCode :InputAttributes = {name:'zipcode',min:5,max:32,placeholder:'zip code',type:'text'};
   public race: SelectAttributes = {name:'race',roles:this.races,placeholder:'race'};
   public matrialStatus :SelectAttributes = {name:'marital',roles:this.matrialS,placeholder:'marital status'};
   public educations: SelectAttributes = {name:'education',roles:this.educationS,placeholder:'education status'};
@@ -59,10 +62,11 @@ export class CreateCMemComponent implements OnInit {
   public defaultCounty: defaultAttributes = {name:'dCounty',value:'Allegheny',type:'text',placeholder:'county'};
   public defaultCity: defaultAttributes = {name:'dCity',value:'Pittsburgh',type:'text',placeholder:'city'};
   public defaultCommunity: defaultAttributes = {name:'dCommunity',value:'North Oakland',type:'text',placeholder:'community'};
+  public defaultPassword: defaultAttributes = {name: 'dPassword', value: 'imHealthy@2018', type:'text', placeholder:'password'};
   //input value
   userNamePara: string;
-  userPasswordPara: string;
-  userConPasswordPara: string;
+  // userPasswordPara: string;
+  // userConPasswordPara: string;
   blockPara: string;
   familyPara: string;
   firstNamePara: string;
@@ -73,15 +77,19 @@ export class CreateCMemComponent implements OnInit {
   datePara: string;
   addressOnePara: string;
   addressTwoPara: string;
-  cityPara: string;
-  statePara: string;
-  zipcodePara: string;
+  // cityPara: string;
+  // statePara: string;
+  // zipcodePara: string;
   racePara: string;
   matrialPara: string;
   empolymentPara: string;
   educationPara: string;
+  emailPara: string;
+  dobPara: string;
+
   constructor(
-    private fb:FormBuilder
+    private fb:FormBuilder,
+    private datapipe : DatePipe
   ){ }
 
   ngOnInit() {
@@ -100,8 +108,9 @@ export class CreateCMemComponent implements OnInit {
     });
     this.userForm = this.fb.group({
       username:['',[ Validators.required,Validators.minLength(4)]],
-      password:['',[Validators.required,ValidationService.passwordValidator]],
-      confirmPassword: ['',[Validators.required,Validators.minLength(8)]],
+      dPassword:['',[]],
+      // password:['',[Validators.required,ValidationService.passwordValidator]],
+      // confirmPassword: ['',[Validators.required,Validators.minLength(8)]],
       firstname:['',[ Validators.required,Validators.minLength(4)]],
       midname:['',[Validators.required,Validators.minLength(4)]],
       lastname:['',[Validators.required,Validators.minLength(4)]],
@@ -110,9 +119,10 @@ export class CreateCMemComponent implements OnInit {
       date:['',[Validators.required]],
       address1:['',[Validators.required,Validators.minLength(6)]],
       address2:['',[Validators.required,Validators.minLength(6)]],
-      state:['',[Validators.required]],
-      city:['',[Validators.required,Validators.minLength(3)]],
-      zipcode:['',[Validators.required,Validators.minLength(5)]],
+      email: ['',[Validators.required,ValidationService.emailValidator]]
+      //state:['',[Validators.required]],
+      //city:['',[Validators.required,Validators.minLength(3)]],
+      //zipcode:['',[Validators.required,Validators.minLength(5)]],
     });
     this.otherFormGroup = this.fb.group({
       race:['',[Validators.required]],
@@ -129,19 +139,19 @@ export class CreateCMemComponent implements OnInit {
     }
   }
 
-  getUserPassword(value: string){
-    if(value){
-      this.userPasswordPara = value;
-      console.log("password:"+this.userPasswordPara);
-    }
-  }
-
-  getUserConPassword(value: string){
-    if(value){
-      this.userConPasswordPara = value;
-      console.log("password:"+this.userConPasswordPara);
-    }
-  }
+  // getUserPassword(value: string){
+  //   if(value){
+  //     this.userPasswordPara = value;
+  //     console.log("password:"+this.userPasswordPara);
+  //   }
+  // }
+  //
+  // getUserConPassword(value: string){
+  //   if(value){
+  //     this.userConPasswordPara = value;
+  //     console.log("password:"+this.userConPasswordPara);
+  //   }
+  // }
 
   getBlock(value:string){
     if(value){
@@ -196,6 +206,7 @@ export class CreateCMemComponent implements OnInit {
     if(value){
       this.datePara = value;
       console.log("username:"+this.datePara);
+      this.dobPara = this.datapipe.transform(this.datePara, "yyyy-mm-dd")
     }
   }
 
@@ -213,24 +224,30 @@ export class CreateCMemComponent implements OnInit {
     }
   }
 
-  getCity(value:string){
-    if(value){
-      this.cityPara = value;
-      console.log("username:"+this.cityPara);
-    }
-  }
+  // getCity(value:string){
+  //   if(value){
+  //     this.cityPara = value;
+  //     console.log("username:"+this.cityPara);
+  //   }
+  // }
 
-  getState(value:string){
-    if(value){
-      this.statePara = value;
-      console.log("username:"+this.statePara);
-    }
-  }
+  // getState(value:string){
+  //   if(value){
+  //     this.statePara = value;
+  //     console.log("username:"+this.statePara);
+  //   }
+  // }
+  //
+  // getZipcode(value:string){
+  //   if(value){
+  //     this.zipcodePara = value;
+  //     console.log("username:"+this.zipcodePara);
+  //   }
+  // }
 
-  getZipcode(value:string){
-    if(value){
-      this.zipcodePara = value;
-      console.log("username:"+this.zipcodePara);
+  getEmail(value: string) {
+    if (value) {
+      this.emailPara = value;
     }
   }
 

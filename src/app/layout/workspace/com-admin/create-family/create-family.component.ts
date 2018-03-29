@@ -12,12 +12,16 @@ export class CreateFamilyComponent implements OnInit {
   public familyGroup: FormGroup;
   public blocks = Block;
 
-  public selectBlock :SelectAttributes = {name:'block',roles:this.blocks,placeholder:'block'};
-  public inputFamily : InputAttributes = {name:'family',min:4,max:32,placeholder:'family',type:'text'};
+  public inputAddress1: InputAttributes = {name:'address1', min:4,max:32, placeholder:'Address One', type:'text'};
+  public inputAddress2: InputAttributes = {name:'address2', min:4, max: 32, placeholder:'Address Two', type:'text'};
+  public selectBlock :SelectAttributes = {name:'block',roles:this.blocks,placeholder:'Select Block'};
+  public inputFamily : InputAttributes = {name:'family',min:4,max:32,placeholder:'Family Last Name',type:'text'};
 
   //
   blockPara :string;
   familyPara: string;
+  address1Para: string;
+  address2Para: string;
 
   constructor(
     public fb: FormBuilder,
@@ -30,7 +34,9 @@ export class CreateFamilyComponent implements OnInit {
   buildForm(): void {
     this.familyGroup = this.fb.group({
       block: ['', [Validators.required]],
-      family:['',[Validators.required,Validators.minLength(4)]]
+      family:['',[Validators.required,Validators.minLength(4)]],
+      address1:['',[Validators.required,Validators.minLength(4)]],
+      address2:['',[Validators.required,Validators.minLength(4)]]
     })
   }
 
@@ -45,6 +51,18 @@ export class CreateFamilyComponent implements OnInit {
     if(value){
       this.familyPara = value;
       console.log("username:"+this.familyPara);
+    }
+  }
+
+  getAddress1(value: string) {
+    if (value) {
+      this.address1Para = value;
+    }
+  }
+
+  getAddress2(value: string) {
+    if (value) {
+      this.address2Para = value;
     }
   }
 }

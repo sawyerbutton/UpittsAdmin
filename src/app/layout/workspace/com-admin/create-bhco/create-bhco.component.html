@@ -11,10 +11,13 @@
         <app-input-control-box [attrContent]="passWord" (follow)="getUserPassword($event)"></app-input-control-box>
         <app-input-control-box [attrContent]="confirmPassword" validateEqual="password" (follow)="getUserConPassword($event)"></app-input-control-box>
         <h4>Personal Information </h4>
-        <div>
-          <app-input-control-box [attrContent]="firstName" (follow)="getFirstName($event)"></app-input-control-box>
-          <app-input-control-box [attrContent]="lastName" (follow)="getLastName($event)"></app-input-control-box>
-          <app-input-control-box [attrContent]="email" (follow)="getEmail($event)"></app-input-control-box>
+        <div class="full-width">
+          <app-input-control-box [attrContent]="firstName" (follow)="getFirstName($event)" class="col-sm-6"></app-input-control-box>
+          <app-input-control-box [attrContent]="lastName" (follow)="getLastName($event)" class="col-sm-6"></app-input-control-box>
+        </div>
+        <div class="full-width">
+          <app-input-control-box [attrContent]="email" (follow)="getEmail($event)" class="col-sm-6"></app-input-control-box>
+          <app-input-control-box [attrContent]="phone" (follow)="getPhone($event)" class="col-sm-6"></app-input-control-box>
         </div>
         <div class="col-sm-12">
           <button mat-raised-button color="primary" [disabled]="registerForm.invalid">Submit</button>

@@ -47,10 +47,10 @@
             </mat-cell>
           </ng-container>
 
-          <!-- ID Column -->
-          <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Member ID </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+          <!-- username Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
           </ng-container>
 
           <!-- Progress Column
@@ -59,10 +59,16 @@
             <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
           </ng-container> -->
 
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+          <!-- first Name Column -->
+          <ng-container matColumnDef="firstname">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.firstName}} </mat-cell>
+          </ng-container>
+
+          <!-- last Name Column -->
+          <ng-container matColumnDef="lastname">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.lastName}} </mat-cell>
           </ng-container>
 
           <!-- Gender -->
@@ -73,7 +79,7 @@
 
           <!-- Date of birth -->
           <ng-container matColumnDef="dob">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> DOB </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Age </mat-header-cell>
             <mat-cell *matCellDef="let row"> {{row.dob}} </mat-cell>
           </ng-container>
 

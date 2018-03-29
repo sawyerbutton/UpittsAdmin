@@ -10,7 +10,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 })
 export class UnassignListComponent {
 
-  displayedColumns = ['select', 'memberID', 'memberName', 'bhcoID', 'bhcoName'];
+  displayedColumns = ['select', 'memberID', 'memberFirstName', 'memberLastName', 'bhcoID', 'bhcoFirstName', 'bhcoLastName'];
   dataSource: MatTableDataSource<relationData>;
   selection = new SelectionModel<relationData>(true, []);
 
@@ -68,9 +68,11 @@ function createNewUser(id: number): relationData {
 
   return {
     memID: id.toString(),
-    memName: name1,
+    memFirstName: FIRSTNAME[Math.round(Math.random() * (FIRSTNAME.length - 1))],
+    memLastName: LASTNAME[Math.round(Math.random() * (LASTNAME.length - 1))],
     bhcoID: BHCOID[Math.round(Math.random() * (BHCOID.length - 1))],
-    bhcoName: name2,
+    bhcoFirstName: FIRSTNAME[Math.round(Math.random() * (FIRSTNAME.length - 1))],
+    bhcoLastName: LASTNAME[Math.round(Math.random() * (LASTNAME.length - 1))]
   };
 }
 
@@ -84,11 +86,16 @@ const BHCONAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
   'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
   'Cora', 'Levi', 'Violet', 'Arthur', 'Mia'];
 const BHCOID = [12, 32, 45, 21, 2, 4];
+const FIRSTNAME = ["John", "Tony", "Mia", "Allen", "Jerry", 'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia'];
+const LASTNAME = ["Smith", "White", "Hunt", "Rains"];
+
 
 
 export interface relationData {
   memID: string;
-  memName: string;
+  memFirstName: string;
+  memLastName: string
   bhcoID: number;
-  bhcoName: string;
+  bhcoFirstName: string;
+  bhcoLastName: string;
 }

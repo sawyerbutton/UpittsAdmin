@@ -22,10 +22,10 @@
 
         <mat-table [dataSource]="dataSource" matSort>
 
-          <!-- ID Column -->
-          <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+          <!-- User Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> User Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
           </ng-container>
 
           <!-- Progress Column
@@ -34,10 +34,16 @@
             <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
           </ng-container> -->
 
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+          <!--first Name Column -->
+          <ng-container matColumnDef="firstname">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.firstName}} </mat-cell>
+          </ng-container>
+
+          <!--last Name Column -->
+          <ng-container matColumnDef="lastname">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.lastName}} </mat-cell>
           </ng-container>
 
           <!-- Gender -->
@@ -48,7 +54,7 @@
 
           <!-- Date of birth -->
           <ng-container matColumnDef="dob">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> DOB </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Age </mat-header-cell>
             <mat-cell *matCellDef="let row"> {{row.dob}} </mat-cell>
           </ng-container>
 
@@ -72,14 +78,14 @@
 
           <!-- Community Column -->
           <ng-container matColumnDef="community">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Community </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.community}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Family </mat-header-cell>
+            <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.community}} </mat-cell>
           </ng-container>
 
           <!-- State Column -->
           <ng-container matColumnDef="state">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
-            <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.state}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Blocks </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.state}} </mat-cell>
           </ng-container>
 
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

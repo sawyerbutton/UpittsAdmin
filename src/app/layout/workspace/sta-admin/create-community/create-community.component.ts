@@ -12,11 +12,13 @@ export class CreateCommunityComponent implements OnInit {
   public familyGroup: FormGroup;
   public blocks = Block;
 
-  public selectBlock :SelectAttributes = {name:'block',roles:this.blocks,placeholder:'block'};
-  public inputFamily : InputAttributes = {name:'family',min:4,max:32,placeholder:'family',type:'text'};
+  public selectCounty :SelectAttributes = {name:'county',roles:this.blocks,placeholder:'County'};
+  public selectCity: SelectAttributes = {name: 'city', roles:this.blocks, placeholder:'City'};
+  public inputFamily : InputAttributes = {name:'family',min:4,max:32,placeholder:'community',type:'text'};
 
   //
-  blockPara :string;
+  countyPara :string;
+  cityPara: string;
   familyPara: string;
 
   constructor(
@@ -29,15 +31,23 @@ export class CreateCommunityComponent implements OnInit {
 
   buildForm(): void {
     this.familyGroup = this.fb.group({
-      block: ['', [Validators.required]],
+      county: ['', [Validators.required]],
+      city: ['', [Validators.required]],
       family:['',[Validators.required,Validators.minLength(4)]]
     })
   }
 
-  getBlock(value:string){
+  getCounty(value: string){
     if(value){
-      this.blockPara = value;
-      console.log("username:"+this.blockPara);
+      this.countyPara = value;
+      console.log("county:"+this.countyPara);
+    }
+  }
+
+  getCity(value: string) {
+    if (value) {
+      this.cityPara = value;
+      console.log("city"+this.cityPara);
     }
   }
 
@@ -47,6 +57,8 @@ export class CreateCommunityComponent implements OnInit {
       console.log("username:"+this.familyPara);
     }
   }
+
+
 }
 
 export class family {

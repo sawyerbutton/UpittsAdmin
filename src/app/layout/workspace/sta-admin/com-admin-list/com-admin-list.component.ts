@@ -7,7 +7,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
   styleUrls: ['./com-admin-list.component.css']
 })
 export class ComAdminListComponent {
-  displayedColumns = ['id', 'username', 'password', 'state', 'city', 'community'];
+  displayedColumns = ['username', 'firstName', 'lastName', 'phone', 'email', 'city', 'community'];
   dataSource: MatTableDataSource<ComAdminData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -47,8 +47,10 @@ function createNewUser(id: number): ComAdminData {
   return {
     id: id.toString(),
     username: name,
-    password: PWD[Math.round(Math.random() * (PWD.length - 1))],
-    state: STATE[Math.round(Math.random() * (STATE.length - 1))],
+    firstName: FIRSTNAME[Math.round(Math.random() * (FIRSTNAME.length - 1))],
+    lastName: LASTNAME[Math.round(Math.random() * (LASTNAME.length - 1))],
+    phone: PHONE[Math.round(Math.random() * (PHONE.length - 1))],
+    email: EMAIL[Math.round(Math.random() * (EMAIL.length - 1))],
     city: CITY[Math.round(Math.random() * (CITY.length - 1))],
     community: COMMUNITY[Math.round(Math.random() * (COMMUNITY.length - 1))],
     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
@@ -61,17 +63,21 @@ const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
 const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
   'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
   'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
-
-const PWD = ['fnfiweo', 'bfiweo', 'fbweoi123', 'nfrew3jd', '33nowmqe', 'bvfouwe12ms'];
-const STATE = ['Alaska', 'California', 'Florida', 'Georgia', 'North Carolina', 'New York'];
+const FIRSTNAME = ["John", "Tony", "Mia", "Allen", "Jerry", 'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia'];
+const LASTNAME = ["Smith", "White", "Hunt", "Rains"];
+const PHONE = ['412-392-2032', '412-363-8936', '220-384-8364', '412-384-9932'];
+const EMAIL = ['dewo@gmail.com', 'aaaa@burst.com', 'fnie@outlook.com', 'dnwio@yahoo.com'];
+// const STATE = ['Alaska', 'California', 'Florida', 'Georgia', 'North Carolina', 'New York'];
 const CITY = ['Pittsburgh', 'Los Angels', 'New York', 'Seattle', 'Cleavland'];
 const COMMUNITY = ['Clinton', 'Franklin', 'Madison', 'Bristol', 'GeorgeTown'];
 
 export interface ComAdminData {
   id: string;
   username: string;
-  password: string;
-  state: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
   city: string;
   community: string;
   color: string;

@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {MatChipInputEvent} from '@angular/material';
+import {ENTER, COMMA} from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-state-admin-list',
@@ -8,8 +10,10 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 })
 export class StateAdminListComponent{
 
-  displayedColumns = ['id', 'username', 'password', 'state'];
+  displayedColumns = ['username', 'firstName', 'lastName', 'phone', 'email', 'state'];
   dataSource: MatTableDataSource<StateAdminData>;
+
+  value = ' ';
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -37,6 +41,44 @@ export class StateAdminListComponent{
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+
+  //filter bar with chips
+  visible: boolean = true;
+  selectable: boolean = true;
+  removable: boolean = true;
+  addOnBlur: boolean = true;
+
+  // Enter, comma
+  separatorKeysCodes = [ENTER, COMMA];
+
+  states = [
+    { name: 'Pennsylvania' },
+    { name: 'New York' },
+  ];
+
+
+  add(event: MatChipInputEvent): void {
+    let input = event.input;
+    let value = event.value;
+
+    // Add our fruit
+    if ((value || '').trim()) {
+      this.states.push({ name: value.trim() });
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  remove(fruit: any): void {
+    let index = this.states.indexOf(fruit);
+
+    if (index >= 0) {
+      this.states.splice(index, 1);
+    }
+  }
 }
 
 /** Builds and returns a new User. */
@@ -48,7 +90,10 @@ function createNewUser(id: number): StateAdminData {
   return {
     id: id.toString(),
     username: name,
-    password: PWD[Math.round(Math.random() * (PWD.length - 1))],
+    firstName: FIRSTNAME[Math.round(Math.random() * (FIRSTNAME.length - 1))],
+    lastName: LASTNAME[Math.round(Math.random() * (LASTNAME.length - 1))],
+    phone: PHONE[Math.round(Math.random() * (PHONE.length - 1))],
+    email: EMAIL[Math.round(Math.random() * (EMAIL.length - 1))],
     state: STATE[Math.round(Math.random() * (STATE.length - 1))],
     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
   };
@@ -60,14 +105,19 @@ const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
 const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
   'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
   'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
-
-const PWD = ['fnfiweo', 'bfiweo', 'fbweoi123', 'nfrew3jd', '33nowmqe', 'bvfouwe12ms'];
-const STATE = ['Alaska', 'California', 'Florida', 'Georgia', 'North Carolina', 'New York'];
+const FIRSTNAME = ["John", "Tony", "Mia", "Allen", "Jerry"];
+const LASTNAME = ["Smith", "White", "Hunt", "Rains"];
+const PHONE = ['412-392-2032', '412-363-8936', '220-384-8364', '412-384-9932'];
+const EMAIL = ['dewo@gmail.com', 'aaaa@burst.com', 'fnie@outlook.com', 'dnwio@yahoo.com'];
+const STATE = ['Alaska', 'California', 'Florida', 'Georgia', 'North Carolina', 'New York', 'Pennsylvania'];
 
 export interface StateAdminData {
   id: string;
   username: string;
-  password: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
   state: string;
   color: string;
 }

@@ -1,4 +1,5 @@
 import {ComLevelComponent} from './com-level.component';
+import {CreateBlockModule} from '../../workspace/com-admin/create-block/create-block.module';
 
 export const routes = [
   {
@@ -13,7 +14,8 @@ export const routes = [
       {path: 'memberList', loadChildren: '../../workspace/bhco/assign-table/assign-table.module#AssignTableModule'},
       {path: 'assignMember', loadChildren: '../../workspace/com-admin/assign-member/assign-member.module#AssignMemberModule'},
       {path: 'unassignMember', loadChildren: '../../workspace/com-admin/unassign-list/unassign-list.module#UnassignListModule'},
-      {path: 'profile', loadChildren: '../../workspace/profile/profile.module#ProfileModule'}
+      {path: 'profile', loadChildren: '../../workspace/profile/profile.module#ProfileModule'},
+      {path: 'create-block', loadChildren: '../../workspace/com-admin/create-block/create-block.module#CreateBlockModule'}
     ]
   }
 ];

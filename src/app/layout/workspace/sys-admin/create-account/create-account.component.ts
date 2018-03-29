@@ -27,11 +27,16 @@ export class CreateAccountComponent implements OnInit {
   public passWord: InputAttributes = {name:'password',min:8,max:32,placeholder:'password',type:'password'};
   public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
 
+  public userFirstName : InputAttributes = {name:'firstName', min: 4, max:32, placeholder:'First Name', type: 'text'};
+  public userLastName: InputAttributes = {name: 'lastName', min: 4, max: 32, placeholder: 'Last Name', type: 'text'};
+
   //backend para
   statePara: string;
   userNamePara: string;
   userPasswordPara: string;
   userConPasswordPara: string;
+  firstNamePara: string;
+  lastNamePara: string;
 
   constructor(
     public fb: FormBuilder,
@@ -49,7 +54,9 @@ export class CreateAccountComponent implements OnInit {
     this.userForm = this.fb.group({
       username:['',[ Validators.required,Validators.minLength(4)]],
       password:['',[Validators.required,ValidationService.passwordValidator]],
-      confirmPassword: ['',[Validators.required,Validators.minLength(8)]]
+      confirmPassword: ['',[Validators.required,Validators.minLength(8)]],
+      firstName:['',[ Validators.required,Validators.minLength(4)]],
+      lastName:['',[ Validators.required,Validators.minLength(4)]]
     });
   }
 
@@ -78,6 +85,20 @@ export class CreateAccountComponent implements OnInit {
     if(value){
       this.userConPasswordPara = value;
       console.log("password:"+this.userConPasswordPara);
+    }
+  }
+
+  getFirstName(value: string) {
+    if (value) {
+      this.firstNamePara = value;
+      console.log("firstName:"+this.firstNamePara);
+    }
+  }
+
+  getLastName(value: string) {
+    if (value) {
+      this.lastNamePara = value;
+      console.log('lastName:'+this.lastNamePara);
     }
   }
 

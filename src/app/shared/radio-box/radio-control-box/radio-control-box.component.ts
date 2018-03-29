@@ -16,7 +16,7 @@ export class RadioControlBoxComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    console.log(this.control);
   }
   get errorMessage() {
     for (let propertyName in this.control.errors) {
@@ -28,7 +28,7 @@ export class RadioControlBoxComponent implements OnInit {
   }
 
   get control(){
-    return this.formGroupDirective.form.controls[this.attrContent.name]
+    return this.formGroupDirective.form.controls[this.attrContent.name];
   }
 
 }

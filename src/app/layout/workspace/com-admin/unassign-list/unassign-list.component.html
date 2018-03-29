@@ -44,10 +44,16 @@
             <mat-cell *matCellDef="let row"> {{row.memID}} </mat-cell>
           </ng-container>
 
-          <!-- Member Name Column -->
-          <ng-container matColumnDef="memberName">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Member Name </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.memName}} </mat-cell>
+          <!-- Member First Name Column -->
+          <ng-container matColumnDef="memberFirstName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Member First Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.memFirstName}} </mat-cell>
+          </ng-container>
+
+          <!-- Member LAst Name Column -->
+          <ng-container matColumnDef="memberLastName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Member Last Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.memLastName}} </mat-cell>
           </ng-container>
 
           <!-- BHCO Id -->
@@ -56,10 +62,16 @@
             <mat-cell *matCellDef="let row"> {{row.bhcoID}} </mat-cell>
           </ng-container>
 
-          <!-- BHCO Name -->
-          <ng-container matColumnDef="bhcoName">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> BHCO Name </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.bhcoName}} </mat-cell>
+          <!-- BHCO First Name -->
+          <ng-container matColumnDef="bhcoFirstName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> BHCO First Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.bhcoFirstName}} </mat-cell>
+          </ng-container>
+
+          <!-- BHCO Last Name -->
+          <ng-container matColumnDef="bhcoLastName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> BHCO Last Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.bhcoLastName}} </mat-cell>
           </ng-container>
 
 

@@ -27,8 +27,9 @@ export class BehavioralDomainComponent implements OnInit {
 
   constructor(service: QuestionService, private qcs: QuestionControlService) {
     this.food = service.getFoodq();
-    this.ace = service.getACE();
-    this.reaction = service.getReaction();
+    this.ace = service.getHealthq();
+    this.reaction = service.getDrugq();
+    //console.log(this.reaction);
     this.mobility = service.getMobilityq();
   }
 
