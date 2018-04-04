@@ -4,6 +4,7 @@ import {AnalysisComponent} from '../../workspace/sys-admin/analysis/analysis.com
 import {SysLevelComponent} from './sys-level.component';
 import {LayoutModule} from '../../layout/layout.module';
 import {routes} from './sys-level.route';
+import {ControlBoxModule} from "../../../shared/shared-module/control-box.module";
 
 @NgModule({
   imports: [
@@ -11,13 +12,11 @@ import {routes} from './sys-level.route';
     RouterModule.forChild(routes)
   ],
   declarations: [
-    SysLevelComponent,
-    AnalysisComponent
+    SysLevelComponent
   ],
   exports: [
     RouterModule,
     LayoutModule,
-    AnalysisComponent,
     SysLevelComponent
   ]
 })

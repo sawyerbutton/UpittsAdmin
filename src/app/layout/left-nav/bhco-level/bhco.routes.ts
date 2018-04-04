@@ -1,6 +1,7 @@
 import {BhcoLevelComponent} from './bhco-level.component';
 import {QuestionnaireAnsModule} from '../../workspace/bhco/questionnaire-ans/questionnaire-ans.module';
 import {ResetPasswordModule} from '../../workspace/profile/reset-password/reset-password.module';
+import {IndividualAnalysisModule} from "../../workspace/bhco/individual-analysis/individual-analysis.module";
 
 export const bhcoWorkSpaceRoutes = [
   {
@@ -18,6 +19,7 @@ export const bhcoWorkSpaceRoutes = [
       {path: 'editProfile', loadChildren: '../../workspace/profile/edit-profile/edit-profile.module#EditProfileModule'},
       {path: 'session', loadChildren: '../../workspace/bhco/session/session.module#SessionModule'},
       {path: 'question-ans', loadChildren: '../../workspace/bhco/questionnaire-ans/questionnaire-ans.module#QuestionnaireAnsModule'},
+      {path: 'individual-analysis', loadChildren: "../../workspace/bhco/individual-analysis/individual-analysis.module#IndividualAnalysisModule"},
       ]
   }
 ];
