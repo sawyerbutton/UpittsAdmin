@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,  ApplicationRef } from '@angular/core';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { AgmCoreModule } from '@agm/core';
 
 // import modules
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +34,7 @@ import { QuestionService} from './shared/shared-control/question.service';
     RouterModule,
     BrowserAnimationsModule,
     LayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [QuestionControlService, QuestionService, DatePipe],
   bootstrap: [AppComponent]
