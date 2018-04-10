@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {users} from "../../../login/loginService/Users";
+import {Users} from "../../../login/loginService/Users";
 import {LoginService} from "../../../login/loginService/login.service";
 
 @Component({
@@ -8,13 +8,25 @@ import {LoginService} from "../../../login/loginService/login.service";
   styleUrls: ['./user-info.component.css']
 })
 export class UserInfoComponent implements OnInit {
-  currentUser: users;
+  currentUser: Users;
+  role: string;
 
   constructor(private userService: LoginService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
+    if (this.currentUser.isSys) {
+      this.role = "System Administrator";
+    } else if (this.currentUser.isState) {
+      this.role = "State Administrator";
+    } else if (this.currentUser.isCommunity) {
+      this.role = "Community Administrator";
+    } else if (this.currentUser.isBHCO) {
+      this.role = "BHCO";
+    } else {
+      this.role = "Community Member";
+    }
   }
 
 }

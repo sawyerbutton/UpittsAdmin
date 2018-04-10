@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators} from '@angular/forms';
 import { ValidationService } from '../../shared/validation-service/validation.service';
 import {InputAttributes, SelectAttributes,Admins} from '../../shared/shared-control/attributes';
+import {AuthenticationService} from "../loginService/authentication.service";
+import {AlertService} from "../loginService/alert.service";
 
 @Component({
   selector: 'app-sys-login',
@@ -22,14 +24,28 @@ export class SysLoginComponent implements OnInit {
   userPasswordPara: string;
   userAdminPara:string;
 
+  //login service
+  model: any = {};
+  loading = false;
+  returnUrl: string;
+
   constructor(
-    public router: Router,
-    private fb: FormBuilder
+    private router: Router,
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private autenticationService: AuthenticationService,
+    private alertService: AlertService
   ) {
 
   }
 
   ngOnInit() {
+    //reset login status
+    this.autenticationService.logout();
+
+    //get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
+
     this.userForm= this.fb.group(
       {
         'password': ['',[ Validators.required,ValidationService.passwordValidator]],
@@ -71,6 +87,19 @@ export class SysLoginComponent implements OnInit {
     } else {
       this.router.navigateByUrl('CommunityDashboard');
     }
+  }
+
+  loginSubmit() {
+    this.loading = true;
+    this.autenticationService.login(this.userNamePara, this.userPasswordPara, this.userAdminPara).subscribe(
+      data => {
+        this.router.navigate([this.returnUrl]);
+      },
+      error => {
+        this.alertService.error(error);
+        this.loading = false;
+      }
+    );
   }
 
   back(){
