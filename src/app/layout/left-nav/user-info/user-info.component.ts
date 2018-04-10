@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {users} from "../../../login/loginService/Users";
+import {LoginService} from "../../../login/loginService/login.service";
 
 @Component({
   selector: 'app-user-info',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-info.component.css']
 })
 export class UserInfoComponent implements OnInit {
+  currentUser: users;
 
-  constructor() { }
+  constructor(private userService: LoginService) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
 
   ngOnInit() {
   }
