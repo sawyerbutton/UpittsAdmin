@@ -20,6 +20,7 @@ import { ForgotPwdComponent } from './login/forgot-pwd/forgot-pwd.component';
 //import service
 import { QuestionControlService} from './shared/shared-control/question-control.service';
 import { QuestionService} from './shared/shared-control/question.service';
+import { UserService } from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { QuestionService} from './shared/shared-control/question.service';
     LayoutModule,
     AppRoutingModule,
   ],
-  providers: [QuestionControlService, QuestionService, DatePipe],
+  providers: [QuestionControlService, QuestionService, DatePipe, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

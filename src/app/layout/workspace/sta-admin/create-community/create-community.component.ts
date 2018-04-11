@@ -9,17 +9,17 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class CreateCommunityComponent implements OnInit {
 
-  public familyGroup: FormGroup;
+  public communityGroup: FormGroup;
   public blocks = Block;
 
   public selectCounty :SelectAttributes = {name:'county',roles:this.blocks,placeholder:'County'};
   public selectCity: SelectAttributes = {name: 'city', roles:this.blocks, placeholder:'City'};
-  public inputFamily : InputAttributes = {name:'family',min:4,max:32,placeholder:'community',type:'text'};
+  public inputCommunity : InputAttributes = {name:'community',min:4,max:32,placeholder:'community',type:'text'};
 
   //
   countyPara :string;
   cityPara: string;
-  familyPara: string;
+  communityPara: string;
 
   constructor(
     public fb: FormBuilder,
@@ -30,10 +30,10 @@ export class CreateCommunityComponent implements OnInit {
   }
 
   buildForm(): void {
-    this.familyGroup = this.fb.group({
+    this.communityGroup = this.fb.group({
       county: ['', [Validators.required]],
       city: ['', [Validators.required]],
-      family:['',[Validators.required,Validators.minLength(4)]]
+      community:['',[Validators.required,Validators.minLength(4)]]
     })
   }
 
@@ -51,10 +51,10 @@ export class CreateCommunityComponent implements OnInit {
     }
   }
 
-  getFamily(value:string){
+  getCommunity(value:string){
     if(value){
-      this.familyPara = value;
-      console.log("username:"+this.familyPara);
+      this.communityPara = value;
+      console.log("username:"+this.communityPara);
     }
   }
 
