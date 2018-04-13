@@ -1,26 +1,43 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {Member} from "../../../../service/User";
+import {UserService} from "../../../../service/user.service";
 
 @Component({
   selector: 'app-assign-table',
   templateUrl: './assign-table.component.html',
   styleUrls: ['./assign-table.component.css']
 })
-export class AssignTableComponent{
+export class AssignTableComponent implements OnInit {
 
   displayedColumns = ['name', 'firstname', 'lastname', 'gender', 'dob', 'phone', 'address', 'zipcode', 'community', 'state'];
-  dataSource: MatTableDataSource<UserData>;
+  dataSource = new MatTableDataSource<Member>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
+  members: Member[];
+
+  constructor(
+    private userService: UserService
+  ) {
     // Create 100 users
     const users: UserData[] = [];
     for (let i = 1; i <= 50; i++) { users.push(createNewUser(i)); }
-
+    //this.getMembers();
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    //this.dataSource = new MatTableDataSource(this.members);
+  }
+
+  ngOnInit() {
+    this.getMember();
+    this.dataSource.data = this.members;
+    console.log(this.members);
+  }
+
+  getMember() {
+    this.userService.getMembers()
+      .subscribe((mems) => {this.members = mems});
   }
 
   /**
@@ -35,7 +52,7 @@ export class AssignTableComponent{
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
+   // this.dataSource.filter = filterValue;
   }
 }
 

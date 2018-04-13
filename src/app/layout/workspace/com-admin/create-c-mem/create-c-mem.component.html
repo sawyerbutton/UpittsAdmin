@@ -123,8 +123,11 @@
         </div>
         <br><br>
         <div class="col-sm-12">
-          <button mat-raised-button color="primary" matStepperPrevious  [disabled]="otherFormGroup.invalid && userForm.invalid && addressFormGroup.invalid">Confirm</button>
+          <button mat-raised-button color="primary" [disabled]="otherFormGroup.invalid && userForm.invalid && addressFormGroup.invalid" (click)="addMember()">Confirm</button>
           <button mat-raised-button color="accent" (click)="stepper.reset()">Reset</button>
+        </div>
+        <div class="col-sm-12">
+          <p *ngIf="show"><strong>Registration is done.</strong></p>
         </div>
       </mat-step>
     </mat-horizontal-stepper>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { InputAttributes } from '../../../../shared/shared-control/attributes';
 import { ValidationService} from '../../../../shared/validation-service/validation.service';
+import {Bhcos} from "../../../../service/User";
+import {UserService} from "../../../../service/user.service";
 
 @Component({
   selector: 'app-create-bhco',
@@ -28,9 +30,23 @@ export class CreateBhcoComponent implements OnInit {
   emailPara: string;
   phonePara: string;
 
-  constructor(private fb: FormBuilder) { }
+  bhcos: Bhcos[];
+  confirmed: boolean = false;
+
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService) {
+
+  }
+
   ngOnInit() {
+    this.getBhcos();
     this.buildForm();
+  }
+
+  getBhcos(): void {
+      this.userService.getBhcos()
+        .subscribe(bhcos => this.bhcos = bhcos);
   }
 
   buildForm(): void {
@@ -48,42 +64,42 @@ export class CreateBhcoComponent implements OnInit {
   getUserName(value:string){
     if(value){
       this.userNamePara = value;
-      console.log("username:"+this.userNamePara);
+      //console.log("username:"+this.userNamePara);
     }
   }
 
   getUserPassword(value: string){
     if(value){
       this.userPasswordPara = value;
-      console.log("password:"+this.userPasswordPara);
+      //console.log("password:"+this.userPasswordPara);
     }
   }
 
   getUserConPassword(value: string){
     if(value){
       this.userConPasswordPara = value;
-      console.log("password:"+this.userConPasswordPara);
+      //console.log("password:"+this.userConPasswordPara);
     }
   }
 
   getFirstName(value:string){
     if(value){
       this.firstNamePara = value;
-      console.log("username:"+this.firstNamePara);
+      //console.log("username:"+this.firstNamePara);
     }
   }
 
   getLastName(value: string){
     if(value){
       this.lastNamePara = value;
-      console.log("password:"+this.lastNamePara);
+      //console.log("password:"+this.lastNamePara);
     }
   }
 
   getEmail(value: string){
     if(value){
       this.emailPara = value;
-      console.log("password:"+this.emailPara);
+      //console.log("password:"+this.emailPara);
     }
   }
 
@@ -91,6 +107,23 @@ export class CreateBhcoComponent implements OnInit {
     if (value) {
       this.phonePara = value;
     }
+  }
+
+  addBhcos() {
+    const newBhco = new Bhcos({
+      username: this.userNamePara,
+      password: this.userPasswordPara,
+      firstname: this.firstNamePara,
+      lastname: this.lastNamePara,
+      email: this.emailPara,
+      phone: this.phonePara
+    })
+
+    this.userService.addBhco(newBhco)
+      .subscribe(bhco => this.bhcos.push(bhco));
+
+    this.confirmed = true;
+
   }
 
 }

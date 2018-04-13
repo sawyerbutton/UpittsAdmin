@@ -21,6 +21,9 @@ import { ForgotPwdComponent } from './login/forgot-pwd/forgot-pwd.component';
 import { QuestionControlService} from './shared/shared-control/question-control.service';
 import { QuestionService} from './shared/shared-control/question.service';
 import { UserService } from './service/user.service';
+import {HttpClientModule} from "@angular/common/http";
+import {MessageService} from "./service/message.service";
+import {HttpErrorHandler} from "./service/http-error-handler.service";
 
 @NgModule({
   declarations: [
@@ -36,8 +39,16 @@ import { UserService } from './service/user.service';
     BrowserAnimationsModule,
     LayoutModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [QuestionControlService, QuestionService, DatePipe, UserService],
+  providers: [
+    QuestionControlService,
+    QuestionService,
+    DatePipe,
+    UserService,
+    MessageService,
+    HttpErrorHandler
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

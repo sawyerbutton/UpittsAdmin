@@ -13,6 +13,8 @@ import { MaritalStatus } from '../../../../shared/shared-control/attributes';
 import { Education} from '../../../../shared/shared-control/attributes';
 import { Employment} from '../../../../shared/shared-control/attributes';
 import { DatePipe } from '@angular/common';
+import {Member} from "../../../../service/User";
+import {UserService} from "../../../../service/user.service";
 
 @Component({
   selector: 'app-create-c-mem',
@@ -77,22 +79,31 @@ export class CreateCMemComponent implements OnInit {
   datePara: string;
   addressOnePara: string;
   addressTwoPara: string;
-  // cityPara: string;
-  // statePara: string;
-  // zipcodePara: string;
+  cityPara = this.defaultCity.value;
+  statePara = this.defaultState.value;
+  countyPara = this.defaultCounty.value;
+  communityPara = this.defaultCommunity.value;
   racePara: string;
   matrialPara: string;
   empolymentPara: string;
   educationPara: string;
   emailPara: string;
   dobPara: string;
+  passwordPara = this.defaultPassword.value;
+
+  //add a new community member
+  newMember: Member;
+  members: Member[];
+  show: boolean = false;
 
   constructor(
     private fb:FormBuilder,
-    private datapipe : DatePipe
+    private datapipe : DatePipe,
+    private userService: UserService
   ){ }
 
   ngOnInit() {
+    this.getMembers();
     this. buildForm();
   }
 
@@ -135,16 +146,16 @@ export class CreateCMemComponent implements OnInit {
   getUserName(value:string){
     if(value){
       this.userNamePara = value;
-      console.log("username:"+this.userNamePara);
+      //console.log("username:"+this.userNamePara);
     }
   }
 
-  // getUserPassword(value: string){
-  //   if(value){
-  //     this.userPasswordPara = value;
-  //     console.log("password:"+this.userPasswordPara);
-  //   }
-  // }
+   // getUserPassword(value: string){
+   //   if(value){
+   //     this.passwordPara = value;
+   //     console.log("password:"+this.passwordPara);
+   //   }
+   // }
   //
   // getUserConPassword(value: string){
   //   if(value){
@@ -156,71 +167,72 @@ export class CreateCMemComponent implements OnInit {
   getBlock(value:string){
     if(value){
       this.blockPara = value;
-      console.log("username:"+this.blockPara);
+      //console.log("username:"+this.blockPara);
     }
   }
 
   getFamily(value:string){
     if(value){
       this.familyPara = value;
-      console.log("username:"+this.familyPara);
+      //console.log("username:"+this.familyPara);
     }
   }
 
   getLastName(value:string){
     if(value){
       this.lastNamePara = value;
-      console.log("username:"+this.lastNamePara);
+      //console.log("username:"+this.lastNamePara);
     }
   }
 
   getFirstName(value:string){
     if(value){
       this.firstNamePara = value;
-      console.log("username:"+this.firstNamePara);
+      //console.log("username:"+this.firstNamePara);
     }
   }
 
   getMidName(value:string){
     if(value){
       this.midNamePara = value;
-      console.log("username:"+this.midNamePara);
+      //console.log("username:"+this.midNamePara);
     }
   }
 
   getGender(value:string){
     if(value){
       this.genderPara = value;
-      console.log("username:"+this.genderPara);
+      //console.log("username:"+this.genderPara);
     }
   }
 
   getPhone(value:string){
     if(value){
       this.phonePara = value;
-      console.log("username:"+this.phonePara);
+      //console.log("username:"+this.phonePara);
     }
   }
 
   getDate(value:string){
     if(value){
       this.datePara = value;
-      console.log("username:"+this.datePara);
-      this.dobPara = this.datapipe.transform(this.datePara, "yyyy-mm-dd")
+      //console.log("username:"+this.datePara);
+      this.dobPara = this.datapipe.transform(this.datePara, "yyyy-MM-dd")
+      console.log(this.dobPara);
     }
   }
 
   getAddressOne(value:string){
     if(value){
       this.addressOnePara = value;
-      console.log("username:"+this.addressOnePara);
+      //console.log("username:"+this.addressOnePara);
     }
   }
 
   getAddressTwo(value:string){
     if(value){
       this.addressTwoPara = value;
-      console.log("username:"+this.addressTwoPara);
+      //console.log("username:"+this.addressTwoPara);
     }
   }
 
@@ -254,30 +266,72 @@ export class CreateCMemComponent implements OnInit {
   getRace(value:string){
     if(value){
       this.racePara = value;
-      console.log("username:"+this.racePara);
+      //console.log("username:"+this.racePara);
     }
   }
 
   getMatrial(value:string){
     if(value){
       this.matrialPara = value;
-      console.log("username:"+this.matrialPara);
+      //console.log("username:"+this.matrialPara);
     }
   }
 
   getEmployment(value:string){
     if(value){
       this.empolymentPara = value;
-      console.log("username:"+this.empolymentPara);
+      //console.log("username:"+this.empolymentPara);
     }
   }
 
   getEducation(value:string){
     if(value){
       this.educationPara = value;
-      console.log("username:"+this.educationPara);
+      //console.log("username:"+this.educationPara);
     }
   }
+
+  //http service
+
+  getMembers(): void {
+    this.userService.getMembers()
+      .subscribe(members => this.members = members);
+  }
+
+
+  addMember(): void {
+    const comMember = new Member({
+      username: this.userNamePara,
+      password: this.passwordPara,
+      firstname: this.firstNamePara,
+      midname: this.midNamePara,
+      lastname: this.lastNamePara,
+      gender: this.genderPara,
+      phone: this.phonePara,
+      email: this.emailPara,
+      date: this.datePara,
+      addressone: this.addressOnePara,
+      addresstwo: this.addressTwoPara,
+      family: this.familyPara,
+      block: this.blockPara,
+      community: this.communityPara,
+      city: this.cityPara,
+      county: this.countyPara,
+      state: this.statePara,
+      race: this.racePara,
+      marry: this.matrialPara,
+      education: this.educationPara,
+      employments: this.empolymentPara
+    });
+
+    this.userService.addMember(comMember)
+      .subscribe(member => this.members.push(member));
+
+    this.show = true;
+    //console.log(comMember);
+  }
+
+
 
 
 }

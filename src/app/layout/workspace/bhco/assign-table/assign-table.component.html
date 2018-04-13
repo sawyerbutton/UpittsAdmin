@@ -5,6 +5,13 @@
     <mat-card-header >
       <div class="col-sm-12">
         <mat-card-title>Community Member List</mat-card-title>
+        <div>
+          <li *ngFor="let mem of members">
+            <p>Member name: {{mem.username}}</p>
+            <p>Member dob: {{mem.date}}</p>
+          </li>
+        </div>
+
       </div>
     </mat-card-header>
     <mat-divider> </mat-divider>
@@ -25,7 +32,7 @@
           <!-- User Name Column -->
           <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef mat-sort-header> User Name </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.username}} </mat-cell>
           </ng-container>
 
           <!-- Progress Column
@@ -37,13 +44,13 @@
           <!--first Name Column -->
           <ng-container matColumnDef="firstname">
             <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.firstName}} </mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.firstname}} </mat-cell>
           </ng-container>
 
           <!--last Name Column -->
           <ng-container matColumnDef="lastname">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.lastName}} </mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.lastname}} </mat-cell>
           </ng-container>
 
           <!-- Gender -->
@@ -55,7 +62,7 @@
           <!-- Date of birth -->
           <ng-container matColumnDef="dob">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Age </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.dob}} </mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.date}} </mat-cell>
           </ng-container>
 
           <!-- Phone-->
@@ -67,24 +74,24 @@
           <!-- Address-->
           <ng-container matColumnDef="address">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.address}} </mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.addressone}} </mat-cell>
           </ng-container>
 
           <!-- Zipcode Column -->
           <ng-container matColumnDef="zipcode">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Zipcode </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.zipcode}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Block </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.block}} </mat-cell>
           </ng-container>
 
           <!-- Community Column -->
           <ng-container matColumnDef="community">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Family </mat-header-cell>
-            <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.community}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Community </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.community}} </mat-cell>
           </ng-container>
 
           <!-- State Column -->
           <ng-container matColumnDef="state">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Blocks </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> State </mat-header-cell>
             <mat-cell *matCellDef="let row"> {{row.state}} </mat-cell>
           </ng-container>
 
