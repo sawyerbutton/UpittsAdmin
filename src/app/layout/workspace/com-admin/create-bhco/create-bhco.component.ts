@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { InputAttributes } from '../../../../shared/shared-control/attributes';
 import { ValidationService} from '../../../../shared/validation-service/validation.service';
-import {Bhcos} from "../../../../service/User";
+import {Bhcos} from "../../../../model/User";
 import {UserService} from "../../../../service/user.service";
 
 @Component({

@@ -3,7 +3,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {HandleError, HttpErrorHandler} from "./http-error-handler.service";
 import {Observable} from "rxjs/Observable";
-import {Bhcos, Member} from "./User";
+import {Bhcos, Member} from "../model/User";
 import {catchError} from "rxjs/operators";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';

@@ -13,7 +13,7 @@ import { MaritalStatus } from '../../../../shared/shared-control/attributes';
 import { Education} from '../../../../shared/shared-control/attributes';
 import { Employment} from '../../../../shared/shared-control/attributes';
 import { DatePipe } from '@angular/common';
-import {Member} from "../../../../service/User";
+import {Member} from "../../../../model/User";
 import {UserService} from "../../../../service/user.service";
 
 @Component({
