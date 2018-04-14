@@ -1,4 +1,5 @@
 export class User {
+  id: number;
   username: string;
   password: string;
   firstname: string;
@@ -7,6 +8,7 @@ export class User {
   phone: string;
   email: string;
   constructor(options: {
+    id?: number;
     username?: string;
     password?: string;
     firstname?: string;
@@ -15,6 +17,7 @@ export class User {
     phone?: string;
     email?: string;
   } = {} ) {
+    this.id = options.id;
    this.username = options.username;
    this.firstname = options.firstname || '';
    this.midname = options.midname || '';
