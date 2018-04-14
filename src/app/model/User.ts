@@ -22,6 +22,7 @@ export class User {
    this.firstname = options.firstname || '';
    this.midname = options.midname || '';
    this.lastname = options.lastname || '';
+   this.password = options.password || '';
    this.phone = options.phone || '';
    this.email = options.email || '';
   }

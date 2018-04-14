@@ -1,5 +1,5 @@
 {
-  "members": [
+  "communityMember": [
     {
       "username": "nfierewlfj",
       "password": "imHealthy@2018",
@@ -124,6 +124,30 @@
       "employments": "Currently Employed",
       "bhcoid": -1,
       "id": 6
+    },
+    {
+      "username": "kmnfrepon",
+      "firstname": "mnopgert",
+      "midname": "nvpoert",
+      "lastname": "nopbet",
+      "phone": "7490237503",
+      "email": "nerkon@vopfve.com",
+      "gender": "Male",
+      "date": "2018-04-19T04:00:00.000Z",
+      "addressone": "npoirtopkmge",
+      "addresstwo": "nvgtioynhpe",
+      "family": "Bob",
+      "block": "Orange",
+      "community": "North Oakland",
+      "city": "Pittsburgh",
+      "county": "Allegheny",
+      "state": "Pennsylvania",
+      "race": "African American",
+      "marry": "Single",
+      "education": "Did Not Complete High School",
+      "employments": "Currently Employed",
+      "bhcoid": -1,
+      "id": 7
     }
   ],
   "bhcos": [

@@ -32,7 +32,7 @@ export class UserService {
 
   // Get: get members from the server
   getMembers (): Observable<Member[]> {
-    return this.http.get<Member[]>(API_URL + '/members')
+    return this.http.get<Member[]>(API_URL + '/communityMember')
       .pipe(
         catchError(this.handleError('getMembers', []))
       );
@@ -58,7 +58,7 @@ export class UserService {
   // POST: add a new member to the database
   addMember(mem : Member): Observable<Member> {
     console.log(mem);
-    return this.http.post<Member>(API_URL + '/members', mem)
+    return this.http.post<Member>(API_URL + '/communityMember', mem)
       .pipe(
         catchError(this.handleError('addMember', mem))
       );
