@@ -4,6 +4,8 @@ import { States } from '../../../../shared/shared-control/attributes'
 import { SelectAttributes} from '../../../../shared/shared-control/attributes';
 import { InputAttributes } from '../../../../shared/shared-control/attributes';
 import { ValidationService} from '../../../../shared/validation-service/validation.service';
+import {CommunityAdmin, StateAdmin} from "../../../../model/User";
+import {UserService} from "../../../../service/user.service";
 
 @Component({
   selector: 'app-create-account',
@@ -29,6 +31,8 @@ export class CreateAccountComponent implements OnInit {
 
   public userFirstName : InputAttributes = {name:'firstName', min: 4, max:32, placeholder:'First Name', type: 'text'};
   public userLastName: InputAttributes = {name: 'lastName', min: 4, max: 32, placeholder: 'Last Name', type: 'text'};
+  public userPhone: InputAttributes = {name: 'phone', min: 4, max: 32, placeholder: 'Phone', type: 'text'};
+  public userEmail: InputAttributes = {name: 'email', min: 4, max: 32, placeholder: 'Email', type: 'text'};
 
   //backend para
   statePara: string;
@@ -37,14 +41,26 @@ export class CreateAccountComponent implements OnInit {
   userConPasswordPara: string;
   firstNamePara: string;
   lastNamePara: string;
+  phonePara: string;
+  emailPara: string;
+
+  stateAdmins: StateAdmin[];
+  confirm: boolean=false;
 
   constructor(
-    public fb: FormBuilder,
+    private fb: FormBuilder,
+    private stateAdminService: UserService
     //public router: Router,
   ) { }
 
   ngOnInit() {
     this.buildForm();
+    this.getStateAdmin();
+  }
+
+  getStateAdmin(): void {
+    this.stateAdminService.getStateAdmin()
+      .subscribe( stateAdmin => this.stateAdmins = stateAdmin);
   }
 
   buildForm(): void {
@@ -56,7 +72,9 @@ export class CreateAccountComponent implements OnInit {
       password:['',[Validators.required,ValidationService.passwordValidator]],
       confirmPassword: ['',[Validators.required,Validators.minLength(8)]],
       firstName:['',[ Validators.required,Validators.minLength(4)]],
-      lastName:['',[ Validators.required,Validators.minLength(4)]]
+      lastName:['',[ Validators.required,Validators.minLength(4)]],
+      phone:['',[ Validators.required,Validators.minLength(4)]],
+      email:['',[ Validators.required,Validators.minLength(4)]]
     });
   }
 
@@ -100,6 +118,36 @@ export class CreateAccountComponent implements OnInit {
       this.lastNamePara = value;
       console.log('lastName:'+this.lastNamePara);
     }
+  }
+
+  getPhone(value: string) {
+    if (value) {
+      this.phonePara = value;
+    }
+  }
+
+  getEmail(value: string) {
+    if(value) {
+      this.emailPara= value;
+    }
+  }
+
+  addStateAdmin() {
+    const newStateAdmin = new StateAdmin({
+      username: this.userNamePara,
+      password: this.userPasswordPara,
+      firstname: this.firstNamePara,
+      lastname: this.lastNamePara,
+      email: this.emailPara,
+      phone: this.phonePara,
+      state: this.statePara,
+    });
+
+    this.stateAdminService.addStateAdmin(newStateAdmin)
+      .subscribe(stateAdmin => this.stateAdmins.push(stateAdmin));
+    console.log(newStateAdmin);
+
+    this.confirm = true;
   }
 
 }

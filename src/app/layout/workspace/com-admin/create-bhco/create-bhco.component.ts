@@ -121,9 +121,9 @@ export class CreateBhcoComponent implements OnInit {
 
     this.userService.addBhco(newBhco)
       .subscribe(bhco => this.bhcos.push(bhco));
+    console.log(newBhco);
 
     this.confirmed = true;
-
   }
 
 }

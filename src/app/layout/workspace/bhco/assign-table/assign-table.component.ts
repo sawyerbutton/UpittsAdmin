@@ -18,26 +18,31 @@ export class AssignTableComponent implements OnInit {
 
   members: Member[];
 
+
+
   constructor(
     private userService: UserService
   ) {
     // Create 100 users
     const users: UserData[] = [];
     for (let i = 1; i <= 50; i++) { users.push(createNewUser(i)); }
-    //this.getMembers();
+    this.getMember();
     // Assign the data to the data source for the table to render
     //this.dataSource = new MatTableDataSource(this.members);
   }
 
   ngOnInit() {
     this.getMember();
-    this.dataSource.data = this.members;
-    console.log(this.members);
+   // this.dataSource.data = this.members;
+    //console.log(this.members);
   }
+
+
 
   getMember() {
     this.userService.getMembers()
-      .subscribe((mems) => {this.members = mems});
+      .subscribe(mems => {this.members = mems});
+    console.log(this.members);
   }
 
   /**

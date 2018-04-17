@@ -25,6 +25,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MessageService} from "./service/message.service";
 import {HttpErrorHandler} from "./service/http-error-handler.service";
 import { HttpService } from './service/http.service';
+import { QuestionModelService } from './service/question-model.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HttpService } from './service/http.service';
     UserService,
     MessageService,
     HttpErrorHandler,
-    HttpService
+    HttpService,
+    QuestionModelService
   ],
   bootstrap: [AppComponent]
 })

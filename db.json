@@ -150,7 +150,7 @@
       "id": 7
     }
   ],
-  "bhcos": [
+  "bhco": [
     {
       "username": "nfeoirnio",
       "password": "abcd1234",
@@ -170,6 +170,28 @@
       "phone": "1234567",
       "communityid": -1,
       "id": 2
+    },
+    {
+      "username": "mcpfoertm",
+      "firstname": "ngrewpojtge",
+      "midname": "",
+      "lastname": "vbgoierwn",
+      "password": "abcd1234",
+      "phone": "3890248025",
+      "email": "ebnwiore@nfre.com",
+      "communityid": -1,
+      "id": 3
+    },
+    {
+      "username": "fnerpoigtwnio",
+      "firstname": "ngweigo",
+      "midname": "",
+      "lastname": "boitjgop",
+      "password": "abcd1234",
+      "phone": "32048234u9",
+      "email": "nbveroiei@fner.com",
+      "communityid": -1,
+      "id": 4
     }
   ]
 }

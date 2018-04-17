@@ -8,6 +8,7 @@ import {MemberLoginComponent} from './login/non-sys-login/member-login/member-lo
 import {HeadBarComponent} from './layout/head-bar/head-bar.component';
 import {LayoutComponent} from './layout/layout.component';
 import {LoginComponent} from './login/login.component';
+import {CreateQuestionModule} from "./create-question/create-question.module";
 
 export const appRoutes = [
   {
@@ -62,6 +63,10 @@ export const appRoutes = [
   {
     path: 'MemberDashboard',
     loadChildren: './layout/left-nav/mem-level/mem-level.module#MemLevelModule'
+  },
+  {
+    path: 'createQuestion',
+    loadChildren: './create-question/create-question.module#CreateQuestionModule'
   }
 ];
 

@@ -1,0 +1,81 @@
+<mat-card class="input-part">
+  <mat-card-header><h2> Input Question Part</h2></mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="createQuesForm">
+      <div class="col-sm-12">
+        <app-input-control-box [attrContent]="description" (follow)="getDescription($event)"></app-input-control-box>
+      </div>
+      <div class="col-sm-12">
+        <app-input-control-box [attrContent]="hints" (follow)="getHint($event)"></app-input-control-box>
+      </div>
+      <div class="col-sm-12">
+        <app-input-control-box [attrContent]="order" (follow)="getOrder($event)" class="col-sm-4"></app-input-control-box>
+        <app-select-control-box [attrContent]="type" (follow)="getType($event)" class="col-sm-4"></app-select-control-box>
+        <app-input-control-box [attrContent]="ansNumber" (follow)="getAnsNumber($event)" class="col-sm-4"></app-input-control-box>
+      </div>
+      <div [ngSwitch]= "typePara" class="col-sm-12">
+        <div *ngSwitchCase="'Radio Button Question'">
+         <div *ngFor="let num of numbers"class="col-sm-12">
+           <app-input-control-box [attrContent]="inputKey" (follow)="getKey.next($event)" class="col-sm-6" ng-model-options="{ debounce: 800 }"></app-input-control-box>
+           <app-input-control-box [attrContent]="inputValue" (follow)="getValue($event)" class="col-sm-6" ng-model-options="{ debounce: 800 }"></app-input-control-box>
+         </div>
+          </div>
+        <div *ngSwitchCase="'Text Input Question'">
+          <div *ngFor="let num of numbers"class="col-sm-12">
+            <app-input-control-box [attrContent]="inputKey" (follow)="getKey($event)" class="col-sm-6"></app-input-control-box>
+            <app-input-control-box [attrContent]="inputValue" (follow)="getValue($event)" class="col-sm-6"></app-input-control-box>
+          </div>
+        </div>
+        <div *ngSwitchCase="'Dropdown List Question'">
+          Done. Please confirm the question information.
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<br> <br>
+<mat-card class="confirm-part">
+  <mat-card-header><h2>Confirmation Part</h2></mat-card-header>
+  <mat-card-content>
+    <div classs="col-sm-12">
+      <p><label>Question Description:</label><span>{{ despPara }}</span></p>
+    </div>
+    <div class="col-sm-12">
+      <p><label>Question Indication:</label><span> {{ hintPara }}</span></p>
+    </div>
+    <div class="col-sm-12">
+      <div><label>Question Order:</label> <span> {{ orderPara }}</span></div>
+    </div>
+    <br>
+    <div class="col-sm-12">
+      <div><label> Quesdtion Type:</label><span> {{ typePara}}</span></div>
+    </div>
+    <br>
+    <div class="col-sm-12">
+      <div><label>Answer Options</label></div>
+      <div [ngSwitch]= "typePara" class="col-sm-12">
+        <div *ngSwitchCase="'Radio Button Question'">
+          <div class="col-sm-12">
+           <div *ngFor="let quesKey of keyArray" class="col-sm-6"><label>Answer Extent:</label> {{ quesKey }}</div>
+            <div *ngFor="let quesValue of valueArray" class="col-sm-6" ng-model-options="{ debounce: 800 }"><label>Answer Description</label>{{ quesValue }}</div>
+          </div>
+        </div>
+        <div *ngSwitchCase="'Text Input Question'">
+          <div *ngFor="let num of numbers"class="col-sm-12">
+            <app-input-control-box [attrContent]="inputKey" (follow)="getKey($event)" class="col-sm-6"></app-input-control-box>
+            <app-input-control-box [attrContent]="inputValue" (follow)="getValue($event)" class="col-sm-6"></app-input-control-box>
+          </div>
+        </div>
+        <div *ngSwitchCase="'Dropdown List Question'">
+          Input box will be provided to users.
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<br><br>
+<div class="button-group">
+  <button mat-raised-button color="primary">Confirm</button>
+  <button mat-raised-button color="accent">Reset</button>
+</div>

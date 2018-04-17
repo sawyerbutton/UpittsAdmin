@@ -33,17 +33,10 @@
               <app-input-control-box [attrContent]="userFirstName" (follow)="getFirstName($event)" class="col-sm-6"></app-input-control-box>
               <app-input-control-box [attrContent]="userLastName" (follow)="getLastName($event)" class="col-sm-6"></app-input-control-box>
             </div>
+
             <div>
-              <!--This part needs to changes to input-control-box later-->
-              <mat-form-field class="col-sm-6">
-                <span matPrefix>+1 &nbsp;</span>
-                <input type="tel" matInput placeholder="Telephone">
-                <mat-icon matSuffix>phone</mat-icon>
-              </mat-form-field>
-              <mat-form-field class="col-sm-6">
-                <input type="email" matInput placeholder="Email">
-                <mat-icon matSuffix>email</mat-icon>
-              </mat-form-field>
+              <app-input-control-box [attrContent]="userPhone" (follow)="getPhone($event)" class="col-sm-6"></app-input-control-box>
+              <app-input-control-box [attrContent]="userEmail" (follow)="getEmail($event)" class="col-sm-6"></app-input-control-box>
             </div>
             <div class="col-sm-12">
               <button mat-raised-button color ="primary" [disabled]="userForm.invalid" matStepperNext>Next</button>
@@ -54,7 +47,7 @@
         //third step
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>
-          <p> You have assigned <b class="admin-name"> {{ userNamePara}} </b> to be the community administrator of</p>
+          <p> You have assigned <b class="admin-name"> {{ userNamePara}} </b> to be the community administrator</p>
           <mat-divider></mat-divider>
           <br><br>
           <div class="col-sm-12">
@@ -62,23 +55,27 @@
             <p class="col-sm-6">Last Name: <b class="admin-name"> {{lastNamePara}} </b></p>
           </div>
           <div class="col-sm-12">
-            <p class="col-sm-4">Phone Number: <b class="admin-name"></b></p>
-            <p class="col-sm-4">Email: <b class="admin-name"></b></p>
+            <p class="col-sm-6">Phone Number: <b class="admin-name">{{ phonePara }}</b></p>
+            <p class="col-sm-6">Email: <b class="admin-name">{{ emailPara }}</b></p>
           </div>
-          <div layout="col-">
+          <div layout="col-sm-12">
             <!--get the state and other information from json data later -->
-            <p class="col-sm-6"> State: <b> Pennsylvania </b> </p>
-            <p class="col-sm-6"> County: <b> {{ countyPara }} </b> </p>
+            <p class="col-sm-6"> State: <b class="admin-name"> Pennsylvania </b> </p>
+            <p class="col-sm-6"> County: <b class="admin-name"> {{ countyPara }} </b> </p>
           </div>
           <br>
-          <div layout="row">
-            <p class="col-sm-6"> City: <b> {{ cityPara }} </b> </p>
-            <p class="col-sm-6"> Community: <b> {{ communityPara }} </b> </p>
+          <div layout="col-sm-12">
+            <p class="col-sm-6"> City: <b class="admin-name"> {{ cityPara }} </b> </p>
+            <p class="col-sm-6"> Community: <b class="admin-name"> {{ communityPara }} </b> </p>
           </div>
           <br><br><br><br>
           <div class="col-sm-12">
-            <button mat-raised-button color="primary">Done</button>
+            <button mat-raised-button color="primary" (click)="addComAdmin()">Done</button>
             <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+          </div>
+          <br><br>
+          <div *ngIf="confirmed">
+            Community Administrator has been registered successfully.
           </div>
         </mat-step>
       </mat-horizontal-stepper>

@@ -28,17 +28,9 @@
             <app-input-control-box [attrContent]="userFirstName" (follow)="getFirstName($event)" class="col-sm-6"></app-input-control-box>
               <app-input-control-box [attrContent]="userLastName" (follow)="getLastName($event)" class="col-sm-6"></app-input-control-box>
             </div>
-            <div>
-              <!--This part needs to changes to input-control-box later-->
-              <mat-form-field class="col-sm-6">
-                <span matPrefix>+1 &nbsp;</span>
-                <input type="tel" matInput placeholder="Telephone">
-                <mat-icon matSuffix>phone</mat-icon>
-              </mat-form-field>
-              <mat-form-field class="col-sm-6">
-                <input type="email" matInput placeholder="Email">
-                <mat-icon matSuffix>email</mat-icon>
-              </mat-form-field>
+            <div class="col-sm-12">
+              <app-input-control-box [attrContent]="userPhone" (follow)="getPhone($event)" class="col-sm-6"></app-input-control-box>
+              <app-input-control-box [attrContent]="userEmail" (follow)="getEmail($event)" class="col-sm-6"></app-input-control-box>
             </div>
             <div class="col-sm-12">
               <button mat-raised-button color ="primary" [disabled]="userForm.invalid" matStepperNext>Next</button>
@@ -59,12 +51,16 @@
             <p class="col-sm-6">Last Name: <b class="admin-name"> {{lastNamePara}} </b></p>
           </div>
           <div class="col-sm-12">
-            <p class="col-sm-6">Phone Number: <b class="admin-name"></b></p>
-            <p class="col-sm-6">Email: <b class="admin-name"></b></p>
+            <p class="col-sm-6">Phone Number: <b class="admin-name">{{ phonePara }}</b></p>
+            <p class="col-sm-6">Email: <b class="admin-name">{{ emailPara }}</b></p>
           </div>
           <div class="col-sm-12">
-            <button mat-raised-button color="accent" matStepperPrevious >Confirm</button>
+            <button mat-raised-button color="accent" (click)="addStateAdmin()">Confirm</button>
             <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
+          </div>
+          <br><br>
+          <div *ngIf="confirm">
+            <p> State Administrator has been registered successfully.</p>
           </div>
         </mat-step>
       </mat-horizontal-stepper>
