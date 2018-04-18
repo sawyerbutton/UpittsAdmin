@@ -45,10 +45,10 @@ export class CreateCMemComponent implements OnInit {
   // public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
   //
   public firstName :InputAttributes = {name:'firstname',min:4,max:32,placeholder:'first name',type:'text'};
-  public midName: InputAttributes = {name:'midname',min:4,max:32,placeholder:'mid name',type:'text'};
-  public lastName :InputAttributes = {name:'lastname',min:4,max:32,placeholder:'last name',type:'text'};
+  public midName: InputAttributes = {name:'midname',min:3,max:32,placeholder:'mid name',type:'text'};
+  public lastName :InputAttributes = {name:'lastname',min:3,max:32,placeholder:'last name',type:'text'};
   public selectGender :SelectAttributes = {name:'gender',roles:this.gender,placeholder:'gender'};
-  public phoneNumber: InputAttributes = {name:'phone',min:8,max:32,placeholder:'phone number',type:'tel'};
+  public phoneNumber: InputAttributes = {name:'phone',min:10,max:12,placeholder:'phone number',type:'tel'};
   public inputEmail: InputAttributes = {name: 'email', min:8, max:32, placeholder:'email', type: 'email'};
   public date: InputAttributes = {name:'date',min:8,max:10,placeholder:'date of birth (MM/DD/YYYY)',type:'text'};
   public addressOne: InputAttributes = {name:'address1',min:6,max:32,placeholder:'address one',type:'text'};
@@ -123,10 +123,10 @@ export class CreateCMemComponent implements OnInit {
       // password:['',[Validators.required,ValidationService.passwordValidator]],
       // confirmPassword: ['',[Validators.required,Validators.minLength(8)]],
       firstname:['',[ Validators.required,Validators.minLength(4)]],
-      midname:['',[Validators.required,Validators.minLength(4)]],
-      lastname:['',[Validators.required,Validators.minLength(4)]],
+      midname:['',[Validators.required,Validators.minLength(3)]],
+      lastname:['',[Validators.required,Validators.minLength(3)]],
       gender:['',[Validators.required]],
-      phone:['',[Validators.required,Validators.minLength(8)]],
+      phone:['',[Validators.required,Validators.minLength(10)]],
       date:['',[Validators.required]],
       address1:['',[Validators.required,Validators.minLength(6)]],
       address2:['',[Validators.required,Validators.minLength(6)]],

@@ -30,8 +30,8 @@ export class CreateAccountComponent implements OnInit {
   public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
 
   public userFirstName : InputAttributes = {name:'firstName', min: 4, max:32, placeholder:'First Name', type: 'text'};
-  public userLastName: InputAttributes = {name: 'lastName', min: 4, max: 32, placeholder: 'Last Name', type: 'text'};
-  public userPhone: InputAttributes = {name: 'phone', min: 4, max: 32, placeholder: 'Phone', type: 'text'};
+  public userLastName: InputAttributes = {name: 'lastName', min: 3, max: 32, placeholder: 'Last Name', type: 'text'};
+  public userPhone: InputAttributes = {name: 'phone', min: 10, max: 12, placeholder: 'Phone', type: 'text'};
   public userEmail: InputAttributes = {name: 'email', min: 4, max: 32, placeholder: 'Email', type: 'text'};
 
   //backend para
@@ -72,8 +72,8 @@ export class CreateAccountComponent implements OnInit {
       password:['',[Validators.required,ValidationService.passwordValidator]],
       confirmPassword: ['',[Validators.required,Validators.minLength(8)]],
       firstName:['',[ Validators.required,Validators.minLength(4)]],
-      lastName:['',[ Validators.required,Validators.minLength(4)]],
-      phone:['',[ Validators.required,Validators.minLength(4)]],
+      lastName:['',[ Validators.required,Validators.minLength(3)]],
+      phone:['',[ Validators.required,Validators.minLength(10)]],
       email:['',[ Validators.required,Validators.minLength(4)]]
     });
   }

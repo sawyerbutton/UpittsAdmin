@@ -23,6 +23,22 @@
       "questiontype": "Radio Button Question",
       "placeholder": "rtghyjuthyrgewq",
       "id": 3
+    },
+    {
+      "label": "nhbgvfdcsxascdfvgbhnm",
+      "options": [],
+      "order": "1",
+      "questiontype": "Radio Button Question",
+      "placeholder": "nhbgvfdcsxdcfghkmjnhbgf",
+      "id": 4
+    },
+    {
+      "label": "Do you smoke?",
+      "options": [],
+      "order": "1",
+      "questiontype": "Radio Button Question",
+      "placeholder": "Please provide yes or no answer",
+      "id": 5
     }
   ],
   "questionnaire": [

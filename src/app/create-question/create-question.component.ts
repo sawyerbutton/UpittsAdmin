@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {InputAttributes, SelectAttributes} from "../shared/shared-control/attributes";
+import {defaultAttributes, InputAttributes, SelectAttributes} from "../shared/shared-control/attributes";
 import {Subject} from "rxjs/Subject";
 import {Observable} from "rxjs/Observable";
 import {DemoQuestion, Questionnare} from "../model/questionBase";
@@ -15,16 +15,17 @@ import {QuestionModelService} from "../service/question-model.service";
 export class CreateQuestionComponent implements OnInit {
   public createQuesForm: FormGroup;
 
-  public description : InputAttributes = {name:'desp',min:4,max:32,placeholder:'Please input question description', type: 'text'};
-  public hints : InputAttributes = {name:'hint',min:4,max:32,placeholder:'Please input question indication', type: 'text'};
+  public description : InputAttributes = {name:'desp',min:4,max:90,placeholder:'Please input question description', type: 'text'};
+  public hints : InputAttributes = {name:'hint',min:4,max:90,placeholder:'Please input question indication', type: 'text'};
   public order: InputAttributes = {name: 'ord', min:1, max: 20, placeholder:'Please input question order', type: 'number'};
   public type :SelectAttributes = {name:'types',roles: questionType, placeholder:'Please Select question type'};
   public ansNumber: InputAttributes = {name: 'ansNo', min:1, max: 20, placeholder: 'Please input the number of answers', type: 'number'};
+  public defaultAnsNo: defaultAttributes = {name: 'defaultAnsNo', value: '0', placeholder: 'No answer number needed', type: 'text'};
   public inputKey: InputAttributes = {name: 'key', min: 4, max: 20, placeholder: 'Please input answer extent', type: 'number'};
   public inputValue: InputAttributes = {name: 'value', min: 4, max: 20, placeholder: 'PLease input answer description', type: 'text'};
   public selectCategory: SelectAttributes = {name: 'cat', roles: category, placeholder: 'Please select the question category'};
   public selectDomain: SelectAttributes = {name: 'domain', roles: domains, placeholder: 'Please select domain'};
-  public inputSubdomain: InputAttributes = {name: 'subdomain', min: 4, max: 20, placeholder:'Please input sub domain name', type: 'text'};
+  public inputSubdomain: InputAttributes = {name: 'subdomain', min: 4, max: 20, placeholder:'Please input subdomain name', type: 'text'};
 
   despPara: string;
   hintPara: string;
@@ -42,6 +43,7 @@ export class CreateQuestionComponent implements OnInit {
   questionnaires: Questionnare[];
 
   confirm: boolean = false;
+  needAns: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -76,6 +78,7 @@ export class CreateQuestionComponent implements OnInit {
       value: ['', [Validators.required, Validators.minLength(1)]],
       domain:['',[Validators.required,Validators.minLength(4)]],
       subdomain: ['', [Validators.required, Validators.minLength(1)]],
+      defaultAnsNo:['',[]],
     })
   }
 
@@ -103,6 +106,10 @@ export class CreateQuestionComponent implements OnInit {
   getType(value: string) {
     if (value) {
       this.typePara = value;
+      if (this.typePara === "Text Input Question") {
+        this.needAns = true;
+        this.ansNumPara = 0;
+      }
     }
   }
 
@@ -200,7 +207,8 @@ export class CreateQuestionComponent implements OnInit {
     }
 
     reset() {
-      this.createQuesForm.reset();
+      //this.createQuesForm.reset();
+        window.location.reload();
     }
 
 }
