@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {QuestionBase} from '../../../../shared/shared-control/questionBase';
+import {QuestionBase} from '../../../../model/questionBase';
 import {QuestionControlService} from '../../../../shared/shared-control/question-control.service';
 import {QuestionService} from '../../../../shared/shared-control/question.service';
 

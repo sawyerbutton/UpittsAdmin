@@ -2,6 +2,14 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Member} from "../../../../model/User";
 import {UserService} from "../../../../service/user.service";
+import {Observable} from "rxjs/Observable";
+import {HttpClient} from "@angular/common/http";
+import {merge} from "rxjs/observable/merge";
+import {startWith} from "rxjs/operator/startWith";
+import {switchMap} from "rxjs/operator/switchMap";
+import {catchError} from "rxjs/operators";
+import {map} from "rxjs/operator/map";
+import {of as observableOf} from 'rxjs/observable/of';
 
 @Component({
   selector: 'app-assign-table',
@@ -11,7 +19,12 @@ import {UserService} from "../../../../service/user.service";
 export class AssignTableComponent implements OnInit {
 
   displayedColumns = ['name', 'firstname', 'lastname', 'gender', 'dob', 'phone', 'address', 'zipcode', 'community', 'state'];
-  dataSource = new MatTableDataSource<Member>();
+  exampleDb: httpRequest | null;
+  dataSource = new MatTableDataSource();
+
+  resultsLength = 0;
+  isLoadingResults = true;
+  isRateLimitReached = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -21,12 +34,13 @@ export class AssignTableComponent implements OnInit {
 
 
   constructor(
-    private userService: UserService
+   private userService: UserService
+    //private http: HttpClient
   ) {
     // Create 100 users
-    const users: UserData[] = [];
-    for (let i = 1; i <= 50; i++) { users.push(createNewUser(i)); }
-    this.getMember();
+    // const users: UserData[] = [];
+    // for (let i = 1; i <= 50; i++) { users.push(createNewUser(i)); }
+    // this.getMember();
     // Assign the data to the data source for the table to render
     //this.dataSource = new MatTableDataSource(this.members);
   }
@@ -35,15 +49,40 @@ export class AssignTableComponent implements OnInit {
     this.getMember();
    // this.dataSource.data = this.members;
     //console.log(this.members);
+
+    // this.exampleDb = new httpRequest(this.http);
+    //
+    // this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
+    //
+    // merge(this.sort.sortChange, this.paginator.page)
+    //   .pipe(
+    //     startWith({}),
+    //     switchMap(() => {
+    //       this.isLoadingResults = true;
+    //       return this.exampleDb!.getMembers(
+    //         this.sort.active, this.sort.direction, this.paginator.pageIndex);
+    //     }),
+    //     map(data => {
+    //       this.isLoadingResults = false;
+    //       this.isRateLimitReached = false;
+    //       this.resultsLength = data.total_count;
+    //       return data.items;
+    //     }),
+    //     catchError(() => {
+    //       this.isLoadingResults = false;
+    //       this.isRateLimitReached = true;
+    //       return observableOf([]);
+    //     })
+    //   ).subscribe(data => this.dataSource.data = data);
   }
 
 
 
-  getMember() {
-    this.userService.getMembers()
-      .subscribe(mems => {this.members = mems});
-    console.log(this.members);
-  }
+   getMember() {
+     this.userService.getMembers()
+       .subscribe(mems => {this.members = mems});
+     console.log(this.members);
+   }
 
   /**
    * Set the paginator and sort after the view init since this component will
@@ -119,3 +158,21 @@ export interface UserData {
   color: string;
 
 }
+
+
+export interface TableItem {
+  items: Member[];
+  total_count: number;
+}
+
+export class httpRequest {
+  constructor(private http: HttpClient) {}
+
+  getMembers(sort: string, order: string, page: number): Observable<TableItem> {
+    const href = 'http://localhost:3000' + '/communityMember'
+    return this.http.get<TableItem>(href);
+  }
+}
+
+
+

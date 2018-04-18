@@ -15,7 +15,9 @@ import {RouterModule} from "@angular/router";
       {path: '', component: CreateQuestionComponent}
     ])
   ],
-  declarations: [CreateQuestionComponent],
+  declarations: [
+    CreateQuestionComponent,
+    ],
   exports: [
     CreateQuestionComponent,
     SharedModuleModule,

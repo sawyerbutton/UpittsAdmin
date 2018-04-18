@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {QuestionBase, RadioQuestion} from './questionBase';
-import { DropdownQuestion } from './questionBase';
-import { TextboxQuestion } from './questionBase';
+import {QuestionBase, RadioQuestion} from '../../model/questionBase';
+import { DropdownQuestion } from '../../model/questionBase';
+import { TextboxQuestion } from '../../model/questionBase';
 
 @Injectable()
 export class QuestionService {

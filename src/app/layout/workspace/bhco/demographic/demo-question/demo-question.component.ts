@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {DropdownQuestion, QuestionBase, RadioQuestion, TextboxQuestion} from '../../../../../shared/shared-control/questionBase';
+import {DropdownQuestion, QuestionBase, RadioQuestion, TextboxQuestion} from '../../../../../model/questionBase';
 import { FormGroup } from '@angular/forms';
 import {InputAttributes, RadioAttributes, SelectAttributes} from '../../../../../shared/shared-control/attributes';
 

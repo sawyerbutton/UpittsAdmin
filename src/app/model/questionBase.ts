@@ -1,3 +1,43 @@
+export class Question {
+  id: number;
+  label: string;
+  options: any;
+  order: number;
+  questiontype: string;
+  constructor(options: {
+    id?: number;
+    label?: string;
+    options?: any;
+    order?: number;
+    questiontype?: string;
+  } = {}) {
+      this.id = options.id;
+      this.label = options.label || '';
+      this.options = options.options || '';
+      this.order = options.order;
+      this.questiontype = options.questiontype || '';
+  }
+}
+
+export class DemoQuestion extends Question {
+  placeholder: string;
+  constructor(options: {} = {}) {
+    super(options);
+    this.placeholder = options['placeholder'] || '';
+  }
+}
+
+export class Questionnare extends Question {
+  domain: string;
+  subdomain: string;
+  constructor(options: {} = {}) {
+    super(options);
+    this.domain = options['domain'] || '';
+    this.subdomain = options['subdomain'] || '';
+  }
+}
+
+
 export class QuestionBase<T> {
   value: T;
   key: string;

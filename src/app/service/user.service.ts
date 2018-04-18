@@ -31,6 +31,13 @@ export class UserService {
 
   /** Get: get all members from the server*/
   // TODO: need to combine all the functions by features
+  getUser (role: string): Observable<any[]> {
+    return this.http.get<any[]>(API_URL + '/${role}')
+      .pipe(
+        catchError(this.handleError('getUsers', []))
+      );
+  }
+
   getMembers (): Observable<Member[]> {
     return this.http.get<Member[]>(API_URL + '/communityMember')
       .pipe(

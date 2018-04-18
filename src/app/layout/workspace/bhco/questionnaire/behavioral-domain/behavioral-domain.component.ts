@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {QuestionService} from '../../../../../shared/shared-control/question.service';
 import {QuestionControlService} from '../../../../../shared/shared-control/question-control.service';
-import {QuestionBase} from '../../../../../shared/shared-control/questionBase';
+import {QuestionBase} from '../../../../../model/questionBase';
 
 @Component({
   selector: 'app-behavioral-domain',

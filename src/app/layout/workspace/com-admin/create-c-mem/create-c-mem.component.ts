@@ -292,10 +292,11 @@ export class CreateCMemComponent implements OnInit {
   }
 
   //http service
-
   getMembers(): void {
-    this.userService.getMembers()
-      .subscribe(members => this.members = members);
+     this.userService.getMembers()
+       .subscribe(members => this.members = members);
+    // this.userService.getUser("communityMember")
+    //   .subscribe((members => this.members = members))
   }
 
 
