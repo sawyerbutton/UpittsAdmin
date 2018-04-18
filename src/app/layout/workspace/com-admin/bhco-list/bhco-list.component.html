@@ -32,13 +32,13 @@
           <!-- first Name Column -->
           <ng-container matColumnDef="firstname">
             <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.firstName}} </mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.firstname}} </mat-cell>
           </ng-container>
 
           <!-- last Name Column -->
           <ng-container matColumnDef="lastname">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.lastName}} </mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.lastname}} </mat-cell>
           </ng-container>
 
           <!-- PHONE -->
@@ -56,7 +56,7 @@
           <!-- City -->
           <ng-container matColumnDef="city">
             <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
-            <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.city}} </mat-cell>
+            <mat-cell *matCellDef="let row"> {{row.city}} </mat-cell>
           </ng-container>
 
           <!-- Community -->

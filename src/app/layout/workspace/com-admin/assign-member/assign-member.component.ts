@@ -1,8 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {SelectAttributes} from '../../../../shared/shared-control/attributes';
+import {role, SelectAttributes} from '../../../../shared/shared-control/attributes';
 import {SelectionModel} from '@angular/cdk/collections';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserService} from "../../../../service/user.service";
+import {Bhcos, Member} from "../../../../model/User";
+import {baseBuildCommandOptions} from "@angular/cli/commands/build";
 
 @Component({
   selector: 'app-assign-member',
@@ -11,24 +14,24 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class AssignMemberComponent implements OnInit{
   public forms: FormGroup;
-  //public bhco = bhcoSample;
-  public selectBhco :SelectAttributes = {name:'bhco',roles:bhcoSample,placeholder:'Select a BHCO'};
-  bhcoPara :string;
+  members: Member[];
+  bhcos: Bhcos[];
+  candidate: role[] = [];
+
+  public selectBhco :SelectAttributes = {name:'bhco',roles:this.candidate, placeholder:'Select a BHCO'};
 
   displayedColumns = ['select', 'name', 'firstname', 'lastname', 'gender', 'dob', 'phone', 'address', 'zipcode'];
-  dataSource: MatTableDataSource<UserData>;
-  selection = new SelectionModel<UserData>(true, []);
+  dataSource = null;
+  selection = new SelectionModel<any>(true, []);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public fb: FormBuilder) {
-    // Create 100 users
-    const users: UserData[] = [];
-    for (let i = 1; i <= 50; i++) { users.push(createNewUser(i)); }
+  constructor(
+    public fb: FormBuilder,
+    private assignService: UserService
+  ) {
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
   }
 
   ngOnInit() {
@@ -36,6 +39,7 @@ export class AssignMemberComponent implements OnInit{
     this.forms = this.fb.group({
       'bhco': ['', [Validators.required]]
     })
+    this.getBhcos();
   }
 
   buildForm(): void {
@@ -49,8 +53,7 @@ export class AssignMemberComponent implements OnInit{
    * be able to query its view for the initialized paginator and sort.
    */
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.getMembers();
   }
 
   applyFilter(filterValue: string) {
@@ -72,68 +75,25 @@ export class AssignMemberComponent implements OnInit{
       this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-  getBhco(value:string){
-    if(value){
-      this.bhcoPara = value;
-      console.log("username:"+this.bhcoPara);
-    }
+  getMembers() {
+    this.assignService.getMembers()
+      .subscribe(mems => {
+        this.members = mems
+        this.dataSource = new MatTableDataSource(this.members);
+        this.dataSource.paginator = this.paginator
+        this.dataSource.sort = this.sort
+      });
+  }
+
+  getBhcos() {
+    this.assignService.getBhcos()
+      .subscribe(bhco => {
+        this.bhcos = bhco
+        for(let per of this.bhcos) {
+            let can = new role({value: per.username, viewValue: per.username});
+            // console.log(can);
+            this.candidate.push(can);
+        }
+      });
   }
 }
-
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    firstName: FIRSTNAME[Math.round(Math.random() * (FIRSTNAME.length - 1))],
-    lastName: LASTNAME[Math.round(Math.random() * (LASTNAME.length - 1))],
-    gender: GENDER[Math.round(Math.random() * (GENDER.length - 1))],
-    dob: DOB[Math.round(Math.random() * (DOB.length - 1))],
-    phone: PHONE[Math.round(Math.random() * (PHONE.length - 1))],
-    address: ADDRESS[Math.round(Math.random() * (ADDRESS.length - 1))],
-    zipcode: ZIPCODE[Math.round(Math.random() * (ZIPCODE.length - 1))]
-  };
-}
-
-/** Constants used to fill up our data base. */
-const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
-const GENDER = ['Male', 'Female', 'Male', 'Female'];
-const PHONE = ['412-392-2032', '412-363-8936', '220-384-8364', '412-384-9932'];
-const DOB = ['28', '39', '42', '55', '62', '38', '34'];
-const ADDRESS = ['2910 Melwood Ave', '1820 Center Ave', '8829 Fifth Ave', '5382 Forbes Ave'];
-const ZIPCODE = [12242, 30294, 20433, 13932, 14902, 19302];
-const FIRSTNAME = ["John", "Tony", "Mia", "Allen", "Jerry", 'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia'];
-const LASTNAME = ["Smith", "White", "Hunt", "Rains"];
-
-
-export interface UserData {
-  id: string;
-  name: string;
-  firstName: string;
-  lastName: string;
-  gender: string;
-  dob: string;
-  phone: string;
-  address: string;
-  zipcode: number;
-}
-
-export const bhcoSample = [
-  {value: 'Apple', viewValue:'John White'},
-  {value: 'Orange', viewValue:'Tony Hunt'},
-  {value: 'Banana', viewValue:'Selena Green'},
-];
-
-export class demo {
-  bhco: string;
-  familyName: string;
-}
-

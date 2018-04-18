@@ -41,21 +41,16 @@ export class CreateCMemComponent implements OnInit {
   public selectFamily: SelectAttributes = {name:'family',roles:this.familys,placeholder:'family'};
   public selectBlock :SelectAttributes = {name:'block',roles:this.blocks,placeholder:'block'};
   public userName : InputAttributes = {name:'username',min:4,max:32,placeholder:'username', type: 'text'};
-  // public passWord: InputAttributes = {name:'password',min:8,max:32,placeholder:'password',type:'password'};
-  // public confirmPassword : InputAttributes = {name:'confirmPassword',min:4,max:32,placeholder:'confirm password',type:'password'};
-  //
+
   public firstName :InputAttributes = {name:'firstname',min:4,max:32,placeholder:'first name',type:'text'};
-  public midName: InputAttributes = {name:'midname',min:3,max:32,placeholder:'mid name',type:'text'};
+  public midName: InputAttributes = {name:'midname',min:0,max:32,placeholder:'mid name',type:'text'};
   public lastName :InputAttributes = {name:'lastname',min:3,max:32,placeholder:'last name',type:'text'};
   public selectGender :SelectAttributes = {name:'gender',roles:this.gender,placeholder:'gender'};
   public phoneNumber: InputAttributes = {name:'phone',min:10,max:12,placeholder:'phone number',type:'tel'};
   public inputEmail: InputAttributes = {name: 'email', min:8, max:32, placeholder:'email', type: 'email'};
   public date: InputAttributes = {name:'date',min:8,max:10,placeholder:'date of birth (MM/DD/YYYY)',type:'text'};
   public addressOne: InputAttributes = {name:'address1',min:6,max:32,placeholder:'address one',type:'text'};
-  public addressTwo: InputAttributes = {name:'address2',min:6,max:32,placeholder:'address two',type:'text'};
-  // public selectState: SelectAttributes = {name:'state',roles:this.states,placeholder:'state'};
-  // public cities: InputAttributes = {name:'city',min:3,max:32,placeholder:'city',type:'text'};
-  // public zipCode :InputAttributes = {name:'zipcode',min:5,max:32,placeholder:'zip code',type:'text'};
+  public addressTwo: InputAttributes = {name:'address2',min:0,max:32,placeholder:'address two',type:'text'};
   public race: SelectAttributes = {name:'race',roles:this.races,placeholder:'race'};
   public matrialStatus :SelectAttributes = {name:'marital',roles:this.matrialS,placeholder:'marital status'};
   public educations: SelectAttributes = {name:'education',roles:this.educationS,placeholder:'education status'};
@@ -67,8 +62,6 @@ export class CreateCMemComponent implements OnInit {
   public defaultPassword: defaultAttributes = {name: 'dPassword', value: 'imHealthy@2018', type:'text', placeholder:'password'};
   //input value
   userNamePara: string;
-  // userPasswordPara: string;
-  // userConPasswordPara: string;
   blockPara: string;
   familyPara: string;
   firstNamePara: string;
@@ -120,8 +113,6 @@ export class CreateCMemComponent implements OnInit {
     this.userForm = this.fb.group({
       username:['',[ Validators.required,Validators.minLength(4)]],
       dPassword:['',[]],
-      // password:['',[Validators.required,ValidationService.passwordValidator]],
-      // confirmPassword: ['',[Validators.required,Validators.minLength(8)]],
       firstname:['',[ Validators.required,Validators.minLength(4)]],
       midname:['',[Validators.required,Validators.minLength(3)]],
       lastname:['',[Validators.required,Validators.minLength(3)]],
@@ -129,11 +120,8 @@ export class CreateCMemComponent implements OnInit {
       phone:['',[Validators.required,Validators.minLength(10)]],
       date:['',[Validators.required]],
       address1:['',[Validators.required,Validators.minLength(6)]],
-      address2:['',[Validators.required,Validators.minLength(6)]],
+      address2:['',[]],
       email: ['',[Validators.required,ValidationService.emailValidator]]
-      //state:['',[Validators.required]],
-      //city:['',[Validators.required,Validators.minLength(3)]],
-      //zipcode:['',[Validators.required,Validators.minLength(5)]],
     });
     this.otherFormGroup = this.fb.group({
       race:['',[Validators.required]],
@@ -146,77 +134,54 @@ export class CreateCMemComponent implements OnInit {
   getUserName(value:string){
     if(value){
       this.userNamePara = value;
-      //console.log("username:"+this.userNamePara);
     }
   }
-
-   // getUserPassword(value: string){
-   //   if(value){
-   //     this.passwordPara = value;
-   //     console.log("password:"+this.passwordPara);
-   //   }
-   // }
-  //
-  // getUserConPassword(value: string){
-  //   if(value){
-  //     this.userConPasswordPara = value;
-  //     console.log("password:"+this.userConPasswordPara);
-  //   }
-  // }
 
   getBlock(value:string){
     if(value){
       this.blockPara = value;
-      //console.log("username:"+this.blockPara);
     }
   }
 
   getFamily(value:string){
     if(value){
       this.familyPara = value;
-      //console.log("username:"+this.familyPara);
     }
   }
 
   getLastName(value:string){
     if(value){
       this.lastNamePara = value;
-      //console.log("username:"+this.lastNamePara);
     }
   }
 
   getFirstName(value:string){
     if(value){
       this.firstNamePara = value;
-      //console.log("username:"+this.firstNamePara);
     }
   }
 
   getMidName(value:string){
     if(value){
       this.midNamePara = value;
-      //console.log("username:"+this.midNamePara);
     }
   }
 
   getGender(value:string){
     if(value){
       this.genderPara = value;
-      //console.log("username:"+this.genderPara);
     }
   }
 
   getPhone(value:string){
     if(value){
       this.phonePara = value;
-      //console.log("username:"+this.phonePara);
     }
   }
 
   getDate(value:string){
     if(value){
       this.datePara = value;
-      //console.log("username:"+this.datePara);
       this.dobPara = this.datapipe.transform(this.datePara, "yyyy-MM-dd")
       console.log(this.dobPara);
     }
@@ -225,37 +190,14 @@ export class CreateCMemComponent implements OnInit {
   getAddressOne(value:string){
     if(value){
       this.addressOnePara = value;
-      //console.log("username:"+this.addressOnePara);
     }
   }
 
   getAddressTwo(value:string){
     if(value){
       this.addressTwoPara = value;
-      //console.log("username:"+this.addressTwoPara);
     }
   }
-
-  // getCity(value:string){
-  //   if(value){
-  //     this.cityPara = value;
-  //     console.log("username:"+this.cityPara);
-  //   }
-  // }
-
-  // getState(value:string){
-  //   if(value){
-  //     this.statePara = value;
-  //     console.log("username:"+this.statePara);
-  //   }
-  // }
-  //
-  // getZipcode(value:string){
-  //   if(value){
-  //     this.zipcodePara = value;
-  //     console.log("username:"+this.zipcodePara);
-  //   }
-  // }
 
   getEmail(value: string) {
     if (value) {
@@ -266,28 +208,24 @@ export class CreateCMemComponent implements OnInit {
   getRace(value:string){
     if(value){
       this.racePara = value;
-      //console.log("username:"+this.racePara);
     }
   }
 
   getMatrial(value:string){
     if(value){
       this.matrialPara = value;
-      //console.log("username:"+this.matrialPara);
     }
   }
 
   getEmployment(value:string){
     if(value){
       this.empolymentPara = value;
-      //console.log("username:"+this.empolymentPara);
     }
   }
 
   getEducation(value:string){
     if(value){
       this.educationPara = value;
-      //console.log("username:"+this.educationPara);
     }
   }
 
@@ -295,8 +233,6 @@ export class CreateCMemComponent implements OnInit {
   getMembers(): void {
      this.userService.getMembers()
        .subscribe(members => this.members = members);
-    // this.userService.getUser("communityMember")
-    //   .subscribe((members => this.members = members))
   }
 
 
@@ -310,7 +246,7 @@ export class CreateCMemComponent implements OnInit {
       gender: this.genderPara,
       phone: this.phonePara,
       email: this.emailPara,
-      date: this.datePara,
+      date: this.dobPara,
       addressone: this.addressOnePara,
       addresstwo: this.addressTwoPara,
       family: this.familyPara,

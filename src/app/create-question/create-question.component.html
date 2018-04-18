@@ -81,9 +81,8 @@
       <div [ngSwitch]= "typePara" class="col-sm-12">
         <div *ngSwitchCase="'Radio Button Question'">
           <div class="col-sm-12">
-           <!--<div *ngFor="let quesKey of keyArray" class="col-sm-6"><label>Answer Extent:</label> {{ quesKey }}</div>-->
-            <!--<div *ngFor="let quesValue of valueArray" class="col-sm-6" ng-model-options="{ debounce: 800 }"><label>Answer Description</label>{{ quesValue }}</div>-->
-          <!---->
+            <div *ngFor="let quesKey of keyArray" class="col-sm-6"><label>Answer Extent:</label> {{ quesKey }}</div>
+            <div *ngFor="let quesValue of valueArray" class="col-sm-6" ng-model-options="{ debounce: 800 }"><label>Answer Description</label>{{ quesValue }}</div>
           </div>
         </div>
         <div *ngSwitchCase="'Dropdown List Question'">

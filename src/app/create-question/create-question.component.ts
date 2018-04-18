@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {defaultAttributes, InputAttributes, SelectAttributes} from "../shared/shared-control/attributes";
 import {Subject} from "rxjs/Subject";
 import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/debounceTime'
 import {DemoQuestion, Questionnare} from "../model/questionBase";
 import {QuestionModelService} from "../service/question-model.service";
 
@@ -79,6 +80,10 @@ export class CreateQuestionComponent implements OnInit {
       domain:['',[Validators.required,Validators.minLength(4)]],
       subdomain: ['', [Validators.required, Validators.minLength(1)]],
       defaultAnsNo:['',[]],
+    })
+
+    this.createQuesForm.controls["key"].valueChanges.debounceTime(200).subscribe((value)=>{
+
     })
   }
 
@@ -177,6 +182,8 @@ export class CreateQuestionComponent implements OnInit {
    //  }
 
   addQues(): void {
+    console.log(this.keyArray);
+    console.log(this.valueArray);
     //this.getAns();
     if (this.catPara === 'demographic') {
       const newDemoQues = new DemoQuestion({

@@ -12,6 +12,7 @@
         <app-input-control-box [attrContent]="inputEnd" (follow)="getEnd($event)"></app-input-control-box>
         <app-input-control-box [attrContent]="inputZipcode" (follow)="getZip($event)"></app-input-control-box>
         <br><br>
+
         <div class="col-sm-12">
           <button mat-raised-button color="primary" [disabled]="blockGroup.invalid">Submit</button>
           <button mat-raised-button color="accent">Reset</button>

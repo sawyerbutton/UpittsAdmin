@@ -97,36 +97,36 @@
         You have register new community member <b class="admin-name">{{userNamePara}}</b>
         <br><br>
         <mat-divider></mat-divider>
-        <div class="col-sm-12">
+        <div class="full-width">
           <p class="col-sm-6">First Name: <b class="admin-name">{{ firstNamePara }}</b> </p>
           <p class="col-sm-6">Last Name: <b class="admin-name">{{ lastNamePara }}</b></p>
         </div>
-        <div class="col-sm-12">
+        <div class="full-width">
           <p class="col-sm-6">Date of Birth: <b class="admin-name"> {{ dobPara }}</b></p>
           <p class="col-sm-6">Gender: <b class="admin-name">{{ genderPara }}</b></p>
         </div>
-        <div class="col-sm-12">
+        <div class="full-width">
           <p class="col-sm-6"> Phone: <b class="admin-name"> {{ phonePara }}</b></p>
           <p class="col-sm-6"> Email: <b class="admin-name"> {{ emailPara }}</b></p>
         </div>
-        <div class="col-sm-12">
+        <div class="full-width">
           <p class="col-sm-6">Address One: <b class="admin-name">{{ addressOnePara }}</b></p>
           <p class="col-sm-6">Address Two: <b class="admin-name">{{ addressTwoPara }}</b></p>
         </div>
-        <div class="col-sm-12">
+        <div class="full-width">
           <p class="col-sm-6">Race: <b class="admin-name"> {{ racePara }}</b></p>
           <p class="col-sm-6"> Marital Status: <b class="admin-name"> {{ matrialPara }}</b> </p>
         </div>
-        <div class="col-sm-12">
+        <div class="full-width">
           <p class="col-sm-6">Employeement: <b class="admin-name"> {{ empolymentPara }}</b></p>
           <p class="col-sm-6"> Education: <b class="admin-name"> {{ educationPara }}</b></p>
         </div>
         <br><br>
-        <div class="col-sm-12">
+        <div class="full-width">
           <button mat-raised-button color="primary" [disabled]="otherFormGroup.invalid && userForm.invalid && addressFormGroup.invalid" (click)="addMember()">Confirm</button>
           <button mat-raised-button color="accent" (click)="stepper.reset()">Reset</button>
         </div>
-        <div class="col-sm-12">
+        <div class="full-width">
           <p *ngIf="show"><strong>Registration is done.</strong></p>
         </div>
       </mat-step>

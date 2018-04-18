@@ -9,8 +9,8 @@ import {ObjectUnsubscribedError} from "rxjs/Rx";
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': 'my-auth-token'
+      'Content-Type': 'application/json',
+      'Authorization': 'my-auth-token'
     }
   )
 }
@@ -41,11 +41,25 @@ export class QuestionModelService {
       );
   }
 
-  /** GET; get single questions by id*/
-  getQuesById(id: number): Observable<{}> {
-    return this.http.get<any>(API_URL + '/demographic/${id}')
+  getQuesByDomain(domain: string): Observable<Questionnare[]> {
+    return this.http.get<Questionnare[]>(API_URL + '/questionnaire/${domain}')
       .pipe(
-        catchError(this.handleError('getQueById', []))
+        catchError(this.handleError('getQuesByDomain', []))
+      );
+  }
+
+  /** GET; get single questions by id*/
+  getDemoQuesById(userid: number): Observable<{}> {
+    return this.http.get<any>(API_URL + '/demographic/${userid}')
+      .pipe(
+        catchError(this.handleError('getDemoQueById', []))
+    );
+  }
+
+  getQuesByUser(userid: number): Observable<{}> {
+    return this.http.get<any>(API_URL + '/questionnaire/${userid}').
+      pipe(
+        catchError(this.handleError('getQuesByUserId', []))
     );
   }
 

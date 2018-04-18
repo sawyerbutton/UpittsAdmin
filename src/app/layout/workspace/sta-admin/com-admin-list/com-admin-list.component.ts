@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {UserService} from "../../../../service/user.service";
+import {CommunityAdmin} from "../../../../model/User";
 
 @Component({
   selector: 'app-com-admin-list',
@@ -8,18 +10,15 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 })
 export class ComAdminListComponent {
   displayedColumns = ['username', 'firstName', 'lastName', 'phone', 'email', 'city', 'community'];
-  dataSource: MatTableDataSource<ComAdminData>;
+  dataSource = null;
+  admins: CommunityAdmin[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
-    // Create 100 users
-    const users: ComAdminData[] = [];
-    for (let i = 1; i <= 50; i++) { users.push(createNewUser(i)); }
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+  constructor(
+    private comAdminService: UserService
+  ) {
   }
 
   /**
@@ -27,14 +26,23 @@ export class ComAdminListComponent {
    * be able to query its view for the initialized paginator and sort.
    */
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.getComAdmin();
   }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  getComAdmin() {
+    this.comAdminService.getComAdmin()
+      .subscribe(admin => {
+        this.admins = admin;
+        this.dataSource = new MatTableDataSource(this.admins);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
   }
 }
 

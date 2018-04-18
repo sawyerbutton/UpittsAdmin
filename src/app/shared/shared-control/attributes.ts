@@ -35,11 +35,24 @@ export interface validationTool{
   QTitle: string;
 }
 
+export class role {
+  value: string;
+  viewValue: string;
+  constructor(options: {
+    value?: string;
+    viewValue?: string;
+  } = {}) {
+    this.value = options.value;
+    this.viewValue = options.viewValue;
+  }
+}
+
 export const Admins =  [
   {value: 'system', viewValue: 'System'},
   {value: 'state', viewValue: 'State'},
   {value: 'community', viewValue: 'Community'}
 ];
+
 
 export const States = [
   {value: 'Alabama', viewValue: 'Alabama'},
